@@ -1,0 +1,24 @@
+/* ==========================================================================
+   YallaEat V4 - Shared Design System
+   style.css - Production-ready - Mobile-first
+   Fonts: Poppins (400-900) + Playfair Display (italic 700)
+   Palette: Cream / Green / Gold / Blue
+========================================================================== */
+
+/* 01. RESET & ROOT VARIABLES */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#fff9f2;--cream-d:#fef3e5;--peach:#fdead2;--peach-l:#fbe3d9;
+  --gold:#f9ad4d;--gold-d:#d49341;--gold-l:#fabd71;
+  --green-d:#0d4f3d;--green:#4b916d;--green-m:#97c693;--green-l:#daf3c0;--green-xl:#effae5;
+  --blue:#1a6aff;--blue-d:#094bcc;--blue-l:#597dff;
+  --black:#0a0a0a;--gray:#6e6e6e;--gray-l:#b0b0b0;
+  --radius:16px;--radius-sm:10px;
+  --shadow-sm:0 2px 12px rgba(0,0,0,.05);
+  --shadow-md:0 4px 30px rgba(0,0,0,.07);
+  --shadow-lg:0 16px 60px rgba(0,0,0,.1);
+  --shadow-xl:0 30px 80px rgba(0,0,0,.12);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --ease-smooth:cubic-bezier(.4,0,.2,1);
+  --max-width:1100px;--nav-h:72px;
+}
