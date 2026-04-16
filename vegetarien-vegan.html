@@ -40,7 +40,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 .nav-logo{font-weight:800;font-size:1.5em;letter-spacing:-1px;display:flex;align-items:center;gap:8px}.nav-logo span{color:var(--gold)}
 .nav-links{display:flex;gap:28px;align-items:center}
 .nav-links a{font-size:.85em;font-weight:500;letter-spacing:.3px;position:relative;transition:color .3s;color:rgba(255,255,255,.85)}
-.nav-links a:hover,.nav-links a.active{color:var(--green-d)}
+.nav-links a:hover,
 .btn-cta{background:var(--gold);color:var(--black);padding:10px 24px;border-radius:50px;font-weight:600;font-size:.85em;transition:all .3s ease;box-shadow:0 4px 20px rgba(249,173,77,.3);}
 .btn-cta:hover{transform:translateY(-2px);background:var(--gold-d)}
 .nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001}
@@ -138,6 +138,10 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 .back-top.visible{opacity:1;pointer-events:all;}.back-top:hover{transform:translateY(-3px);background:var(--green);}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
 .reveal.visible{opacity:1;transform:none;}
+.nav-links a.active,.nav__links a.active{color:var(--gold)!important;font-weight:700!important;position:relative}
+.nav-links a.active::after,.nav__links a.active::after{content:'';position:absolute;bottom:-8px;left:0;right:0;height:2px;background:var(--gold);border-radius:2px}
+.nav--light .nav-links a.active,.nav--light .nav__links a.active{color:var(--green-d)!important}
+.nav--light .nav-links a.active::after,.nav--light .nav__links a.active::after{background:var(--green-d)}
 </style>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -148,7 +152,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 </head>
 <body>
 <nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
-  <a href="index.html" class="nav-logo" aria-label="YallaEat - Accueil">YALLA<span>EAT</span></a>
+  <a href="index.html" class="nav-logo" aria-label="YallaEat — Accueil">YALLA<span>EAT</span></a>
   <div class="nav-links" id="navLinks">
     <a href="index.html">Accueil</a>
     <a href="menu.html">Menu</a>
@@ -156,11 +160,11 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
     <a href="wrap-sandwich.html">Wraps</a>
     <a href="mezzebox.html">Mezzé Box</a>
     <a href="traiteur.html">Traiteur</a>
-    <a href="contact.html">Contact</a>
     <a href="blog.html">Blog</a>
-    <a href="https://commandes.yallaeat.fr/order/" class="btn-cta" rel="noopener noreferrer" target="_blank">COMMANDEZ</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://commandes.yallaeat.fr/order/" class="btn-cta" target="_blank" rel="noopener noreferrer">COMMANDEZ</a>
   </div>
-  <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false">
+  <button class="nav-burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" type="button">
     <span></span><span></span><span></span>
   </button>
 </nav>

@@ -42,19 +42,19 @@
 </head>
 <body>
 <nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
-  <a href="index.html" class="nav-logo" aria-label="YallaEat - Accueil">YALLA<span>EAT</span></a>
+  <a href="index.html" class="nav-logo" aria-label="YallaEat — Accueil">YALLA<span>EAT</span></a>
   <div class="nav-links" id="navLinks">
     <a href="index.html">Accueil</a>
     <a href="menu.html">Menu</a>
-    <a href="bowl.html">Bowl Libanais</a>
-    <a href="wrap-sandwich.html">Wraps</a>
+    <a href="bowl.html">Bowl</a>
+    <a href="wrap-sandwich.html" class="active" aria-current="page">Wraps</a>
     <a href="mezzebox.html">Mezzé Box</a>
     <a href="traiteur.html">Traiteur</a>
     <a href="blog.html">Blog</a>
     <a href="contact.html">Contact</a>
-    <a href="https://commandes.yallaeat.fr/order/" class="btn-cta" rel="noopener noreferrer" target="_blank">COMMANDEZ</a>
+    <a href="https://commandes.yallaeat.fr/order/" class="btn-cta" target="_blank" rel="noopener noreferrer">COMMANDEZ</a>
   </div>
-  <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false">
+  <button class="nav-burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" type="button">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -78,35 +78,35 @@
 <section class="content-section" id="nos-wraps">
   <div style="max-width:1200px;margin:0 auto;text-align:center">
     <h2 style="font-size:clamp(1.8em,4vw,2.6em);font-weight:900;letter-spacing:-1.5px;margin-bottom:12px">Nos 4 <em>Wraps Libanais</em></h2>
-    <p style="color:#6e6e6e;max-width:560px;margin:0 auto 48px;line-height:1.7">Pain libanais frais, garnitures généreuses, sauces maison. Chaque wrap est préparé à la commande avec des ingrédients du jour.</p>
+    <p style="color:var(--gray);max-width:560px;margin:0 auto 48px;line-height:1.7">Pain libanais frais, garnitures généreuses, sauces maison. Chaque wrap est préparé à la commande avec des ingrédients du jour.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
       <div class="feature-card reveal">
         <img src="assets/wrap-falafel-vegan-libanais.webp" alt="Wrap falafel vegan — YallaEat Lyon 9" loading="lazy" style="width:100%;border-radius:12px;margin-bottom:16px;aspect-ratio:3/4;object-fit:cover">
         <span class="feature-card__icon">&#x1F9C6;</span>
-        <h3>Wrap Falafel <span style="font-size:.75em;color:#0d4f3d">(V)</span></h3>
+        <h3>Wrap Falafel <span style="font-size:.75em;color:var(--green-d)">(V)</span></h3>
         <p>Falafels maison, houmous crémeux, salade fraîche, tomates, pickles, radis, sauce tarator à la crème de sésame. 100&nbsp;% vegan.</p>
-        <p style="margin-top:12px;font-weight:800;color:#0d4f3d;font-size:1.2em">7,90&nbsp;&euro;</p>
+        <p style="margin-top:12px;font-weight:800;color:var(--green-d);font-size:1.2em">7,90&nbsp;&euro;</p>
       </div>
       <div class="feature-card reveal">
         <img src="assets/wrap-taouk-poulet-libanais.webp" alt="Wrap taouk poulet au citron — YallaEat Lyon 9" loading="lazy" style="width:100%;border-radius:12px;margin-bottom:16px;aspect-ratio:3/4;object-fit:cover">
         <span class="feature-card__icon">&#x1F357;</span>
         <h3>Wrap Taouk Poulet au Citron</h3>
         <p>Poulet taouk grillé mariné au citron, chou croquant, patate sautée, tomates, pickles, crème à l'ail maison.</p>
-        <p style="margin-top:12px;font-weight:800;color:#0d4f3d;font-size:1.2em">8,90&nbsp;&euro;</p>
+        <p style="margin-top:12px;font-weight:800;color:var(--green-d);font-size:1.2em">8,90&nbsp;&euro;</p>
       </div>
       <div class="feature-card reveal">
         <img src="assets/wrap-chawarma-poulet-libanais.webp" alt="Wrap shawarma poulet — YallaEat Lyon 9" loading="lazy" style="width:100%;border-radius:12px;margin-bottom:16px;aspect-ratio:3/4;object-fit:cover">
         <span class="feature-card__icon">&#x1F32F;</span>
         <h3>Wrap Shawarma Poulet</h3>
         <p>Shawarma poulet tranché minute, chou, patate sautée, tomates, pickles, crème à l'ail généreuse.</p>
-        <p style="margin-top:12px;font-weight:800;color:#0d4f3d;font-size:1.2em">8,90&nbsp;&euro;</p>
+        <p style="margin-top:12px;font-weight:800;color:var(--green-d);font-size:1.2em">8,90&nbsp;&euro;</p>
       </div>
       <div class="feature-card reveal">
         <img src="assets/wrap-chawarma-boeuf-libanais.webp" alt="Wrap shawarma bœuf — YallaEat Lyon 9" loading="lazy" style="width:100%;border-radius:12px;margin-bottom:16px;aspect-ratio:3/4;object-fit:cover">
         <span class="feature-card__icon">&#x1F969;</span>
         <h3>Wrap Shawarma B&oelig;uf</h3>
         <p>B&oelig;uf grillé fondant, salade, tomates, pickles, oignon, persil frais, sauce tarator onctueuse à la crème de sésame.</p>
-        <p style="margin-top:12px;font-weight:800;color:#0d4f3d;font-size:1.2em">9,90&nbsp;&euro;</p>
+        <p style="margin-top:12px;font-weight:800;color:var(--green-d);font-size:1.2em">9,90&nbsp;&euro;</p>
       </div>
     </div>
   </div>
@@ -115,7 +115,7 @@
 <section class="content-section content-section--alt" id="pourquoi">
   <div style="max-width:1200px;margin:0 auto;text-align:center">
     <h2 style="font-size:clamp(1.8em,4vw,2.6em);font-weight:900;letter-spacing:-1.5px;margin-bottom:12px">Pourquoi nos wraps sont <em>différents</em></h2>
-    <p style="color:#6e6e6e;max-width:520px;margin:0 auto 48px;line-height:1.7">Chez YallaEat, chaque wrap est un vrai repas complet, pas un snack vite fait.</p>
+    <p style="color:var(--gray);max-width:520px;margin:0 auto 48px;line-height:1.7">Chez YallaEat, chaque wrap est un vrai repas complet, pas un snack vite fait.</p>
     <div class="features-grid">
       <div class="feature-card reveal">
         <span class="feature-card__icon">&#x1F35E;</span>
@@ -142,7 +142,7 @@
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
       <div class="feature-card reveal">
         <h3>&#x23F1;&#xFE0F; Prêt en 10 minutes</h3>
-        <p>Commandez sur <a href="https://commandes.yallaeat.fr/order/" target="_blank" rel="noopener" style="color:#0d4f3d;font-weight:600;text-decoration:underline">commandes.yallaeat.fr</a> et votre wrap est prêt en 10 minutes. Pas d'attente, pas de file. Idéal pour les salariés de Vaise pressés le midi.</p>
+        <p>Commandez sur <a href="https://commandes.yallaeat.fr/order/" target="_blank" rel="noopener" style="color:var(--green-d);font-weight:600;text-decoration:underline">commandes.yallaeat.fr</a> et votre wrap est prêt en 10 minutes. Pas d'attente, pas de file. Idéal pour les salariés de Vaise pressés le midi.</p>
       </div>
       <div class="feature-card reveal">
         <h3>&#x1F3E2; Facile à manger partout</h3>
@@ -163,25 +163,25 @@
 <section class="content-section content-section--alt" id="envie-de-plus">
   <div style="max-width:1100px;margin:0 auto;text-align:center">
     <h2 style="font-size:clamp(1.8em,4vw,2.6em);font-weight:900;letter-spacing:-1.5px;margin-bottom:12px">Envie de <em>plus ?</em></h2>
-    <p style="color:#6e6e6e;max-width:520px;margin:0 auto 48px;line-height:1.7">Découvrez nos autres spécialités libanaises faites maison à Lyon 9.</p>
+    <p style="color:var(--gray);max-width:520px;margin:0 auto 48px;line-height:1.7">Découvrez nos autres spécialités libanaises faites maison à Lyon 9.</p>
     <div class="features-grid">
       <a href="bowl.html" class="feature-card reveal" style="text-decoration:none">
         <span class="feature-card__icon">&#x1F957;</span>
         <h3>Bowls Libanais</h3>
         <p>Composez votre bowl sur mesure ou choisissez un bowl signature. Base, protéine, garnitures et sauces au choix.</p>
-        <p style="margin-top:12px;font-weight:800;color:#0d4f3d;font-size:1.1em">Dès 9,90&nbsp;&euro; &rarr;</p>
+        <p style="margin-top:12px;font-weight:800;color:var(--green-d);font-size:1.1em">Dès 9,90&nbsp;&euro; &rarr;</p>
       </a>
       <a href="mezzebox.html" class="feature-card reveal" style="text-decoration:none">
         <span class="feature-card__icon">&#x1F962;</span>
         <h3>MezzéBox à partager</h3>
         <p>Une sélection de mezzés libanais à partager entre collègues ou en famille : houmous, falafel, taboulé, kebbé et plus.</p>
-        <p style="margin-top:12px;font-weight:800;color:#0d4f3d;font-size:1.1em">Dès 20,90&nbsp;&euro; &rarr;</p>
+        <p style="margin-top:12px;font-weight:800;color:var(--green-d);font-size:1.1em">Dès 20,90&nbsp;&euro; &rarr;</p>
       </a>
       <a href="menu.html" class="feature-card reveal" style="text-decoration:none">
         <span class="feature-card__icon">&#x1F4CB;</span>
         <h3>La carte complète</h3>
         <p>Bowls, wraps, assiettes, mezzés, desserts et boissons. Toute notre carte libanaise faite maison à découvrir.</p>
-        <p style="margin-top:12px;font-weight:800;color:#0d4f3d;font-size:1.1em">Voir le menu &rarr;</p>
+        <p style="margin-top:12px;font-weight:800;color:var(--green-d);font-size:1.1em">Voir le menu &rarr;</p>
       </a>
     </div>
   </div>
@@ -216,7 +216,7 @@
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
       <div class="faq-a" id="faq-a3" role="region">
-        <p>Oui, tous nos wraps sont disponibles à emporter. Commandez sur <a href="https://commandes.yallaeat.fr/order/" target="_blank" rel="noopener" style="color:#0d4f3d;font-weight:600">commandes.yallaeat.fr</a> et récupérez votre wrap prêt en 10 minutes au 29 Rue de Bourgogne, Lyon 9 (Vaise).</p>
+        <p>Oui, tous nos wraps sont disponibles à emporter. Commandez sur <a href="https://commandes.yallaeat.fr/order/" target="_blank" rel="noopener" style="color:var(--green-d);font-weight:600">commandes.yallaeat.fr</a> et récupérez votre wrap prêt en 10 minutes au 29 Rue de Bourgogne, Lyon 9 (Vaise).</p>
       </div>
     </div>
     <div class="faq-item">

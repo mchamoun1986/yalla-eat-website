@@ -36,7 +36,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 .nav-logo{font-weight:800;font-size:1.5em;letter-spacing:-1px;display:flex;align-items:center;gap:8px}.nav-logo span{color:var(--gold)}
 .nav-links{display:flex;gap:28px;align-items:center}
 .nav-links a{font-size:.85em;font-weight:500;letter-spacing:.3px;position:relative;transition:color .3s;color:rgba(255,255,255,.85)}
-.nav-links a:hover,.nav-links a.active{color:var(--green-d)}
+.nav-links a:hover,
 .btn-cta{background:var(--gold);color:var(--black);padding:10px 24px;border-radius:50px;font-weight:600;font-size:.85em;transition:all .3s ease;box-shadow:0 4px 20px rgba(249,173,77,.3);}
 .btn-cta:hover{transform:translateY(-2px);background:var(--gold-d)}
 .nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001}
@@ -45,7 +45,8 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 .bowl-hero{padding:140px 5% 80px;text-align:center;position:relative;overflow:hidden;background:linear-gradient(165deg,var(--green-d) 0%,#0a3d2e 100%);color:#fff;min-height:60vh;display:flex;align-items:center;justify-content:center;}
 .bowl-hero-content{position:relative;z-index:1}
 .hero-tag{font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--gold);margin-bottom:16px;display:block;}
-.bowl-hero h1{font-size:clamp(2.6em,6vw,4.2em);font-weight:900;line-height:1;letter-spacing:-2px;margin-bottom:20px;}
+.bowl-hero h1{font-family:Poppins,system-ui,sans-serif;font-size:clamp(2.6em,6vw,4.2em);font-weight:900;line-height:1.05;letter-spacing:-2px;margin-bottom:20px;}
+.bowl-hero h1 em{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;color:var(--gold);letter-spacing:-1px}
 .bowl-hero p{color:rgba(255,255,255,.65);font-size:1.05em;max-width:520px;margin:0 auto;line-height:1.7;}
 .float-decor{position:absolute;font-size:3em;opacity:.12;z-index:0;animation:floaty 12s ease-in-out infinite;}
 @keyframes floaty{0%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-28px) rotate(5deg)}100%{transform:translateY(0) rotate(0deg)}}
@@ -80,12 +81,12 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 .bowl-card h3{font-size:1.05em;font-weight:700;letter-spacing:-.3px;line-height:1.3;flex:1}
 .bowl-price{font-size:1.05em;font-weight:800;color:var(--green-d);white-space:nowrap;background:var(--green-xl);padding:5px 14px;border-radius:8px;flex-shrink:0;}
 .bowl-price.gold{background:var(--cream-d);color:var(--gold-d)}
-.bowl-price.blue{background:#f0f4ff;color:#2244aa}
+.bowl-price.blue{background:var(--green-xl);color:var(--green-d)}
 .bowl-desc{font-size:.8em;color:var(--gray);line-height:1.65;}
 .bowl-kcal{font-size:.68em;color:var(--gray-l);margin-top:2px;}
 .bowl-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
 .bowl-tag{font-size:.65em;font-weight:600;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.5px;}
-.tag-vege{background:var(--green-xl);color:var(--green-d)}.tag-star{background:var(--cream-d);color:var(--gold-d)}.tag-maison{background:var(--peach);color:#8a5a2b}.tag-custom{background:#e8f4ff;color:#1a5aaa}
+.tag-vege{background:var(--green-xl);color:var(--green-d)}.tag-star{background:var(--cream-d);color:var(--gold-d)}.tag-maison{background:var(--peach);color:var(--gold-d)}.tag-custom{background:var(--green-xl);color:var(--green-d)}
 .diets-section{background:var(--green-d);padding:64px 5%;color:#fff;position:relative;overflow:hidden;margin-top:80px;}
 .diets-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
 .diets-header{text-align:center;margin-bottom:44px}
@@ -135,6 +136,10 @@ em.kcal-badge{font-style:normal;font-size:.75em;color:var(--gray-l);margin-left:
 .builder-chip.selected{background:#0d4f3d;color:#fff;border-color:#0d4f3d;box-shadow:0 4px 12px rgba(13,79,61,.3);transform:scale(1.05)}
 .builder-chip.selected-gold{background:#f9ad4d;color:#fff;border-color:#f9ad4d;box-shadow:0 4px 12px rgba(249,173,77,.3);transform:scale(1.05)}
 .builder-result{text-align:center;padding:20px;margin-top:16px;border-radius:12px;background:#fef3e5;font-size:.9em;font-weight:600;color:#0d4f3d;min-height:60px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;transition:all .4s}
+.nav-links a.active,.nav__links a.active{color:var(--gold)!important;font-weight:700!important;position:relative}
+.nav-links a.active::after,.nav__links a.active::after{content:'';position:absolute;bottom:-8px;left:0;right:0;height:2px;background:var(--gold);border-radius:2px}
+.nav--light .nav-links a.active,.nav--light .nav__links a.active{color:var(--green-d)!important}
+.nav--light .nav-links a.active::after,.nav--light .nav__links a.active::after{background:var(--green-d)}
 </style>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -145,19 +150,19 @@ em.kcal-badge{font-style:normal;font-size:.75em;color:var(--gray-l);margin-left:
 </head>
 <body>
 <nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
-  <a href="index.html" class="nav-logo" aria-label="YallaEat - Accueil">YALLA<span>EAT</span></a>
+  <a href="index.html" class="nav-logo" aria-label="YallaEat — Accueil">YALLA<span>EAT</span></a>
   <div class="nav-links" id="navLinks">
     <a href="index.html">Accueil</a>
     <a href="menu.html">Menu</a>
-    <a href="bowl.html" class="active">Bowl</a>
+    <a href="bowl.html" class="active" aria-current="page">Bowl</a>
     <a href="wrap-sandwich.html">Wraps</a>
     <a href="mezzebox.html">Mezzé Box</a>
     <a href="traiteur.html">Traiteur</a>
-    <a href="contact.html">Contact</a>
     <a href="blog.html">Blog</a>
-    <a href="https://commandes.yallaeat.fr/order/" class="btn-cta" rel="noopener noreferrer" target="_blank">COMMANDEZ</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://commandes.yallaeat.fr/order/" class="btn-cta" target="_blank" rel="noopener noreferrer">COMMANDEZ</a>
   </div>
-  <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false">
+  <button class="nav-burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" type="button">
     <span></span><span></span><span></span>
   </button>
 </nav>

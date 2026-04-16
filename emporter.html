@@ -41,19 +41,19 @@
 </head>
 <body>
 <nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
-  <a href="index.html" class="nav-logo" aria-label="YallaEat - Accueil">YALLA<span>EAT</span></a>
+  <a href="index.html" class="nav-logo" aria-label="YallaEat — Accueil">YALLA<span>EAT</span></a>
   <div class="nav-links" id="navLinks">
     <a href="index.html">Accueil</a>
     <a href="menu.html">Menu</a>
-    <a href="bowl.html">Bowl Libanais</a>
+    <a href="bowl.html">Bowl</a>
     <a href="wrap-sandwich.html">Wraps</a>
     <a href="mezzebox.html">Mezzé Box</a>
     <a href="traiteur.html">Traiteur</a>
     <a href="blog.html">Blog</a>
     <a href="contact.html">Contact</a>
-    <a href="https://commandes.yallaeat.fr/order/" class="btn-cta" rel="noopener noreferrer" target="_blank">COMMANDEZ</a>
+    <a href="https://commandes.yallaeat.fr/order/" class="btn-cta" target="_blank" rel="noopener noreferrer">COMMANDEZ</a>
   </div>
-  <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false">
+  <button class="nav-burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" type="button">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -77,12 +77,12 @@
 <section class="content-section" id="comment-commander">
   <div style="max-width:1200px;margin:0 auto;text-align:center">
     <h2 style="font-size:clamp(1.8em,4vw,2.6em);font-weight:900;letter-spacing:-1.5px;margin-bottom:12px">Comment <em>commander ?</em></h2>
-    <p style="color:#6e6e6e;max-width:520px;margin:0 auto 48px;line-height:1.7">Trois étapes simples pour votre repas libanais à emporter à Lyon 9.</p>
+    <p style="color:var(--gray);max-width:520px;margin:0 auto 48px;line-height:1.7">Trois étapes simples pour votre repas libanais à emporter à Lyon 9.</p>
     <div class="features-grid">
       <div class="feature-card reveal">
         <span class="feature-card__icon">&#x1F4F1;</span>
         <h3>Commandez en ligne</h3>
-        <p>Rendez-vous sur <a href="https://commandes.yallaeat.fr/order/" target="_blank" rel="noopener" style="color:#0d4f3d;font-weight:600;text-decoration:underline">commandes.yallaeat.fr</a> et composez votre commande : bowls, wraps, mezzé box, boissons. Payez en ligne en toute sécurité.</p>
+        <p>Rendez-vous sur <a href="https://commandes.yallaeat.fr/order/" target="_blank" rel="noopener" style="color:var(--green-d);font-weight:600;text-decoration:underline">commandes.yallaeat.fr</a> et composez votre commande : bowls, wraps, mezzé box, boissons. Payez en ligne en toute sécurité.</p>
       </div>
       <div class="feature-card reveal">
         <span class="feature-card__icon">&#x23F1;&#xFE0F;</span>
@@ -125,25 +125,25 @@
 <section class="content-section" id="formules">
   <div style="max-width:1100px;margin:0 auto;text-align:center">
     <h2 style="font-size:clamp(1.8em,4vw,2.6em);font-weight:900;letter-spacing:-1.5px;margin-bottom:12px">Nos formules <em>à emporter</em></h2>
-    <p style="color:#6e6e6e;max-width:520px;margin:0 auto 48px;line-height:1.7">Découvrez nos formats pensés pour l'emporter : généreux, bien emballés, prêts à déguster.</p>
+    <p style="color:var(--gray);max-width:520px;margin:0 auto 48px;line-height:1.7">Découvrez nos formats pensés pour l'emporter : généreux, bien emballés, prêts à déguster.</p>
     <div class="features-grid">
       <a href="bowl.html" class="feature-card reveal" style="text-decoration:none">
         <span class="feature-card__icon">&#x1F957;</span>
         <h3>Yalla Bowl</h3>
         <p>Composez votre bowl sur mesure ou choisissez un bowl signature. Base, protéine, garnitures et sauces au choix.</p>
-        <p style="margin-top:12px;font-weight:800;color:#0d4f3d;font-size:1.1em">Dès 9,90&nbsp;&euro;</p>
+        <p style="margin-top:12px;font-weight:800;color:var(--green-d);font-size:1.1em">Dès 9,90&nbsp;&euro;</p>
       </a>
       <a href="mezzebox.html" class="feature-card reveal" style="text-decoration:none">
         <span class="feature-card__icon">&#x1F962;</span>
         <h3>Mezzé Box</h3>
         <p>Une sélection de mezzés libanais à partager ou à savourer seul : houmous, falafel, taboulé, kebbé et plus encore.</p>
-        <p style="margin-top:12px;font-weight:800;color:#0d4f3d;font-size:1.1em">Dès 12,90&nbsp;&euro;</p>
+        <p style="margin-top:12px;font-weight:800;color:var(--green-d);font-size:1.1em">Dès 12,90&nbsp;&euro;</p>
       </a>
       <a href="menu.html" class="feature-card reveal" style="text-decoration:none">
         <span class="feature-card__icon">&#x1F4CB;</span>
         <h3>Carte complète</h3>
         <p>Wraps, assiettes, sandwiches, desserts et boissons. Toute notre carte est disponible en click &amp; collect.</p>
-        <p style="margin-top:12px;font-weight:800;color:#0d4f3d;font-size:1.1em">Voir le menu &rarr;</p>
+        <p style="margin-top:12px;font-weight:800;color:var(--green-d);font-size:1.1em">Voir le menu &rarr;</p>
       </a>
     </div>
   </div>
@@ -160,7 +160,7 @@
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
       <div class="faq-a" id="faq-a1" role="region">
-        <p>Rendez-vous sur <a href="https://commandes.yallaeat.fr/order/" target="_blank" rel="noopener" style="color:#0d4f3d;font-weight:600">commandes.yallaeat.fr</a>, composez votre commande (bowls, wraps, mezzé box, boissons), validez et payez en ligne. Vous recevez une confirmation avec l'heure de retrait. Il ne reste plus qu'à passer au 29 Rue de Bourgogne, Lyon 9.</p>
+        <p>Rendez-vous sur <a href="https://commandes.yallaeat.fr/order/" target="_blank" rel="noopener" style="color:var(--green-d);font-weight:600">commandes.yallaeat.fr</a>, composez votre commande (bowls, wraps, mezzé box, boissons), validez et payez en ligne. Vous recevez une confirmation avec l'heure de retrait. Il ne reste plus qu'à passer au 29 Rue de Bourgogne, Lyon 9.</p>
       </div>
     </div>
     <div class="faq-item">

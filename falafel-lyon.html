@@ -41,19 +41,19 @@
 </head>
 <body>
 <nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
-  <a href="index.html" class="nav-logo" aria-label="YallaEat - Accueil">YALLA<span>EAT</span></a>
+  <a href="index.html" class="nav-logo" aria-label="YallaEat — Accueil">YALLA<span>EAT</span></a>
   <div class="nav-links" id="navLinks">
     <a href="index.html">Accueil</a>
     <a href="menu.html">Menu</a>
-    <a href="bowl.html">Bowl Libanais</a>
+    <a href="bowl.html">Bowl</a>
     <a href="wrap-sandwich.html">Wraps</a>
     <a href="mezzebox.html">Mezzé Box</a>
     <a href="traiteur.html">Traiteur</a>
     <a href="blog.html">Blog</a>
     <a href="contact.html">Contact</a>
-    <a href="https://commandes.yallaeat.fr/order/" class="btn-cta" rel="noopener noreferrer" target="_blank">COMMANDEZ</a>
+    <a href="https://commandes.yallaeat.fr/order/" class="btn-cta" target="_blank" rel="noopener noreferrer">COMMANDEZ</a>
   </div>
-  <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false">
+  <button class="nav-burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" type="button">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -77,7 +77,7 @@
 <section class="content-section" id="vrai-falafel">
   <div style="max-width:900px;margin:0 auto">
     <h2 style="font-size:clamp(1.8em,4vw,2.6em);font-weight:900;letter-spacing:-1.5px;margin-bottom:12px;text-align:center">Le vrai <em>falafel libanais</em></h2>
-    <p style="color:#6e6e6e;max-width:600px;margin:0 auto 40px;line-height:1.7;text-align:center">Chez YallaEat, le falafel n'est pas un simple accompagnement. C'est une institution, préparée selon la recette traditionnelle libanaise, sans compromis.</p>
+    <p style="color:var(--gray);max-width:600px;margin:0 auto 40px;line-height:1.7;text-align:center">Chez YallaEat, le falafel n'est pas un simple accompagnement. C'est une institution, préparée selon la recette traditionnelle libanaise, sans compromis.</p>
     <img src="assets/falafel-croustillant-vegan-tarator.webp" alt="Falafel croustillant fait maison — YallaEat Lyon 9" loading="lazy" style="width:100%;border-radius:16px;margin:24px 0;aspect-ratio:1/1;object-fit:cover">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
       <div class="feature-card reveal">
@@ -99,27 +99,27 @@
 <section class="content-section content-section--alt" id="formats">
   <div style="max-width:1100px;margin:0 auto;text-align:center">
     <h2 style="font-size:clamp(1.8em,4vw,2.6em);font-weight:900;letter-spacing:-1.5px;margin-bottom:12px">Nos formats <em>falafel</em></h2>
-    <p style="color:#6e6e6e;max-width:520px;margin:0 auto 48px;line-height:1.7">Bowl généreux, wrap à emporter ou falafels à la pièce : choisissez votre format préféré.</p>
+    <p style="color:var(--gray);max-width:520px;margin:0 auto 48px;line-height:1.7">Bowl généreux, wrap à emporter ou falafels à la pièce : choisissez votre format préféré.</p>
     <div class="features-grid">
       <a href="bowl.html" class="feature-card reveal" style="text-decoration:none">
         <span class="feature-card__icon">&#x1F957;</span>
         <h3>Bowl Falafel</h3>
         <p>Notre bowl signature avec 4 falafels croustillants, riz basmati, houmous maison, taboulé, pickles et sauce tahini. Un repas complet, équilibré et 100% vegan. Généreux et rassasiant.</p>
         <img src="assets/bowl-falafel-vegetarien-lyon.webp" alt="Bowl falafel végétarien complet — YallaEat Lyon 9" loading="lazy" style="width:100%;border-radius:12px;margin-top:16px;aspect-ratio:1/1;object-fit:cover">
-        <p style="margin-top:12px;font-weight:800;color:#0d4f3d;font-size:1.1em">Dès 9,90&nbsp;&euro;</p>
+        <p style="margin-top:12px;font-weight:800;color:var(--green-d);font-size:1.1em">Dès 9,90&nbsp;&euro;</p>
       </a>
       <a href="menu.html" class="feature-card reveal" style="text-decoration:none">
         <span class="feature-card__icon">&#x1F32F;</span>
         <h3>Wrap Falafel</h3>
         <p>Falafels, crudités fraîches (tomate, concombre, salade), sauce tahini et pickles maison, le tout roulé dans un pain libanais souple. Idéal pour la pause déjeuner à emporter.</p>
         <img src="assets/wrap-falafel-vegan-libanais.webp" alt="Wrap falafel vegan libanais — YallaEat Lyon 9" loading="lazy" style="width:100%;border-radius:12px;margin-top:16px;aspect-ratio:1/1;object-fit:cover">
-        <p style="margin-top:12px;font-weight:800;color:#0d4f3d;font-size:1.1em">Dès 8,90&nbsp;&euro;</p>
+        <p style="margin-top:12px;font-weight:800;color:var(--green-d);font-size:1.1em">Dès 8,90&nbsp;&euro;</p>
       </a>
       <div class="feature-card reveal">
         <span class="feature-card__icon">&#x1F9C6;</span>
         <h3>Falafel à la pièce</h3>
         <p>Envie de goûter ou de compléter votre plat ? Commandez nos falafels à l'unité. Parfait aussi pour un apéro libanais entre amis ou en famille. Croustillant garanti.</p>
-        <p style="margin-top:12px;font-weight:800;color:#0d4f3d;font-size:1.1em">Dès 1,50&nbsp;&euro;</p>
+        <p style="margin-top:12px;font-weight:800;color:var(--green-d);font-size:1.1em">Dès 1,50&nbsp;&euro;</p>
       </div>
     </div>
   </div>

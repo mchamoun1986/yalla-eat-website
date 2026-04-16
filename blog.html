@@ -34,7 +34,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 .nav-logo{font-weight:800;font-size:1.5em;letter-spacing:-1px;display:flex;align-items:center;gap:8px}.nav-logo span{color:var(--gold)}
 .nav-links{display:flex;gap:28px;align-items:center}
 .nav-links a{font-size:.85em;font-weight:500;letter-spacing:.3px;position:relative;transition:color .3s;color:rgba(255,255,255,.85)}
-.nav-links a:hover,.nav-links a.active{color:var(--green-d)}
+.nav-links a:hover,
 .btn-cta{background:var(--gold);color:var(--black);padding:10px 24px;border-radius:50px;font-weight:600;font-size:.85em;transition:all .3s ease;box-shadow:0 4px 20px rgba(249,173,77,.3);}
 .btn-cta:hover{transform:translateY(-2px);background:var(--gold-d)}
 .nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001}
@@ -63,13 +63,13 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 .article-card-body{padding:28px;display:flex;flex-direction:column;flex:1;gap:12px;}
 .article-cat{display:inline-block;font-size:.65em;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:4px 12px;border-radius:20px;align-self:flex-start;}
 .cat-guide{background:var(--green-xl);color:var(--green-d)}
-.cat-nutrition{background:#e8f4ff;color:#1a5aaa}
+.cat-nutrition{background:var(--green-l);color:var(--green-d)}
 .cat-recette{background:var(--cream-d);color:var(--gold-d)}
-.cat-coulisses{background:var(--peach);color:#8a5a2b}
-.cat-healthy{background:#e5f7ee;color:#1a7a4a}
-.cat-halal{background:#f3e8ff;color:#6b21a8}
-.cat-vegetarien{background:#e5f7ee;color:#2d6a3f}
-.cat-traiteur{background:#fff3e0;color:#c45e00}
+.cat-coulisses{background:var(--peach-l);color:var(--gold-d)}
+.cat-healthy{background:var(--green-xl);color:var(--green)}
+.cat-halal{background:var(--peach);color:var(--green-d)}
+.cat-vegetarien{background:var(--green-l);color:var(--green-d)}
+.cat-traiteur{background:var(--cream-d);color:var(--gold-d)}
 .article-card h2{font-size:1.05em;font-weight:700;letter-spacing:-.3px;line-height:1.35;color:var(--black);transition:color .3s;}
 .article-card:hover h2{color:var(--green-d)}
 .article-excerpt{font-size:.82em;color:var(--gray);line-height:1.7;flex:1;}
@@ -107,6 +107,10 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
 .reveal.visible{opacity:1;transform:none;}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.nav-links a.active,.nav__links a.active{color:var(--gold)!important;font-weight:700!important;position:relative}
+.nav-links a.active::after,.nav__links a.active::after{content:'';position:absolute;bottom:-8px;left:0;right:0;height:2px;background:var(--gold);border-radius:2px}
+.nav--light .nav-links a.active,.nav--light .nav__links a.active{color:var(--green-d)!important}
+.nav--light .nav-links a.active::after,.nav--light .nav__links a.active::after{background:var(--green-d)}
 </style>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -119,17 +123,19 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 
 <!-- NAV -->
 <nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
-  <a href="index.html" class="nav-logo" aria-label="YallaEat accueil">YALLA<span>EAT</span></a>
-  <div class="nav-links" id="navLinks" role="menubar">
-    <a href="index.html" role="menuitem">Accueil</a>
-    <a href="menu.html" role="menuitem">Menu</a>
-    <a href="bowl.html" role="menuitem">Bowl</a>
-    <a href="mezzebox.html" role="menuitem">Mezzé Box</a>
-    <a href="traiteur.html" role="menuitem">Traiteur</a>
-    <a href="contact.html" role="menuitem">Contact</a>
-    <a href="https://commandes.yallaeat.fr/order/" class="btn-cta" target="_blank" rel="noopener noreferrer" role="menuitem">COMMANDEZ</a>
+  <a href="index.html" class="nav-logo" aria-label="YallaEat — Accueil">YALLA<span>EAT</span></a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Accueil</a>
+    <a href="menu.html">Menu</a>
+    <a href="bowl.html">Bowl</a>
+    <a href="wrap-sandwich.html">Wraps</a>
+    <a href="mezzebox.html">Mezzé Box</a>
+    <a href="traiteur.html">Traiteur</a>
+    <a href="blog.html" class="active" aria-current="page">Blog</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://commandes.yallaeat.fr/order/" class="btn-cta" target="_blank" rel="noopener noreferrer">COMMANDEZ</a>
   </div>
-  <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+  <button class="nav-burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" type="button">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -176,6 +182,51 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
           <span>&#x23F1; 5 min de lecture</span>
         </div>
         <a href="blog/yalla-bowl-libanais-lyon.html" class="article-read-link">Lire l’article &rarr;</a>
+      </div>
+    </article>
+
+    <!-- Article NEW — Halal entreprise Lyon 9 -->
+    <article class="article-card reveal">
+      <div class="article-card-band" aria-hidden="true"></div>
+      <div class="article-card-body">
+        <span class="article-cat cat-halal">Halal · Entreprise</span>
+        <h2><a href="blog/halal-entreprise-livraison-lyon-9.html">Halal rapide à Lyon 9 : shawarma, bowls et livraison entreprise en 15 minutes</a></h2>
+        <p class="article-excerpt">Restaurant halal à Vaise (Lyon 9) : shawarma, taouk, bowls et wraps certifiés halal, 100 % faits maison. Comment se faire livrer au bureau en 15 min via commandes.yallaeat.fr — plus rapide et moins cher qu'Uber Eats ou Deliveroo pour les équipes.</p>
+        <div class="article-meta">
+          <span>&#x1F4C5; 16 avril 2026</span>
+          <span>&#x23F1; 8 min de lecture</span>
+        </div>
+        <a href="blog/halal-entreprise-livraison-lyon-9.html" class="article-read-link">Lire l'article &rarr;</a>
+      </div>
+    </article>
+
+    <!-- Article NEW — Healthy bureau Lyon 9 -->
+    <article class="article-card reveal">
+      <div class="article-card-band" aria-hidden="true"></div>
+      <div class="article-card-body">
+        <span class="article-cat cat-healthy">Healthy · Bureau</span>
+        <h2><a href="blog/dejeuner-healthy-bureau-lyon-9.html">Déjeuner healthy à Lyon 9 : 7 bowls protéinés sous 600 kcal pour ton bureau</a></h2>
+        <p class="article-excerpt">Les 7 bowls libanais 100 % faits maison sous 600 kcal, avec macros détaillées (protéines, fibres, kcal). Comment les composer et les faire livrer au bureau via commandes.yallaeat.fr à Vaise, Valmy ou Gorge de Loup.</p>
+        <div class="article-meta">
+          <span>&#x1F4C5; 16 avril 2026</span>
+          <span>&#x23F1; 10 min de lecture</span>
+        </div>
+        <a href="blog/dejeuner-healthy-bureau-lyon-9.html" class="article-read-link">Lire l'article &rarr;</a>
+      </div>
+    </article>
+
+    <!-- Article NEW — Restaurant méditerranéen Lyon 9 -->
+    <article class="article-card reveal">
+      <div class="article-card-band" aria-hidden="true"></div>
+      <div class="article-card-body">
+        <span class="article-cat cat-guide">Guide · Entreprise</span>
+        <h2><a href="blog/restaurant-mediterraneen-lyon-9.html">Restaurant méditerranéen Lyon 9 : le guide 2026 pour déjeuner au bureau</a></h2>
+        <p class="article-excerpt">Où manger méditerranéen à Lyon 9 quand on travaille à Vaise, Valmy ou Gorge de Loup : bowls, grillades halal et mezzés, livraison entreprise directe sans commission, click &amp; collect en 15 min.</p>
+        <div class="article-meta">
+          <span>&#x1F4C5; 16 avril 2026</span>
+          <span>&#x23F1; 9 min de lecture</span>
+        </div>
+        <a href="blog/restaurant-mediterraneen-lyon-9.html" class="article-read-link">Lire l'article &rarr;</a>
       </div>
     </article>
 

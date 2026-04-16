@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Yalla Eat — Brand & Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --cream:#fff9f2;--cream-d:#fef3e5;--peach:#fdead2;--peach-l:#fbe3d9;
+    --gold:#f9ad4d;--gold-d:#d49341;--gold-l:#fabd71;
+    --green-d:#0d4f3d;--green:#4b916d;--green-m:#97c693;--green-l:#daf3c0;--green-xl:#effae5;
+    --blue:#1a6aff;--blue-d:#094bcc;--blue-l:#597dff;
+    --black:#0a0a0a;--gray:#6e6e6e;--gray-l:#b0b0b0;
+    --radius:16px;--radius-sm:10px;
+    --shadow-sm:0 2px 12px rgba(0,0,0,.05);
+    --shadow-md:0 4px 30px rgba(0,0,0,.07);
+    --shadow-lg:0 16px 60px rgba(0,0,0,.1);
+  }
+  html{scroll-behavior:smooth;font-size:16px}
+  body{font-family:Poppins,system-ui,sans-serif;background:var(--cream);color:var(--black);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--green-d);text-decoration:none}
+
+  /* HERO */
+  .hero{background:linear-gradient(165deg,var(--green-d) 0%,#0a3d2e 100%);color:#fff;padding:100px 5% 80px;text-align:center;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(249,173,77,.1),transparent 50%),radial-gradient(circle at 80% 70%,rgba(75,145,109,.15),transparent 50%);pointer-events:none}
+  .hero-inner{position:relative;z-index:1;max-width:900px;margin:0 auto}
+  .hero-eyebrow{font-size:.75em;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--gold);margin-bottom:20px;display:inline-block}
+  .hero h1{font-family:Poppins;font-size:clamp(2.4em,5.5vw,4.2em);font-weight:900;line-height:1.05;letter-spacing:-2px;margin-bottom:20px}
+  .hero h1 em{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;color:var(--gold)}
+  .hero-sub{color:rgba(255,255,255,.7);font-size:1.05em;max-width:620px;margin:0 auto 16px;line-height:1.7}
+  .hero-meta{display:inline-flex;gap:16px;font-size:.75em;color:rgba(255,255,255,.55);letter-spacing:1px;text-transform:uppercase;font-weight:600;margin-top:24px}
+  .hero-meta span{padding:6px 14px;border:1px solid rgba(255,255,255,.15);border-radius:50px;background:rgba(255,255,255,.05)}
+
+  /* SECTION */
+  .section{max-width:1200px;margin:0 auto;padding:80px 5%}
+  .section-eyebrow{font-size:.72em;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--green);margin-bottom:12px;display:block}
+  .section h2{font-size:clamp(1.8em,4vw,2.6em);font-weight:900;letter-spacing:-1.5px;line-height:1.1;margin-bottom:12px}
+  .section h2 em{font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);font-weight:700}
+  .section>p{color:var(--gray);font-size:.95em;max-width:680px;line-height:1.8;margin-bottom:48px}
+  .section--alt{background:var(--cream-d);max-width:none;padding:80px 5%}
+  .section--alt>div{max-width:1200px;margin:0 auto}
+  .section--dark{background:var(--black);color:#fff;max-width:none;padding:80px 5%}
+  .section--dark>div{max-width:1200px;margin:0 auto}
+  .section--dark h2{color:#fff}
+  .section--dark>div>p{color:rgba(255,255,255,.6)}
+
+  /* ADN DE MARQUE */
+  .adn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:40px}
+  .adn-card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:28px}
+  .adn-card strong{display:block;font-size:.72em;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:2px;margin-bottom:10px}
+  .adn-card p{font-size:.92em;color:var(--gray);line-height:1.7}
+
+  /* COULEURS */
+  .color-group{margin-bottom:48px}
+  .color-group h3{font-size:1.15em;font-weight:800;color:var(--green-d);margin-bottom:20px;letter-spacing:-.3px}
+  .color-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+  .swatch{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .3s ease,box-shadow .3s ease;cursor:pointer;border:1px solid rgba(0,0,0,.05)}
+  .swatch:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+  .swatch-block{height:110px;display:flex;align-items:flex-end;padding:14px;position:relative}
+  .swatch-block::after{content:"Click to copy";position:absolute;top:10px;right:12px;font-size:.65em;font-weight:600;letter-spacing:1px;text-transform:uppercase;opacity:.6}
+  .swatch-info{background:#fff;padding:14px 16px}
+  .swatch-token{font-family:ui-monospace,Menlo,monospace;font-size:.82em;font-weight:600;color:var(--green-d);display:block;margin-bottom:2px}
+  .swatch-hex{font-family:ui-monospace,Menlo,monospace;font-size:.72em;color:var(--gray);letter-spacing:.5px}
+  .swatch-usage{font-size:.75em;color:var(--gray);margin-top:6px;line-height:1.5}
+
+  /* TYPO */
+  .typo-sample{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:36px;margin-bottom:20px;box-shadow:var(--shadow-sm)}
+  .typo-sample-label{font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--green);margin-bottom:16px;display:block}
+  .typo-sample-body{font-family:ui-monospace,Menlo,monospace;font-size:.72em;color:var(--gray);background:var(--cream);padding:10px 14px;border-radius:8px;margin-top:18px;display:inline-block}
+  .sample-h1{font-family:Poppins;font-size:clamp(2em,4.5vw,3.6em);font-weight:900;line-height:1.05;letter-spacing:-2px;color:var(--black)}
+  .sample-h1 em{font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);font-weight:700}
+  .sample-h2{font-family:Poppins;font-size:clamp(1.6em,3.5vw,2.4em);font-weight:900;line-height:1.1;letter-spacing:-1.2px;color:var(--black)}
+  .sample-h2 em{font-family:'Playfair Display',serif;font-style:italic;color:var(--green-d);font-weight:700}
+  .sample-eyebrow{font-size:.72em;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--green)}
+  .sample-body{font-size:1em;color:#333;line-height:1.7;max-width:640px}
+  .sample-body strong{color:var(--green-d)}
+  .sample-small{font-size:.82em;color:var(--gray);line-height:1.6}
+
+  /* COMPOSANTS */
+  .comp-grid{display:grid;gap:24px;margin-top:40px}
+  .comp-card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow-sm)}
+  .comp-card-label{font-size:.7em;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--green);margin-bottom:20px;display:block}
+  .comp-demo{margin:20px 0}
+  .comp-code{font-family:ui-monospace,Menlo,monospace;font-size:.75em;color:var(--gray);background:var(--cream);padding:12px 16px;border-radius:8px;display:inline-block;margin-top:12px}
+
+  /* BOUTONS DEMO */
+  .btn-cta{display:inline-flex;align-items:center;gap:.5rem;background:var(--gold);color:var(--black);padding:10px 24px;border-radius:50px;font-weight:600;font-size:.85em;transition:all .3s ease;box-shadow:0 4px 20px rgba(249,173,77,.3);border:none;cursor:pointer}
+  .btn-cta:hover{transform:translateY(-2px);background:var(--gold-d)}
+  .btn-green{display:inline-flex;align-items:center;gap:.5rem;background:var(--green-d);color:#fff;padding:14px 36px;border-radius:50px;font-weight:700;font-size:.95em;transition:all .3s ease;box-shadow:0 6px 24px rgba(13,79,61,.3);border:none;cursor:pointer}
+  .btn-green:hover{transform:translateY(-2px);background:var(--green);box-shadow:0 8px 30px rgba(13,79,61,.4)}
+  .btn-primary{display:inline-block;background:var(--gold);color:var(--black);padding:14px 36px;border-radius:50px;font-weight:700;font-size:.95rem;transition:all .3s;box-shadow:0 6px 24px rgba(249,173,77,.4);border:none;cursor:pointer}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(249,173,77,.55);background:var(--gold-l)}
+
+  /* CARDS */
+  .feature-card-demo{background:#fff;border-radius:var(--radius);padding:32px 28px;box-shadow:var(--shadow-sm);border:1px solid rgba(0,0,0,.06);max-width:320px}
+  .feature-card-demo:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:rgba(13,79,61,.12);transition:all .3s}
+  .feature-card-demo-icon{font-size:2.5rem;margin-bottom:16px;display:block}
+  .feature-card-demo h4{font-size:1.05rem;font-weight:700;color:var(--green-d);margin:0 0 10px}
+  .feature-card-demo p{font-size:.9rem;color:var(--gray);line-height:1.65;margin:0}
+
+  /* CATEGORIES BLOG */
+  .cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:32px}
+  .cat-badge{display:inline-block;font-size:.72em;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:8px 16px;border-radius:20px;text-align:center}
+  .cat-guide{background:var(--green-xl);color:var(--green-d)}
+  .cat-recette{background:var(--cream-d);color:var(--gold-d)}
+  .cat-nutrition{background:var(--green-l);color:var(--green-d)}
+  .cat-healthy{background:var(--green-xl);color:var(--green)}
+  .cat-vege{background:var(--green-l);color:var(--green-d)}
+  .cat-halal{background:var(--peach);color:var(--green-d)}
+  .cat-traiteur{background:var(--cream-d);color:var(--gold-d)}
+  .cat-coulisses{background:var(--peach-l);color:var(--gold-d)}
+
+  /* DO / DONT */
+  .rule-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:32px}
+  .rule{padding:24px;border-radius:var(--radius);border-left:4px solid}
+  .rule-do{background:var(--green-xl);border-color:var(--green-d)}
+  .rule-dont{background:#ffeeee;border-color:#cc3333}
+  .rule-label{font-size:.7em;font-weight:800;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;display:block}
+  .rule-do .rule-label{color:var(--green-d)}
+  .rule-dont .rule-label{color:#cc3333}
+  .rule code{font-family:ui-monospace,Menlo,monospace;font-size:.82em;background:rgba(0,0,0,.04);padding:2px 6px;border-radius:4px}
+
+  /* FOOTER */
+  .site-footer{background:var(--black);color:#fff;padding:48px 5% 28px;text-align:center}
+  .site-footer strong{color:var(--gold);font-weight:800}
+  .site-footer p{font-size:.82em;color:rgba(255,255,255,.45);line-height:1.6}
+
+  /* TOAST */
+  .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--black);color:#fff;padding:12px 24px;border-radius:50px;font-size:.82em;font-weight:600;box-shadow:var(--shadow-lg);opacity:0;transition:all .3s ease;z-index:999;pointer-events:none}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  @media(max-width:720px){
+    .rule-grid{grid-template-columns:1fr}
+    .hero h1{letter-spacing:-1px}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Brand & Design System · v1.0</span>
+    <h1>Le design <em>Yalla Eat</em></h1>
+    <p class="hero-sub">Référence unique pour les couleurs, la typographie, les composants et le ton. Toute page du site doit s'y conformer.</p>
+    <div class="hero-meta">
+      <span>31 pages</span>
+      <span>16 couleurs</span>
+      <span>2 fontes</span>
+      <span>2026-04-16</span>
+    </div>
+  </div>
+</header>
+
+<!-- ADN -->
+<section class="section">
+  <span class="section-eyebrow">01 · Fondations</span>
+  <h2>ADN de <em>marque</em></h2>
+  <p>Restaurant libanais moderne à Lyon 9 (Vaise). Sain, halal, généreux, rapide. Le design reflète ces valeurs à chaque endroit du site.</p>
+  <div class="adn-grid">
+    <div class="adn-card"><strong>Positionnement</strong><p>Restaurant libanais moderne, sain, halal. Lyon 9 / Vaise. Bowls, wraps et mezzé box à emporter ou en traiteur.</p></div>
+    <div class="adn-card"><strong>Personnalité</strong><p>Chaleureux (cream / gold), sain (greens), premium (noir profond + Playfair italique sur les accents).</p></div>
+    <div class="adn-card"><strong>Ton</strong><p>Français direct, chaleureux, sans jargon. Orienté action : "Commander", "Composer mon bowl", "Réserver".</p></div>
+  </div>
+</section>
+
+<!-- COULEURS -->
+<section class="section section--alt">
+  <div>
+    <span class="section-eyebrow">02 · Palette</span>
+    <h2>Couleurs — <em>source unique</em></h2>
+    <p>Toutes ces variables vivent dans <code style="background:#fff;padding:2px 8px;border-radius:6px;font-family:monospace;font-size:.88em">:root</code> de <a href="style.css"><code style="background:#fff;padding:2px 8px;border-radius:6px;font-family:monospace;font-size:.88em">style.css</code></a>. Jamais de hex en dur dans les pages. Clique sur un swatch pour copier la variable.</p>
+
+    <!-- Primaires -->
+    <div class="color-group">
+      <h3>Primaires</h3>
+      <div class="color-grid">
+        <div class="swatch" data-copy="var(--green-d)"><div class="swatch-block" style="background:#0d4f3d;color:rgba(255,255,255,.7)"></div><div class="swatch-info"><span class="swatch-token">--green-d</span><span class="swatch-hex">#0d4f3d</span><div class="swatch-usage">Hero, H2 sections, footer</div></div></div>
+        <div class="swatch" data-copy="var(--gold)"><div class="swatch-block" style="background:#f9ad4d;color:rgba(0,0,0,.5)"></div><div class="swatch-info"><span class="swatch-token">--gold</span><span class="swatch-hex">#f9ad4d</span><div class="swatch-usage">CTA principal, accents italiques</div></div></div>
+        <div class="swatch" data-copy="var(--cream)"><div class="swatch-block" style="background:#fff9f2;color:rgba(0,0,0,.4);border:1px solid #eee"></div><div class="swatch-info"><span class="swatch-token">--cream</span><span class="swatch-hex">#fff9f2</span><div class="swatch-usage">Fond body par défaut</div></div></div>
+        <div class="swatch" data-copy="var(--black)"><div class="swatch-block" style="background:#0a0a0a;color:rgba(255,255,255,.7)"></div><div class="swatch-info"><span class="swatch-token">--black</span><span class="swatch-hex">#0a0a0a</span><div class="swatch-usage">Corps de texte, footer</div></div></div>
+      </div>
+    </div>
+
+    <!-- Secondaires -->
+    <div class="color-group">
+      <h3>Secondaires — verts</h3>
+      <div class="color-grid">
+        <div class="swatch" data-copy="var(--green)"><div class="swatch-block" style="background:#4b916d"></div><div class="swatch-info"><span class="swatch-token">--green</span><span class="swatch-hex">#4b916d</span><div class="swatch-usage">Eyebrow, hover</div></div></div>
+        <div class="swatch" data-copy="var(--green-m)"><div class="swatch-block" style="background:#97c693"></div><div class="swatch-info"><span class="swatch-token">--green-m</span><span class="swatch-hex">#97c693</span><div class="swatch-usage">Décoratif</div></div></div>
+        <div class="swatch" data-copy="var(--green-l)"><div class="swatch-block" style="background:#daf3c0"></div><div class="swatch-info"><span class="swatch-token">--green-l</span><span class="swatch-hex">#daf3c0</span><div class="swatch-usage">Fond card, badge végé</div></div></div>
+        <div class="swatch" data-copy="var(--green-xl)"><div class="swatch-block" style="background:#effae5"></div><div class="swatch-info"><span class="swatch-token">--green-xl</span><span class="swatch-hex">#effae5</span><div class="swatch-usage">Fond badge "guide"</div></div></div>
+      </div>
+    </div>
+
+    <div class="color-group">
+      <h3>Secondaires — gold & cream</h3>
+      <div class="color-grid">
+        <div class="swatch" data-copy="var(--gold-d)"><div class="swatch-block" style="background:#d49341"></div><div class="swatch-info"><span class="swatch-token">--gold-d</span><span class="swatch-hex">#d49341</span><div class="swatch-usage">Gold hover sombre</div></div></div>
+        <div class="swatch" data-copy="var(--gold-l)"><div class="swatch-block" style="background:#fabd71"></div><div class="swatch-info"><span class="swatch-token">--gold-l</span><span class="swatch-hex">#fabd71</span><div class="swatch-usage">Gold clair, nav accent</div></div></div>
+        <div class="swatch" data-copy="var(--cream-d)"><div class="swatch-block" style="background:#fef3e5;border:1px solid #eee"></div><div class="swatch-info"><span class="swatch-token">--cream-d</span><span class="swatch-hex">#fef3e5</span><div class="swatch-usage">Section alternée</div></div></div>
+        <div class="swatch" data-copy="var(--peach)"><div class="swatch-block" style="background:#fdead2"></div><div class="swatch-info"><span class="swatch-token">--peach</span><span class="swatch-hex">#fdead2</span><div class="swatch-usage">Badge "coulisses"</div></div></div>
+        <div class="swatch" data-copy="var(--peach-l)"><div class="swatch-block" style="background:#fbe3d9"></div><div class="swatch-info"><span class="swatch-token">--peach-l</span><span class="swatch-hex">#fbe3d9</span><div class="swatch-usage">Accent chaleur secondaire</div></div></div>
+      </div>
+    </div>
+
+    <div class="color-group">
+      <h3>Blue (réservé) & neutres</h3>
+      <div class="color-grid">
+        <div class="swatch" data-copy="var(--blue)"><div class="swatch-block" style="background:#1a6aff"></div><div class="swatch-info"><span class="swatch-token">--blue</span><span class="swatch-hex">#1a6aff</span><div class="swatch-usage">Réservé (liens ext.)</div></div></div>
+        <div class="swatch" data-copy="var(--blue-d)"><div class="swatch-block" style="background:#094bcc"></div><div class="swatch-info"><span class="swatch-token">--blue-d</span><span class="swatch-hex">#094bcc</span><div class="swatch-usage">Blue hover</div></div></div>
+        <div class="swatch" data-copy="var(--gray)"><div class="swatch-block" style="background:#6e6e6e"></div><div class="swatch-info"><span class="swatch-token">--gray</span><span class="swatch-hex">#6e6e6e</span><div class="swatch-usage">Texte secondaire</div></div></div>
+        <div class="swatch" data-copy="var(--gray-l)"><div class="swatch-block" style="background:#b0b0b0"></div><div class="swatch-info"><span class="swatch-token">--gray-l</span><span class="swatch-hex">#b0b0b0</span><div class="swatch-usage">Séparateurs, désactivé</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TYPOGRAPHIE -->
+<section class="section">
+  <span class="section-eyebrow">03 · Typographie</span>
+  <h2>Deux fontes, <em>pas une de plus</em></h2>
+  <p><strong>Poppins</strong> pour tout le corps et les titres sans emphase. <strong>Playfair Display</strong> en <em>italique uniquement</em> pour les mots accentués (balise <code>&lt;em&gt;</code>).</p>
+
+  <div class="typo-sample">
+    <span class="typo-sample-label">Hero H1 — Poppins 900 + Playfair italic gold</span>
+    <div class="sample-h1">Le bowl libanais <em>nouveau</em></div>
+    <div class="typo-sample-body">font-family: Poppins; font-weight: 900; font-size: clamp(2.4em, 5vw, 4em); letter-spacing: -2px;</div>
+  </div>
+
+  <div class="typo-sample">
+    <span class="typo-sample-label">Section H2 — Poppins 900 + Playfair italic green-d</span>
+    <div class="sample-h2">Notre <em>concept</em></div>
+    <div class="typo-sample-body">font-family: Poppins; font-weight: 900; font-size: clamp(1.8em, 4vw, 2.8em); letter-spacing: -1.5px;</div>
+  </div>
+
+  <div class="typo-sample">
+    <span class="typo-sample-label">Eyebrow — Poppins 700 uppercase, letter-spacing 3px</span>
+    <div class="sample-eyebrow">Nouveauté 2026</div>
+    <div class="typo-sample-body">font-size: .7em; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: var(--green);</div>
+  </div>
+
+  <div class="typo-sample">
+    <span class="typo-sample-label">Body — Poppins 400, line-height 1.7</span>
+    <p class="sample-body">Chez Yalla Eat, chaque bowl est composé devant vous avec des ingrédients frais du jour. <strong>Houmous maison, falafels croustillants, pain libanais tout juste sorti du four.</strong> Une cuisine libanaise généreuse, pensée pour votre pause déjeuner à Lyon 9.</p>
+    <div class="typo-sample-body">font-size: 1em; line-height: 1.7; color: #333; strong → color: var(--green-d);</div>
+  </div>
+
+  <div class="typo-sample">
+    <span class="typo-sample-label">Small — texte secondaire / captions</span>
+    <p class="sample-small">Livraison Uber Eats et Deliveroo du lundi au dimanche · Commandes à emporter en 10 minutes</p>
+    <div class="typo-sample-body">font-size: .82em; color: var(--gray); line-height: 1.6;</div>
+  </div>
+</section>
+
+<!-- COMPOSANTS -->
+<section class="section section--alt">
+  <div>
+    <span class="section-eyebrow">04 · Composants</span>
+    <h2>Composants <em>canoniques</em></h2>
+    <p>Définis dans <a href="style.css"><code style="background:#fff;padding:2px 8px;border-radius:6px;font-family:monospace;font-size:.88em">style.css</code></a>. À réutiliser tels quels. Ne pas redéfinir localement.</p>
+
+    <div class="comp-grid">
+      <div class="comp-card">
+        <span class="comp-card-label">Boutons</span>
+        <div class="comp-demo" style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+          <button class="btn-cta">Commandez →</button>
+          <button class="btn-green">Voir le menu</button>
+          <button class="btn-primary">Réserver une table</button>
+        </div>
+        <div class="comp-code">.btn-cta (gold) · .btn-green (vert foncé) · .btn-primary (gold large)</div>
+      </div>
+
+      <div class="comp-card">
+        <span class="comp-card-label">Feature card (service / avantage)</span>
+        <div class="comp-demo">
+          <div class="feature-card-demo">
+            <span class="feature-card-demo-icon">🥙</span>
+            <h4>Fait maison chaque jour</h4>
+            <p>Falafels, houmous, pain libanais — préparés le matin même avec des produits frais du jour.</p>
+          </div>
+        </div>
+        <div class="comp-code">.feature-card — radius 16px, shadow-sm, hover translateY(-5px)</div>
+      </div>
+
+      <div class="comp-card">
+        <span class="comp-card-label">Catégories blog (palette normée)</span>
+        <div class="cat-grid">
+          <span class="cat-badge cat-guide">Guide</span>
+          <span class="cat-badge cat-recette">Recette</span>
+          <span class="cat-badge cat-nutrition">Nutrition</span>
+          <span class="cat-badge cat-healthy">Healthy</span>
+          <span class="cat-badge cat-vege">Végétarien</span>
+          <span class="cat-badge cat-halal">Halal</span>
+          <span class="cat-badge cat-traiteur">Traiteur</span>
+          <span class="cat-badge cat-coulisses">Coulisses</span>
+        </div>
+        <div class="comp-code" style="margin-top:20px">Toutes en palette brand — aucun violet / bleu accent / orange custom</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DO / DONT -->
+<section class="section">
+  <span class="section-eyebrow">05 · Règles</span>
+  <h2>Do & <em>Don't</em></h2>
+  <p>Les règles simples à respecter dans chaque page.</p>
+
+  <div class="rule-grid">
+    <div class="rule rule-do">
+      <span class="rule-label">✓ Do</span>
+      <p>Utiliser <code>var(--green-d)</code> pour les titres H2.</p>
+    </div>
+    <div class="rule rule-dont">
+      <span class="rule-label">✗ Don't</span>
+      <p>Écrire <code>color:#0d4f3d</code> en dur dans <code>style="..."</code>.</p>
+    </div>
+
+    <div class="rule rule-do">
+      <span class="rule-label">✓ Do</span>
+      <p>Playfair Display <strong>uniquement en italique</strong> sur des <code>&lt;em&gt;</code>.</p>
+    </div>
+    <div class="rule rule-dont">
+      <span class="rule-label">✗ Don't</span>
+      <p>Utiliser Playfair Display en régulier comme fonte display.</p>
+    </div>
+
+    <div class="rule rule-do">
+      <span class="rule-label">✓ Do</span>
+      <p>Charger Poppins + Playfair via l'<strong>unique</strong> import officiel.</p>
+    </div>
+    <div class="rule rule-dont">
+      <span class="rule-label">✗ Don't</span>
+      <p>Importer DM Sans, DM Serif, Instrument Serif, Georgia, ou autre.</p>
+    </div>
+
+    <div class="rule rule-do">
+      <span class="rule-label">✓ Do</span>
+      <p>CTA "Commandez" toujours en <code>var(--gold)</code> sur tout le site.</p>
+    </div>
+    <div class="rule rule-dont">
+      <span class="rule-label">✗ Don't</span>
+      <p>CTA en bleu (<code>--blue</code> est réservé aux liens externes).</p>
+    </div>
+
+    <div class="rule rule-do">
+      <span class="rule-label">✓ Do</span>
+      <p>Définir <code>:root{--*}</code> <strong>une seule fois</strong> dans <code>style.css</code>.</p>
+    </div>
+    <div class="rule rule-dont">
+      <span class="rule-label">✗ Don't</span>
+      <p>Redupliquer <code>:root{--*}</code> dans chaque bloc <code>&lt;style&gt;</code> local.</p>
+    </div>
+
+    <div class="rule rule-do">
+      <span class="rule-label">✓ Do</span>
+      <p>Catégorie "Halal" → badge peach + texte green-d.</p>
+    </div>
+    <div class="rule rule-dont">
+      <span class="rule-label">✗ Don't</span>
+      <p>Catégorie "Halal" → badge violet <code>#6b21a8</code> (hors palette).</p>
+    </div>
+  </div>
+</section>
+
+<!-- CHECKLIST -->
+<section class="section section--dark">
+  <div>
+    <span class="section-eyebrow">06 · Checklist</span>
+    <h2>Avant de déployer <em>une nouvelle page</em></h2>
+    <p>Cocher ces 10 points garantit qu'elle est alignée avec le design system.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:12px;margin-top:32px">
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px 20px;font-size:.9em">☐ Import de fontes identique au template officiel</div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px 20px;font-size:.9em">☐ <code style="color:var(--gold-l)">&lt;link rel="stylesheet" href="style.css"&gt;</code> unique</div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px 20px;font-size:.9em">☐ Aucune redéfinition de <code style="color:var(--gold-l)">:root{--*}</code></div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px 20px;font-size:.9em">☐ Aucun hex dans les <code style="color:var(--gold-l)">style="..."</code> inline</div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px 20px;font-size:.9em">☐ Aucune mention de DM Sans / Instrument / Georgia</div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px 20px;font-size:.9em">☐ H1 : Poppins 900, <code style="color:var(--gold-l)">&lt;em&gt;</code> Playfair italic</div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px 20px;font-size:.9em">☐ Nav avec variante <code style="color:var(--gold-l)">.nav--light</code> si page intérieure</div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px 20px;font-size:.9em">☐ Breadcrumb présent sous le hero</div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px 20px;font-size:.9em">☐ Meta <code style="color:var(--gold-l)">theme-color="#0d4f3d"</code></div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px 20px;font-size:.9em">☐ GA4 (<code style="color:var(--gold-l)">ga4.js</code>) chargé</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p><strong>YALLA<span style="color:#fff">EAT</span></strong> · Brand & Design System v1.0 · 16 avril 2026</p>
+  <p style="margin-top:8px">Source : <a href="BRAND_GUIDELINES.md" style="color:var(--gold-l)">BRAND_GUIDELINES.md</a> · Audit : <a href="DESIGN_AUDIT_REPORT.md" style="color:var(--gold-l)">DESIGN_AUDIT_REPORT.md</a> · CSS : <a href="style.css" style="color:var(--gold-l)">style.css</a></p>
+</footer>
+
+<div class="toast" id="toast">Variable copiée</div>
+
+<script>
+  document.querySelectorAll('.swatch').forEach(s=>{
+    s.addEventListener('click',()=>{
+      const v=s.dataset.copy;
+      navigator.clipboard.writeText(v).then(()=>{
+        const t=document.getElementById('toast');
+        t.textContent='Copié : '+v;
+        t.classList.add('show');
+        setTimeout(()=>t.classList.remove('show'),1600);
+      });
+    });
+  });
+</script>
+</body>
+</html>

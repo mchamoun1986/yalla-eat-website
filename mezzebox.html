@@ -22,6 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&amp;family=Playfair+Display:ital,wght@1,700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
   <style>
     :root{--cream:#fff9f2;--cream-d:#fef3e5;--peach:#fdead2;--peach-l:#fbe3d9;--gold:#f9ad4d;--gold-d:#d49341;--gold-l:#fabd71;--green-d:#0d4f3d;--green:#4b916d;--green-m:#97c693;--green-l:#daf3c0;--green-xl:#effae5;--blue:#1a6aff;--blue-d:#094bcc;--black:#0a0a0a;--gray:#6e6e6e;--gray-l:#b0b0b0;--radius:16px;--radius-sm:10px}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -40,10 +41,10 @@
     .nav-menu{display:flex;align-items:center;gap:4px;list-style:none}
     .nav-link{font-size:.83rem;font-weight:500;color:var(--black);padding:6px 10px;border-radius:8px;position:relative;transition:color .25s ease}
     .nav-link::after{content:"";position:absolute;bottom:2px;left:10px;right:10px;height:2px;background:var(--green-d);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
-    .nav-link:hover,.nav-link.active{color:var(--green-d)}
+    .nav-link:hover,
     .nav-link:hover::after,.nav-link.active::after{transform:scaleX(1)}
-    .nav-cta{display:inline-block;background:var(--blue);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.06em;padding:9px 20px;border-radius:50px;margin-left:6px;transition:background .25s ease,transform .25s ease,box-shadow .25s ease;box-shadow:0 4px 18px rgba(26,106,255,.28)}
-    .nav-cta:hover{background:var(--blue-d);transform:translateY(-2px);box-shadow:0 8px 28px rgba(26,106,255,.36)}
+    .nav-cta{display:inline-block;background:var(--gold);color:var(--black);font-size:.78rem;font-weight:700;letter-spacing:.06em;padding:9px 20px;border-radius:50px;margin-left:6px;transition:background .25s ease,transform .25s ease,box-shadow .25s ease;box-shadow:0 4px 18px rgba(249,173,77,.3)}
+    .nav-cta:hover{background:var(--gold-d);transform:translateY(-2px);box-shadow:0 8px 28px rgba(249,173,77,.45)}
     .burger{display:none;flex-direction:column;gap:5px;padding:6px;z-index:1002;cursor:pointer}
     .burger span{display:block;width:24px;height:2px;background:var(--black);border-radius:2px;transition:transform .3s ease,opacity .3s ease}
     .burger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -57,63 +58,64 @@
     .section-tag{display:block;font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:12px}
     .section-header h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;letter-spacing:-1.5px;line-height:1.1;color:var(--black)}
     .section-desc{font-size:.95rem;color:var(--gray);max-width:560px;margin:16px auto 0;line-height:1.75}
-    .hero-mezzebox{background:linear-gradient(135deg,#1a3a2a 0%,#0f2318 50%,#1e4a30 100%);min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden}
+    .hero-mezzebox{background:linear-gradient(135deg,var(--green-d) 0%,var(--green-d) 50%,var(--green-d) 100%);min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden}
     .hero-mezzebox::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 60% 40%,rgba(255,165,0,.08) 0%,transparent 60%);pointer-events:none}
     .hero-inner{position:relative;z-index:1;max-width:680px}
     .hero-tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);background:rgba(249,173,77,.12);border:1px solid rgba(249,173,77,.25);padding:6px 16px;border-radius:50px;margin-bottom:20px}
-    .hero-mezzebox h1{font-size:clamp(2.8rem,7vw,5rem);font-weight:900;color:#fff;letter-spacing:-2px;line-height:1;margin-bottom:20px;font-family:"Playfair Display",Georgia,serif;font-style:italic}
+    .hero-mezzebox h1{font-family:Poppins,system-ui,sans-serif;font-size:clamp(2.8rem,7vw,5rem);font-weight:900;color:#fff;letter-spacing:-2px;line-height:1.05;margin-bottom:20px}
+    .hero-mezzebox h1 em{font-family:"Playfair Display",serif;font-style:italic;font-weight:700;color:var(--gold);letter-spacing:-1px}
     .hero-desc{font-size:1.05rem;color:rgba(255,255,255,.65);max-width:520px;margin:0 auto 36px;line-height:1.75}
     .btn-primary{display:inline-block;background:var(--gold);color:var(--black);font-size:.95rem;font-weight:700;padding:16px 40px;border-radius:50px;letter-spacing:.03em;transition:background .25s ease,transform .25s ease,box-shadow .25s ease;box-shadow:0 8px 32px rgba(249,173,77,.38)}
     .btn-primary:hover{background:var(--gold-d);transform:translateY(-3px);box-shadow:0 14px 40px rgba(249,173,77,.48)}
     .boxes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;margin-top:48px}
     .box-card{background:#fff;border-radius:var(--radius);padding:32px 28px;box-shadow:0 4px 24px rgba(0,0,0,.08);transition:transform .3s ease,box-shadow .3s ease;position:relative;overflow:hidden}
-    .box-card::after{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#e6820a,#f5a623)}
+    .box-card::after{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold-d),var(--gold))}
     .box-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,.14)}
-    .box-card .price{font-size:2rem;font-weight:900;color:#e6820a;margin:12px 0 8px}
-    .box-card h3{font-size:1.25rem;font-weight:700;color:#1a3a2a;margin:0 0 4px}
+    .box-card .price{font-size:2rem;font-weight:900;color:var(--gold-d);margin:12px 0 8px}
+    .box-card h3{font-size:1.25rem;font-weight:700;color:var(--green-d);margin:0 0 4px}
     .box-card > p{font-size:.92rem;color:#555;line-height:1.6;margin:0 0 16px}
     .box-card ul{list-style:disc;padding-left:18px;margin:0 0 12px;font-size:.88rem;color:#444}
     .badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
     .badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.75rem;font-weight:600}
-    .badge-halal{background:#e8f5e9;color:#2e7d32}
-    .badge-vege{background:#f1f8e9;color:#558b2f}
-    .badge-vegan{background:#e0f2f1;color:#00695c}
-    .badge-poulet{background:#fff3e0;color:#e65100}
-    .badge-boeuf{background:#fce4ec;color:#c62828}
-    .badge-box{background:#ede7f6;color:#4527a0}
+    .badge-halal{background:var(--green-xl);color:var(--green-d)}
+    .badge-vege{background:var(--green-xl);color:var(--green)}
+    .badge-vegan{background:var(--green-xl);color:var(--green-d)}
+    .badge-poulet{background:var(--cream-d);color:var(--gold-d)}
+    .badge-boeuf{background:var(--peach-l);color:var(--gold-d)}
+    .badge-box{background:var(--peach-l);color:var(--green-d)}
     .badge-green{background:var(--green-xl);color:var(--green-d)}
     .badge-gold{background:var(--cream-d);color:var(--gold-d)}
-    .badge-blue{background:#e8f0ff;color:var(--blue-d)}
+    .badge-blue{background:var(--green-xl);color:var(--blue-d)}
     .partage-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-top:48px}
-    .partage-card{background:linear-gradient(135deg,#1a3a2a,#0f2318);border-radius:var(--radius);padding:36px 32px;color:#fff;position:relative;overflow:hidden;transition:transform .3s ease}
+    .partage-card{background:linear-gradient(135deg,var(--green-d),var(--green-d));border-radius:var(--radius);padding:36px 32px;color:#fff;position:relative;overflow:hidden;transition:transform .3s ease}
     .partage-card::before{content:"";position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:rgba(255,165,0,.08)}
     .partage-card:hover{transform:translateY(-4px)}
-    .partage-card .persons{font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#f5a623;margin-bottom:8px}
+    .partage-card .persons{font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
     .partage-card h3{font-size:1.5rem;font-weight:800;margin:0 0 8px}
-    .partage-card .partage-price{font-size:2.2rem;font-weight:900;color:#f5a623;margin:12px 0 16px}
+    .partage-card .partage-price{font-size:2.2rem;font-weight:900;color:var(--gold);margin:12px 0 16px}
     .partage-card > p{font-size:.92rem;color:rgba(255,255,255,.78);line-height:1.65;margin:0}
     .mezzes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin-top:40px}
     .mezze-item{background:#fff;border-radius:var(--radius-sm);padding:24px 20px;text-align:center;box-shadow:0 2px 14px rgba(0,0,0,.06);transition:transform .25s ease,box-shadow .25s ease}
     .mezze-item:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.12)}
     .mezze-item .emoji{font-size:2.5rem;margin-bottom:10px;display:block}
-    .mezze-item h4{font-size:1rem;font-weight:700;color:#1a3a2a;margin:0 0 4px}
+    .mezze-item h4{font-size:1rem;font-weight:700;color:var(--green-d);margin:0 0 4px}
     .mezze-item p{font-size:.82rem;color:#666;margin:0;line-height:1.5}
     .feature-img-wrap{border-radius:20px;overflow:hidden;box-shadow:0 12px 48px rgba(0,0,0,.16);max-width:680px;margin:0 auto}
     .feature-img-wrap img{width:100%;height:auto;display:block}
     .faq-list{list-style:none;padding:0;margin:40px 0 0}
-    .faq-item{border-bottom:1px solid #e8ede9}
-    .faq-item:first-child{border-top:1px solid #e8ede9}
-    .faq-btn{width:100%;background:none;border:none;padding:22px 0;display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-family:Poppins,sans-serif;font-size:1rem;font-weight:600;color:#1a3a2a;text-align:left;gap:16px}
-    .faq-btn .faq-icon{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#1a3a2a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.1rem;line-height:1;transition:transform .3s ease,background .3s ease}
-    .faq-btn[aria-expanded="true"] .faq-icon{transform:rotate(45deg);background:#e6820a}
+    .faq-item{border-bottom:1px solid var(--cream-d)}
+    .faq-item:first-child{border-top:1px solid var(--cream-d)}
+    .faq-btn{width:100%;background:none;border:none;padding:22px 0;display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-family:Poppins,sans-serif;font-size:1rem;font-weight:600;color:var(--green-d);text-align:left;gap:16px}
+    .faq-btn .faq-icon{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--green-d);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.1rem;line-height:1;transition:transform .3s ease,background .3s ease}
+    .faq-btn[aria-expanded="true"] .faq-icon{transform:rotate(45deg);background:var(--gold-d)}
     .faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease}
     .faq-answer p{padding:0 0 22px;font-size:.95rem;color:#444;line-height:1.7;margin:0}
     .faq-answer a{color:var(--green-d);text-decoration:underline}
-    .cta-mezzebox{background:linear-gradient(135deg,#e6820a 0%,#f5a623 100%);border-radius:24px;padding:64px 40px;text-align:center;color:#fff;margin-top:80px;position:relative;overflow:hidden}
+    .cta-mezzebox{background:linear-gradient(135deg,var(--gold-d) 0%,var(--gold) 100%);border-radius:24px;padding:64px 40px;text-align:center;color:#fff;margin-top:80px;position:relative;overflow:hidden}
     .cta-mezzebox::before{content:"";position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.07)}
     .cta-mezzebox h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;margin:0 0 16px;position:relative}
     .cta-mezzebox p{font-size:1.1rem;opacity:.92;margin:0 0 32px;position:relative}
-    .btn-cta-white{display:inline-block;background:#fff;color:#e6820a;padding:16px 40px;border-radius:50px;font-weight:800;font-size:1rem;letter-spacing:.03em;position:relative;transition:transform .25s ease,box-shadow .25s ease}
+    .btn-cta-white{display:inline-block;background:#fff;color:var(--gold-d);padding:16px 40px;border-radius:50px;font-weight:800;font-size:1rem;letter-spacing:.03em;position:relative;transition:transform .25s ease,box-shadow .25s ease}
     .btn-cta-white:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.2)}
     .site-footer{background:var(--green-d);color:#fff;padding:56px 24px 40px;margin-top:80px}
     .footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center}
@@ -125,13 +127,17 @@
     .footer-copy{font-size:.75rem;color:rgba(255,255,255,.3)}
     .reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
     .reveal.revealed{opacity:1;transform:translateY(0)}
-    #back-to-top{position:fixed;bottom:28px;right:28px;width:48px;height:48px;border-radius:50%;background:#1a3a2a;color:#fff;border:none;cursor:pointer;font-size:1.3rem;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(20px);transition:opacity .3s ease,transform .3s ease;z-index:999;box-shadow:0 4px 16px rgba(0,0,0,.2)}
+    #back-to-top{position:fixed;bottom:28px;right:28px;width:48px;height:48px;border-radius:50%;background:var(--green-d);color:#fff;border:none;cursor:pointer;font-size:1.3rem;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(20px);transition:opacity .3s ease,transform .3s ease;z-index:999;box-shadow:0 4px 16px rgba(0,0,0,.2)}
     #back-to-top.visible{opacity:1;transform:translateY(0)}
     #back-to-top:hover{background:var(--green);transform:translateY(-3px)}
     @media(max-width:768px){.section{padding:56px 0}.hero-mezzebox{padding:100px 20px 60px;min-height:60vh}.partage-card{padding:28px 24px}.cta-mezzebox{padding:48px 24px}}
     @media(max-width:640px){.boxes-grid,.partage-grid{grid-template-columns:1fr}.mezzes-grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:420px){.mezzes-grid{grid-template-columns:1fr}}
-  </style>
+  .nav-links a.active,.nav__links a.active{color:var(--gold)!important;font-weight:700!important;position:relative}
+.nav-links a.active::after,.nav__links a.active::after{content:'';position:absolute;bottom:-8px;left:0;right:0;height:2px;background:var(--gold);border-radius:2px}
+.nav--light .nav-links a.active,.nav--light .nav__links a.active{color:var(--green-d)!important}
+.nav--light .nav-links a.active::after,.nav--light .nav__links a.active::after{background:var(--green-d)}
+</style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebPage","name":"MezzéBox — Mezzés Libanais Lyon 9","description":"Assortiment de mezzés libanais faits maison chez YallaEat Lyon 9","url":"https://www.yallaeat.fr/mezzebox.html","mainEntity":{"@type":"Restaurant","name":"YallaEat","address":{"@type":"PostalAddress","streetAddress":"29 Rue de Bourgogne","addressLocality":"Lyon","postalCode":"69009","addressCountry":"FR"},"servesCuisine":["Libanais","Halal","Végétarien","Vegan"]}}
   </script>
@@ -149,29 +155,28 @@
 <script src="/ga4.js" defer></script>
 </head>
 <body>
-  <header class="site-header" id="site-header">
-    <nav class="navbar" aria-label="Navigation principale">
-      <a href="index.html" class="nav-logo" aria-label="YallaEat — Retour à l’accueil">YALLA<span>EAT</span></a>
-      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-menu">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-menu" id="nav-menu" role="list">
-        <li><a href="index.html" class="nav-link">Accueil</a></li>
-        <li><a href="menu.html" class="nav-link">Menu</a></li>
-        <li><a href="bowl.html" class="nav-link">Bowl</a></li>
-        <li><a href="mezzebox.html" class="nav-link active" aria-current="page">Mezzé Box</a></li>
-        <li><a href="traiteur.html" class="nav-link">Traiteur</a></li>
-        <li><a href="contact.html" class="nav-link">Contact</a></li>
-        <li><a href="blog.html" class="nav-link">Blog</a></li>
-        <li><a href="https://commandes.yallaeat.fr/order/" class="nav-cta" target="_blank" rel="noopener noreferrer">COMMANDEZ</a></li>
-      </ul>
-    </nav>
-  </header>
+  <nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
+  <a href="index.html" class="nav-logo" aria-label="YallaEat — Accueil">YALLA<span>EAT</span></a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Accueil</a>
+    <a href="menu.html">Menu</a>
+    <a href="bowl.html">Bowl</a>
+    <a href="wrap-sandwich.html">Wraps</a>
+    <a href="mezzebox.html" class="active" aria-current="page">Mezzé Box</a>
+    <a href="traiteur.html">Traiteur</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://commandes.yallaeat.fr/order/" class="btn-cta" target="_blank" rel="noopener noreferrer">COMMANDEZ</a>
+  </div>
+  <button class="nav-burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" type="button">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
   <main>
     <section class="hero-mezzebox" aria-label="Présentation MezzéBox">
-      <div class="hero-inner reveal">
+      <div class="hero-inner">
         <span class="hero-tag">MEZZÉ BOX</span>
-        <h1>La&nbsp;MezzéBox</h1>
+        <h1>La&nbsp;<em>MezzéBox</em></h1>
         <p class="hero-desc">Un voyage au Liban dans une box. Six mezzés faits maison à partager autour de la table — houmous, moutabal, taboulé, falafels et bien plus. Disponible en formules ou entièrement à composer.</p>
         <img src="assets/mezzebox-libanais-lyon.webp" alt="MezzéBox libanaise ouverte vue dessus — YallaEat Lyon 9" loading="eager" style="width:100%;max-width:520px;border-radius:20px;margin:0 auto 32px;object-fit:contain;box-shadow:0 12px 48px rgba(0,0,0,.3)">
         <a href="https://commandes.yallaeat.fr/order/" class="btn-primary" target="_blank" rel="noopener noreferrer">Commander ma MezzéBox</a>
@@ -190,7 +195,7 @@
             <h3>MezzéBox à composer</h3>
             <div class="price">20,90€</div>
             <p>Vous choisissez les 6 mezzés que vous voulez parmi notre sélection complète. La liberté totale pour personnaliser votre expérience libanaise.</p>
-            <ul style="font-size:.88rem; color:#444; padding-left:18px; margin:0 0 12px;">
+            <ul style="font-size:.88rem; color:var(--gray); padding-left:18px; margin:0 0 12px;">
               <li>6 mezzés au choix</li><li>Pain pita artisanal inclus</li><li>Composition libre</li>
             </ul>
             <div class="badges"><span class="badge badge-halal">Halal</span><span class="badge badge-box">À composer</span></div>
@@ -200,7 +205,7 @@
             <h3>MezzéBox Végé</h3>
             <div class="price">18,90€</div>
             <p>Notre sélection végétarienne incontournable : houmous maison, moutabal fumé, taboulé frais, fattouche, feuilles de vigne et labné à l’huile d’olive.</p>
-            <ul style="font-size:.88rem; color:#444; padding-left:18px; margin:0 0 12px;">
+            <ul style="font-size:.88rem; color:var(--gray); padding-left:18px; margin:0 0 12px;">
               <li>Houmous, moutabal, labné</li><li>Taboulé &amp; fattouche</li><li>Feuilles de vigne</li>
             </ul>
             <div class="badges"><span class="badge badge-halal">Halal</span><span class="badge badge-vege">Végétarien</span><span class="badge badge-vegan">Option vegan</span></div>
@@ -210,7 +215,7 @@
             <h3>MezzéBox Taouk Poulet</h3>
             <div class="price">22,90€</div>
             <p>Les mezzés classiques accompagnés de brochettes de taouk marinées au citron et épices. Le combo parfait pour les amateurs de poulet grillé à la libanaise.</p>
-            <ul style="font-size:.88rem; color:#444; padding-left:18px; margin:0 0 12px;">
+            <ul style="font-size:.88rem; color:var(--gray); padding-left:18px; margin:0 0 12px;">
               <li>Brochettes taouk grillées</li><li>Houmous &amp; toum ail</li><li>Taboulé &amp; fattouche</li>
             </ul>
             <div class="badges"><span class="badge badge-halal">Halal</span><span class="badge badge-poulet">Poulet</span></div>
@@ -220,7 +225,7 @@
             <h3>MezzéBox Shawarma Boeuf</h3>
             <div class="price">24,90€</div>
             <p>Notre shawarma boeuf effiloché aux épices orientales, accompagné d’une sélection de mezzés généreux. Savoureux, fondant, avec une sauce tahini maison.</p>
-            <ul style="font-size:.88rem; color:#444; padding-left:18px; margin:0 0 12px;">
+            <ul style="font-size:.88rem; color:var(--gray); padding-left:18px; margin:0 0 12px;">
               <li>Shawarma boeuf effiloché</li><li>Sauce tahini maison</li><li>Mezzés assortis</li>
             </ul>
             <div class="badges"><span class="badge badge-halal">Halal</span><span class="badge badge-boeuf">Boeuf</span></div>

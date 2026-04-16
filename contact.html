@@ -43,9 +43,9 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 .nav-links{display:flex;gap:28px;align-items:center}
 .nav-links a{font-size:.85em;font-weight:500;letter-spacing:.3px;position:relative;transition:color .3s;color:rgba(255,255,255,.85)}
 .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--green-d);transition:width .3s ease;border-radius:2px}
-.nav-links a:hover{color:var(--green-d)}.nav-links a:hover::after,.nav-links a.active::after{width:100%}.nav-links a.active{color:var(--green-d)}
-.btn-cta{background:var(--blue);color:#fff;padding:10px 24px;border-radius:50px;font-weight:600;font-size:.85em;transition:all .3s ease;box-shadow:0 4px 20px rgba(26,106,255,.3)}
-.btn-cta:hover{transform:translateY(-2px);box-shadow:0 6px 30px rgba(26,106,255,.45);background:var(--blue-d)}.btn-cta::after{display:none!important}
+.nav-links a:hover{color:var(--green-d)}.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.btn-cta{background:var(--gold);color:var(--black);padding:10px 24px;border-radius:50px;font-weight:700;font-size:.85em;transition:all .3s ease;box-shadow:0 4px 20px rgba(249,173,77,.3)}
+.btn-cta:hover{transform:translateY(-2px);box-shadow:0 6px 30px rgba(249,173,77,.45);background:var(--gold-d)}.btn-cta::after{display:none!important}
 .nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001}
 .nav-burger span{width:24px;height:2px;background:var(--black);transition:all .3s;border-radius:2px}
 @media(max-width:768px){.nav-links{position:fixed;inset:0;background:var(--cream);flex-direction:column;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity .4s}.nav-links.open{opacity:1;pointer-events:all}.nav-links a{font-size:1.4em}.nav-burger{display:flex}.nav-burger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}.nav-burger.open span:nth-child(2){opacity:0}.nav-burger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}}
@@ -121,7 +121,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 .badge{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:50px;font-size:.82em;font-weight:600;background:var(--green-xl);color:var(--green-d);border:1.5px solid var(--green-l);transition:all .3s;cursor:default}
 .badge:hover{background:var(--green-d);color:#fff;border-color:var(--green-d)}
 .livraison{padding:80px 5%;background:var(--black);color:#fff;position:relative;overflow:hidden}
-.livraison::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(26,106,255,.1) 0%,transparent 60%)}
+.livraison::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(75,145,109,.12) 0%,transparent 60%)}
 .livraison-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
 .livraison .section-tag{color:var(--gold)}
 .livraison-h2{font-size:clamp(1.8em,3.5vw,2.8em);font-weight:800;letter-spacing:-1px;color:#fff;margin-bottom:10px}
@@ -131,8 +131,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 .platform-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:36px 28px;text-align:center;transition:all .35s ease;display:flex;flex-direction:column;align-items:center;gap:14px}
 .platform-card:hover{background:rgba(255,255,255,.1);transform:translateY(-4px);border-color:rgba(255,255,255,.25)}
 .platform-card-icon{font-size:2.8em;line-height:1}.platform-card h3{font-size:1em;font-weight:700;color:#fff}.platform-card p{font-size:.78em;color:rgba(255,255,255,.4);line-height:1.5}
-.platform-card-btn{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;padding:10px 22px;border-radius:50px;font-size:.8em;font-weight:600;transition:all .3s;margin-top:6px;box-shadow:0 4px 16px rgba(26,106,255,.3)}
-.platform-card-btn:hover{background:var(--blue-d);transform:translateY(-2px);box-shadow:0 6px 24px rgba(26,106,255,.45)}
+.platform-card-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--black);padding:10px 22px;border-radius:50px;font-size:.8em;font-weight:700;transition:all .3s;margin-top:6px;box-shadow:0 4px 16px rgba(249,173,77,.3)}
+.platform-card-btn:hover{background:var(--gold-d);transform:translateY(-2px);box-shadow:0 6px 24px rgba(249,173,77,.45)}
 .platform-card.direct .platform-card-btn{background:var(--gold);color:var(--black);box-shadow:0 4px 16px rgba(249,173,77,.3)}
 .platform-card.direct .platform-card-btn:hover{background:var(--gold-l);box-shadow:0 6px 24px rgba(249,173,77,.5)}
 @media(max-width:768px){.platforms-grid{grid-template-columns:1fr;max-width:380px;margin:0 auto}}
@@ -174,6 +174,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 .form-submit button{background:var(--green-d);color:#fff;padding:16px 48px;border-radius:60px;font-weight:700;font-size:1em;letter-spacing:.3px;box-shadow:0 8px 32px rgba(13,79,61,.3);transition:all .3s ease;cursor:pointer;border:none;font-family:'Poppins',sans-serif}
 .form-submit button:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(13,79,61,.45);background:#0a3d2e}
 @media(max-width:600px){.form-row{grid-template-columns:1fr}.contact-form{padding:24px}}
+.nav-links a.active{color:var(--gold)!important;font-weight:700!important;position:relative}
+.nav-links a.active::after{content:'';position:absolute;bottom:-8px;left:0;right:0;height:2px;background:var(--gold);border-radius:2px}
 </style>
 <script type="application/ld+json">
 {
@@ -207,8 +209,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 <body>
 
 <!-- NAV -->
-<nav class="nav" id="nav">
-  <a href="index.html" class="nav-logo">YALLA<span>EAT</span></a>
+<nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
+  <a href="index.html" class="nav-logo" aria-label="YallaEat — Accueil">YALLA<span>EAT</span></a>
   <div class="nav-links" id="navLinks">
     <a href="index.html">Accueil</a>
     <a href="menu.html">Menu</a>
@@ -216,11 +218,13 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
     <a href="wrap-sandwich.html">Wraps</a>
     <a href="mezzebox.html">Mezzé Box</a>
     <a href="traiteur.html">Traiteur</a>
-    <a href="contact.html" class="active" aria-current="page">Contact</a>
     <a href="blog.html">Blog</a>
+    <a href="contact.html" class="active" aria-current="page">Contact</a>
     <a href="https://commandes.yallaeat.fr/order/" class="btn-cta" target="_blank" rel="noopener noreferrer">COMMANDEZ</a>
   </div>
-  <div class="nav-burger" id="burger" role="button" tabindex="0" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></div>
+  <button class="nav-burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" type="button">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->

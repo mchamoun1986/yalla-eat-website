@@ -35,7 +35,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 .nav-logo{font-weight:800;font-size:1.5em;letter-spacing:-1px;display:flex;align-items:center;gap:8px}.nav-logo span{color:var(--gold)}
 .nav-links{display:flex;gap:28px;align-items:center}
 .nav-links a{font-size:.85em;font-weight:500;letter-spacing:.3px;position:relative;transition:color .3s;color:rgba(255,255,255,.85)}
-.nav-links a:hover,.nav-links a.active{color:var(--green-d)}
+.nav-links a:hover,
 .btn-cta{background:var(--gold);color:var(--black);padding:10px 24px;border-radius:50px;font-weight:600;font-size:.85em;transition:all .3s ease;box-shadow:0 4px 20px rgba(249,173,77,.3);}
 .btn-cta:hover{transform:translateY(-2px);background:var(--gold-d)}
 .nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001}
@@ -69,16 +69,16 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 .menu-item h3{font-size:.98em;font-weight:700;letter-spacing:-.3px;line-height:1.3;flex:1;}
 .menu-item-price{font-size:1em;font-weight:800;color:var(--green-d);white-space:nowrap;background:var(--green-xl);padding:4px 12px;border-radius:8px;flex-shrink:0;}
 .menu-item-price.gold{background:var(--cream-d);color:var(--gold-d);}
-.menu-item-price.blue{background:#e8f4ff;color:#1a5aaa;}
+.menu-item-price.blue{background:var(--green-xl);color:var(--green-d);}
 .menu-item p{font-size:.8em;color:var(--gray);line-height:1.65;flex:1;}
 .menu-item-kcal{font-size:.68em;color:var(--gray-l);font-weight:500;margin-top:2px;}
 .menu-item-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px;}
 .menu-item-tag{font-size:.63em;font-weight:600;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.5px;}
 .tag-vege{background:var(--green-xl);color:var(--green-d);}
 .tag-star{background:var(--cream-d);color:var(--gold-d);}
-.tag-maison{background:var(--peach);color:#8a5a2b;}
-.tag-partage{background:#f0f0ff;color:#5555cc;}
-.tag-custom{background:#e8f4ff;color:#1a5aaa;}
+.tag-maison{background:var(--peach);color:var(--gold-d);}
+.tag-partage{background:var(--green-xl);color:var(--green);}
+.tag-custom{background:var(--green-xl);color:var(--green-d);}
 .menu-photo-banner{border-radius:20px;overflow:hidden;margin-bottom:64px;max-height:420px;box-shadow:0 12px 48px rgba(0,0,0,.1);}
 .menu-photo-banner img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease;}
 .menu-photo-banner:hover img{transform:scale(1.02);}
@@ -102,6 +102,10 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 .back-top.visible{opacity:1;pointer-events:all;}.back-top:hover{transform:translateY(-3px);background:var(--green);}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
 .reveal.visible{opacity:1;transform:none;}
+.nav-links a.active,.nav__links a.active{color:var(--gold)!important;font-weight:700!important;position:relative}
+.nav-links a.active::after,.nav__links a.active::after{content:'';position:absolute;bottom:-8px;left:0;right:0;height:2px;background:var(--gold);border-radius:2px}
+.nav--light .nav-links a.active,.nav--light .nav__links a.active{color:var(--green-d)!important}
+.nav--light .nav-links a.active::after,.nav--light .nav__links a.active::after{background:var(--green-d)}
 </style>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -112,19 +116,19 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 </head>
 <body>
 <nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
-  <a href="index.html" class="nav-logo" aria-label="YallaEat - Accueil">YALLA<span>EAT</span></a>
+  <a href="index.html" class="nav-logo" aria-label="YallaEat — Accueil">YALLA<span>EAT</span></a>
   <div class="nav-links" id="navLinks">
     <a href="index.html">Accueil</a>
-    <a href="menu.html" class="active">Menu</a>
+    <a href="menu.html" class="active" aria-current="page">Menu</a>
     <a href="bowl.html">Bowl</a>
     <a href="wrap-sandwich.html">Wraps</a>
     <a href="mezzebox.html">Mezzé Box</a>
     <a href="traiteur.html">Traiteur</a>
-    <a href="contact.html">Contact</a>
     <a href="blog.html">Blog</a>
-    <a href="https://commandes.yallaeat.fr/order/" class="btn-cta" rel="noopener noreferrer" target="_blank">COMMANDEZ</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://commandes.yallaeat.fr/order/" class="btn-cta" target="_blank" rel="noopener noreferrer">COMMANDEZ</a>
   </div>
-  <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false">
+  <button class="nav-burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" type="button">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -155,7 +159,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 <main class="menu-content">
 <section class="menu-category reveal" id="bowls" aria-labelledby="bowls-title">
   <div class="menu-category-header">
-    <div class="menu-category-icon" style="background:#effae5">&#x1F957;</div>
+    <div class="menu-category-icon" style="background:var(--green-xl)">&#x1F957;</div>
     <h2 id="bowls-title">Bowls &amp; Salades<small>Base + protéine + garnitures + sauces — tout sur mesure</small></h2>
   </div>
   <div class="menu-items">
@@ -208,7 +212,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 </div>
 <section class="menu-category reveal" id="rolls" aria-labelledby="rolls-title">
   <div class="menu-category-header">
-    <div class="menu-category-icon" style="background:#fef3e5">&#x1FAD3;</div>
+    <div class="menu-category-icon" style="background:var(--cream-d)">&#x1FAD3;</div>
     <h2 id="rolls-title">Rolls / Sandwiches<small>Wraps libanais généreux dans une galette maison</small></h2>
   </div>
   <div class="menu-items">
@@ -236,7 +240,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 </section>
 <section class="menu-category reveal" id="mezzeboxes" aria-labelledby="mezzeboxes-title">
   <div class="menu-category-header">
-    <div class="menu-category-icon" style="background:#fbe3d9">&#x1F4E6;</div>
+    <div class="menu-category-icon" style="background:var(--peach-l)">&#x1F4E6;</div>
     <h2 id="mezzeboxes-title">Mezzé Boxes<small>Assortiments à partager, généreux &amp; conviviaux</small></h2>
   </div>
   <div class="menu-items">
@@ -267,7 +271,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 </div>
 <section class="menu-category reveal" id="formules" aria-labelledby="formules-title">
   <div class="menu-category-header">
-    <div class="menu-category-icon" style="background:#f0f0ff">&#x1F91D;</div>
+    <div class="menu-category-icon" style="background:var(--green-xl)">&#x1F91D;</div>
     <h2 id="formules-title">Formules Partage<small>Idéal pour partager un moment convivial à table</small></h2>
   </div>
   <div class="menu-items">
@@ -285,7 +289,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 </section>
 <section class="menu-category reveal" id="mezzefroids" aria-labelledby="mezzefroids-title">
   <div class="menu-category-header">
-    <div class="menu-category-icon" style="background:#effae5">&#x1F9C4;</div>
+    <div class="menu-category-icon" style="background:var(--green-xl)">&#x1F9C4;</div>
     <h2 id="mezzefroids-title">Mezzés Froids<small>Houmous, moutabal, taboulé, fattouche — recettes traditionnelles</small></h2>
   </div>
   <div class="menu-items">
@@ -333,7 +337,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 </section>
 <section class="menu-category reveal" id="mezzechauds" aria-labelledby="mezzechauds-title">
   <div class="menu-category-header">
-    <div class="menu-category-icon" style="background:#fff0e8">&#x1F525;</div>
+    <div class="menu-category-icon" style="background:var(--peach)">&#x1F525;</div>
     <h2 id="mezzechauds-title">Mezzés Chauds &amp; Grillades<small>Falafels croustillants, shawarma, taouk &amp; accompagnements</small></h2>
   </div>
   <div class="menu-items">
@@ -371,7 +375,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 </section>
 <section class="menu-category reveal" id="extras" aria-labelledby="extras-title">
   <div class="menu-category-header">
-    <div class="menu-category-icon" style="background:#fef3e5">&#x2795;</div>
+    <div class="menu-category-icon" style="background:var(--cream-d)">&#x2795;</div>
     <h2 id="extras-title">Extras<small>Pains, sauces et petits plaisirs en supplément</small></h2>
   </div>
   <div class="menu-items">
@@ -404,7 +408,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 </section>
 <section class="menu-category reveal" id="desserts" aria-labelledby="desserts-title">
   <div class="menu-category-header">
-    <div class="menu-category-icon" style="background:#fbe3d9">&#x1F36E;</div>
+    <div class="menu-category-icon" style="background:var(--peach-l)">&#x1F36E;</div>
     <h2 id="desserts-title">Desserts Maison<small>Pâtisseries libanaises artisanales préparées chaque jour</small></h2>
   </div>
   <div class="menu-items">
@@ -432,7 +436,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 </section>
 <section class="menu-category reveal" id="boissons" aria-labelledby="boissons-title">
   <div class="menu-category-header">
-    <div class="menu-category-icon" style="background:#e8f4ff">&#x1F964;</div>
+    <div class="menu-category-icon" style="background:var(--green-l)">&#x1F964;</div>
     <h2 id="boissons-title">Boissons<small>Limonades maison, jus orientaux et sodas</small></h2>
   </div>
   <div class="menu-items">
