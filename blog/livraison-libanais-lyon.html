@@ -239,7 +239,7 @@ footer strong{color:#fff;}
 </footer>
 <button class="back-to-top" id="backToTop" aria-label="Retour en haut de page">&uarr;</button><script>
 (function(){
-var nav=document.getElementById("mainNav"),burger=document.getElementById("navBurger"),links=document.getElementById("navLinks"),btt=document.getElementById("backToTop");
+var nav=document.getElementById("mainNav"),burger=document.getElementById("burger"),links=document.getElementById("navLinks"),btt=document.getElementById("backToTop");
 function upNav(){nav.classList.toggle("scrolled",window.scrollY>40);}
 window.addEventListener("scroll",upNav,{passive:true});upNav();
 burger.addEventListener("click",function(){var o=links.classList.toggle("open");burger.setAttribute("aria-expanded",o);});

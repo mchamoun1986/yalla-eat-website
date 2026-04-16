@@ -222,7 +222,7 @@
   var nav=document.getElementById("nav");
   var bt=document.getElementById("backTop");
   window.addEventListener("scroll",function(){nav.classList.toggle("scrolled",window.scrollY>40);bt.classList.toggle("visible",window.scrollY>400);},{passive:true});
-  var burger=document.getElementById("navBurger");
+  var burger=document.getElementById("burger");
   var links=document.getElementById("navLinks");
   burger.addEventListener("click",function(){var o=links.classList.toggle("open");burger.classList.toggle("open",o);burger.setAttribute("aria-expanded",String(o));});
   links.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){links.classList.remove("open");burger.classList.remove("open");burger.setAttribute("aria-expanded","false");});});

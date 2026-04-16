@@ -35,7 +35,6 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 .nav-logo{font-weight:800;font-size:1.5em;letter-spacing:-1px;display:flex;align-items:center;gap:8px}.nav-logo span{color:var(--gold)}
 .nav-links{display:flex;gap:28px;align-items:center}
 .nav-links a{font-size:.85em;font-weight:500;letter-spacing:.3px;position:relative;transition:color .3s;color:rgba(255,255,255,.85)}
-.nav-links a:hover,
 .btn-cta{background:var(--gold);color:var(--black);padding:10px 24px;border-radius:50px;font-weight:600;font-size:.85em;transition:all .3s ease;box-shadow:0 4px 20px rgba(249,173,77,.3);}
 .btn-cta:hover{transform:translateY(-2px);background:var(--gold-d)}
 .nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001}
@@ -527,10 +526,10 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
   var nav=document.getElementById("nav");
   var bt=document.getElementById("backTop");
   window.addEventListener("scroll",function(){nav.classList.toggle("scrolled",window.scrollY>40);bt.classList.toggle("visible",window.scrollY>400);},{passive:true});
-  var burger=document.getElementById("navBurger");
+  var burger=document.getElementById("burger");
   var links=document.getElementById("navLinks");
-  burger.addEventListener("click",function(){var o=links.classList.toggle("open");burger.classList.toggle("open",o);burger.setAttribute("aria-expanded",String(o));});
-  links.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){links.classList.remove("open");burger.classList.remove("open");burger.setAttribute("aria-expanded","false");});});
+  if(burger&&links){burger.addEventListener("click",function(){var o=links.classList.toggle("open");burger.classList.toggle("open",o);burger.setAttribute("aria-expanded",String(o));});
+  links.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){links.classList.remove("open");burger.classList.remove("open");burger.setAttribute("aria-expanded","false");});});}
   var catBtns=document.querySelectorAll(".cat-btn");
   catBtns.forEach(function(btn){btn.addEventListener("click",function(){catBtns.forEach(function(b){b.classList.remove("active");});btn.classList.add("active");var t=document.getElementById(btn.dataset.target);if(t)t.scrollIntoView({behavior:"smooth"});});});
   var secs=document.querySelectorAll(".menu-category");
