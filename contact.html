@@ -199,12 +199,12 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.yallaeat.fr/"},{"@type":"ListItem","position":2,"name":"Contact","item":"https://www.yallaeat.fr/contact.html"}]}
 </script>
 
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/assets/icon-192.png">
-<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.svg" sizes="any">
+<link rel="apple-touch-icon" href="favicon.svg">
+<link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#0d4f3d">
-<script src="/ga4.js" defer></script>
+<script src="ga4.js" defer></script>
 </head>
 <body>
 
@@ -275,16 +275,18 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
       </div>
     </div>
     <div class="map-area">
-      <div class="map-placeholder">
-        <div class="map-grid"></div>
-        <div class="map-streets"></div>
-        <div class="map-pin">&#128205;</div>
-        <div class="map-address">
-          <strong>29 Rue de Bourgogne</strong>
-          <span>69009 Lyon &mdash; Vaise / Valmy</span>
-        </div>
-        <a href="https://maps.google.com/?q=29+Rue+de+Bourgogne+69009+Lyon" target="_blank" rel="noopener noreferrer" class="map-btn">&#128205; Ouvrir dans Google Maps</a>
-      </div>
+      <iframe
+        src="https://maps.google.com/maps?q=29+Rue+de+Bourgogne+Lyon+69009&output=embed"
+        width="100%"
+        height="480"
+        style="border:0;border-radius:20px;box-shadow:0 8px 48px rgba(13,79,61,.12);display:block"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="YallaEat — 29 Rue de Bourgogne, Lyon 9"></iframe>
+      <p style="margin-top:12px;font-size:.85em;color:var(--gray);text-align:center">
+        <a href="https://maps.google.com/?q=29+Rue+de+Bourgogne+69009+Lyon" target="_blank" rel="noopener noreferrer" style="color:var(--green-d);font-weight:600;text-decoration:underline">📍 Ouvrir dans Google Maps</a>
+      </p>
     </div>
   </div>
 </section>

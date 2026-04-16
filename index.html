@@ -78,7 +78,8 @@
       --nav-h:72px
     }
     html{scroll-behavior:smooth;font-size:16px}
-    body{font-family:Poppins,system-ui,sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden;line-height:1.6}
+    body{font-family:Poppins,system-ui,sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden;line-height:1.6;max-width:100vw}
+    .hero,.photos,.marquee,.concept,.menu-section,.why,.traiteur,.reviews,.location{overflow-x:hidden;max-width:100vw}
     img{display:block;max-width:100%}
     a{color:inherit;text-decoration:none}
     .container{width:min(1200px,92vw);margin-inline:auto}
@@ -261,14 +262,17 @@
     .socials{display:flex;gap:.75rem;margin-top:1.5rem}
     .social-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.2rem;border-radius:50px;border:1.5px solid rgba(255,255,255,.2);font-size:.8rem;font-weight:600;color:var(--white);background:rgba(255,255,255,.06);transition:var(--transition)}
     .social-btn:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.35);transform:translateY(-2px)}
-    .footer{background:var(--black);padding:3rem 0 2rem;border-top:1px solid rgba(255,255,255,.06)}
-    .footer__inner{display:grid;grid-template-columns:1fr 2fr;gap:3rem;margin-bottom:2rem}
+    .footer{background:#0a3d2e;padding:3rem 0 2rem;border-top:1px solid rgba(255,255,255,.06)}
+    .footer__inner{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2rem}
+    .footer__brand{display:flex;flex-direction:column;gap:.8rem}
+    .footer__col h4{font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+    .footer__col ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
     .footer__logo{font-size:1.4rem;font-weight:800;color:var(--white);margin-bottom:.6rem}
-    .footer__logo span{color:var(--orange)}
-    .footer__tagline{font-size:.83rem;color:rgba(255,255,255,.45);line-height:1.6}
+    .footer__logo span{color:var(--gold)}
+    .footer__tagline{font-size:.83rem;color:rgba(255,255,255,.6);line-height:1.6}
     .footer__nav{display:flex;flex-wrap:wrap;gap:.5rem 2rem;list-style:none;align-content:flex-start}
-    .footer__nav a{font-size:.83rem;color:rgba(255,255,255,.5);transition:color var(--transition)}
-    .footer__nav a:hover{color:var(--orange-light)}
+    .footer__nav a,.footer__col ul a{font-size:.85rem;color:rgba(255,255,255,.72);transition:color var(--transition)}
+    .footer__nav a:hover,.footer__col ul a:hover{color:var(--gold)}
     .footer__bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
     .footer__copy{font-size:.78rem;color:rgba(255,255,255,.3)}
     .footer__legal{font-size:.78rem;color:rgba(255,255,255,.3);transition:color var(--transition)}
@@ -295,25 +299,28 @@
       .traiteur__features{grid-template-columns:1fr}
       .traiteur__emoji-bg{width:240px;height:240px;font-size:5rem}
       .footer__bottom{flex-direction:column;text-align:center}
-      .hero__bowl{width:220px;height:220px}
+      .hero__bowl{width:200px;height:200px}
+      .bowl__ingredient{width:40px;height:40px;font-size:1.2rem;transform-origin:100px 100px}
+      @keyframes ingredientSpin{from{transform:rotate(0deg) translateX(90px) rotate(0deg)}to{transform:rotate(360deg) translateX(90px) rotate(-360deg)}}
+      .footer__inner{grid-template-columns:1fr!important;gap:1.5rem}
     }
   .nav-links a.active,.nav__links a.active{color:var(--gold)!important;font-weight:700!important;position:relative}
 .nav-links a.active::after,.nav__links a.active::after{content:'';position:absolute;bottom:-8px;left:0;right:0;height:2px;background:var(--gold);border-radius:2px}
 .nav--light .nav-links a.active,.nav--light .nav__links a.active{color:var(--green-d)!important}
 .nav--light .nav-links a.active::after,.nav--light .nav__links a.active::after{background:var(--green-d)}
 </style>
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="/assets/icon-192.png">
-<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.svg" sizes="any">
+<link rel="apple-touch-icon" href="favicon.svg">
+<link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#0d4f3d">
-<script src="/ga4.js" defer></script>
+<script src="ga4.js" defer></script>
 </head>
 <body>
 
   <!-- NAV -->
   <nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
-  <a href="/" class="nav-logo" aria-label="YallaEat — Accueil">YALLA<span>EAT</span></a>
+  <a href="index.html" class="nav-logo" aria-label="YallaEat — Accueil">YALLA<span>EAT</span></a>
   <div class="nav-links" id="navLinks">
     <a href="index.html" class="active" aria-current="page">Accueil</a>
     <a href="menu.html">Menu</a>
@@ -331,9 +338,9 @@
 </nav>
 
   <nav class="nav__mobile" id="mobile-nav" role="navigation" aria-label="Navigation mobile" aria-hidden="true">
-    <a href="/" onclick="closeMenu()">Accueil</a>
+    <a href="index.html" onclick="closeMenu()">Accueil</a>
     <a href="menu.html" onclick="closeMenu()">Menu</a>
-    <a href="bowl.html" onclick="closeMenu()">Bowl Libanais</a>
+    <a href="bowl.html" onclick="closeMenu()">Bowl</a>
     <a href="wrap-sandwich.html" onclick="closeMenu()">Wraps</a>
     <a href="mezzebox.html" onclick="closeMenu()">Mezzé Box</a>
     <a href="traiteur.html" onclick="closeMenu()">Traiteur</a>
@@ -367,8 +374,7 @@
             Restaurant Libanais Lyon 9
           </div>
           <h1 class="hero__h1">
-            Cuisine libanaise<br>
-            <em class="line2">faite maison à Lyon&nbsp;9</em>
+            Cuisine libanaise <em class="line2">faite maison à Lyon&nbsp;9</em>
           </h1>
           <p class="hero__subtitle">
             Shawarma, taouk, grillades, bowls, wraps et mezzé box sur mesure.
@@ -376,11 +382,11 @@
             Sur place, à emporter ou en livraison.
           </p>
           <div class="hero__ctas">
-            <a href="https://commandes.yallaeat.fr/order/" class="btn btn-primary" rel="noopener noreferrer" target="_blank">Commandez en ligne &rarr;</a>
+            <a href="https://commandes.yallaeat.fr/order/" class="btn btn-primary" rel="noopener noreferrer" target="_blank">Commandez en ligne →</a>
             <a href="menu.html" class="btn btn-outline">Voir le menu</a>
           </div>
         </div>
-        <div class="hero__bowl-wrap" aria-hidden="true">
+        <a href="bowl.html" class="hero__bowl-wrap" aria-label="Composer ton bowl sur mesure">
           <div class="hero__bowl">
             <div class="bowl__ingredient">🥬</div>
             <div class="bowl__ingredient">🍅</div>
@@ -391,7 +397,7 @@
             <div class="bowl__ingredient">🫓</div>
             <div class="bowl__base"><div class="bowl__label">Ton bowl<br>sur mesure</div></div>
           </div>
-        </div>
+        </a>
       </div>
     </section>
 
@@ -440,76 +446,6 @@
           <h2 class="concept__title" id="concept-title">Compose ton repas <em>sur mesure</em></h2>
           <p class="concept__subtitle">Choisis chaque composant selon tes envies et tes besoins. Chaque bowl est unique, tout comme toi.</p>
         </div>
-        <div class="builder" role="list">
-          <article class="builder__step" role="listitem">
-            <div class="builder__step-head"><div class="builder__num">1</div><h3 class="builder__step-title">Base fraîcheur</h3></div>
-            <div class="builder__chips" role="group" aria-label="Base fraîcheur">
-              <button class="chip" type="button">Salade composée <em class="kcal">15kcal</em></button>
-              <button class="chip" type="button">Iceberg <em class="kcal">10kcal</em></button>
-              <button class="chip" type="button">Chou <em class="kcal">20kcal</em></button>
-              <button class="chip" type="button">Carottes <em class="kcal">25kcal</em></button>
-            </div>
-          </article>
-          <article class="builder__step" style="transition-delay:.08s" role="listitem">
-            <div class="builder__step-head"><div class="builder__num">2</div><h3 class="builder__step-title">Base féculente</h3></div>
-            <div class="builder__chips" role="group" aria-label="Base féculente">
-              <button class="chip" type="button">Riz <em class="kcal">180kcal</em></button>
-              <button class="chip" type="button">Couscous <em class="kcal">170kcal</em></button>
-              <button class="chip" type="button">Quinoa <em class="kcal">185kcal</em></button>
-              <button class="chip" type="button">Pomme de terre <em class="kcal">150kcal</em></button>
-              <button class="chip" type="button">Pâtes <em class="kcal">200kcal</em></button>
-            </div>
-          </article>
-          <article class="builder__step" style="transition-delay:.16s" role="listitem">
-            <div class="builder__step-head"><div class="builder__num">3</div><h3 class="builder__step-title">Protéine</h3></div>
-            <div class="builder__chips" role="group" aria-label="Protéine">
-              <button class="chip" type="button">Taouk grillé <em class="kcal">165kcal</em></button>
-              <button class="chip" type="button">Shawarma poulet <em class="kcal">190kcal</em></button>
-              <button class="chip" type="button">Shawarma boeuf <em class="kcal">250kcal</em></button>
-              <button class="chip" type="button">Falafels <em class="kcal">140kcal</em></button>
-              <button class="chip" type="button">Chou-fleur zaatar <em class="kcal">80kcal</em></button>
-              <button class="chip" type="button">Thon <em class="kcal">120kcal</em></button>
-              <button class="chip" type="button">Œuf dur <em class="kcal">75kcal</em></button>
-              <button class="chip" type="button">Surimi <em class="kcal">60kcal</em></button>
-            </div>
-          </article>
-          <article class="builder__step" style="transition-delay:.24s" role="listitem">
-            <div class="builder__step-head"><div class="builder__num">4</div><h3 class="builder__step-title">Garnitures (7 max)</h3></div>
-            <div class="builder__chips" role="group" aria-label="Garnitures">
-              <button class="chip" type="button">Tomates <em class="kcal">15kcal</em></button>
-              <button class="chip" type="button">Concombres <em class="kcal">8kcal</em></button>
-              <button class="chip" type="button">Olives <em class="kcal">30kcal</em></button>
-              <button class="chip" type="button">Maïs <em class="kcal">35kcal</em></button>
-              <button class="chip" type="button">Pickles <em class="kcal">5kcal</em></button>
-              <button class="chip" type="button">Jalapeno <em class="kcal">4kcal</em></button>
-              <button class="chip" type="button">Pois chiches <em class="kcal">45kcal</em></button>
-              <button class="chip" type="button">Oignons <em class="kcal">10kcal</em></button>
-              <button class="chip" type="button">Radis <em class="kcal">5kcal</em></button>
-            </div>
-          </article>
-          <article class="builder__step" style="transition-delay:.32s" role="listitem">
-            <div class="builder__step-head"><div class="builder__num">5</div><h3 class="builder__step-title">Sauce (2 max)</h3></div>
-            <div class="builder__chips" role="group" aria-label="Sauce maison">
-              <button class="chip" type="button">Légère</button>
-              <button class="chip" type="button">Yaourt à l&apos;aneth</button>
-              <button class="chip" type="button">Tahini citronné</button>
-              <button class="chip" type="button">Vinaigrette grenade</button>
-              <button class="chip" type="button">Tahini pimenté</button>
-            </div>
-          </article>
-          <article class="builder__step" style="transition-delay:.4s" role="listitem">
-            <div class="builder__step-head"><div class="builder__num">6</div><h3 class="builder__step-title">Topping final</h3></div>
-            <div class="builder__chips" role="group" aria-label="Topping final">
-              <button class="chip" type="button">Pain grillé zaatar <em class="kcal">80kcal</em></button>
-              <button class="chip" type="button">Croutons <em class="kcal">45kcal</em></button>
-              <button class="chip" type="button">Oignons frits <em class="kcal">60kcal</em></button>
-              <button class="chip" type="button">Noix <em class="kcal">65kcal</em></button>
-              <button class="chip" type="button">Cacahuètes <em class="kcal">70kcal</em></button>
-              <button class="chip" type="button">Feta émiettée <em class="kcal">55kcal</em></button>
-            </div>
-          </article>
-        </div>
-
         <!-- INTERACTIVE BUILDER DEMO -->
         <div class="builder-demo">
           <h3>Essaie — compose ton bowl !</h3>
@@ -622,7 +558,7 @@
           </article>
         </div>
         <div class="menu-section__cta">
-          <a href="menu.html" class="btn btn-primary">Voir toute la carte &rarr;</a>
+          <a href="menu.html" class="btn btn-primary">Voir le menu →</a>
         </div>
       </div>
     </section>
@@ -682,7 +618,7 @@
         <div class="traiteur__inner">
           <div class="traiteur__content">
             <div class="section-tag">Service traiteur</div>
-            <h2 class="traiteur__title" id="traiteur-title">On cuisine pour<br><em>vos événements</em></h2>
+            <h2 class="traiteur__title" id="traiteur-title">On cuisine pour <em>vos événements</em></h2>
             <p class="traiteur__desc">
               Séminaire, réunion, mariage, anniversaire ou soirée privée &mdash;
               YallaEat débarque chez vous avec toute la saveur du Liban.
@@ -807,7 +743,7 @@
   <div style="max-width:600px;margin:0 auto">
     <h2>Commandez à emporter à Lyon 9</h2>
     <p>Passez votre commande en ligne et récupérez votre repas en 15 minutes au 29 Rue de Bourgogne (Vaise).</p>
-    <a href="https://commandes.yallaeat.fr/order/" class="btn-cta" target="_blank" rel="noopener">Commander maintenant →</a>
+    <a href="https://commandes.yallaeat.fr/order/" class="btn-cta" target="_blank" rel="noopener">Commandez en ligne →</a>
   </div>
 </section>
 
@@ -815,27 +751,41 @@
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer__inner">
-        <div>
+        <div class="footer__brand">
           <div class="footer__logo">YALLA<span>EAT</span></div>
-          <p class="footer__tagline">Restaurant libanais Lyon 9 (Vaise).<br>Bowls, wraps &amp; mezzés faits maison.<br>Halal &middot; Végé &middot; Vegan &middot; Sans gluten.</p>
+          <p class="footer__tagline">Restaurant libanais Lyon 9 (Vaise).<br>Shawarma, bowls &amp; mezzés faits maison.<br>Halal · Végé · Vegan · Sans gluten.</p>
+          <p class="footer__tagline" style="margin-top:.8rem"><strong style="color:#fff">29 Rue de Bourgogne · 69009 Lyon</strong><br>09 80 66 77 88</p>
         </div>
-        <nav aria-label="Navigation pied de page">
-          <ul class="footer__nav">
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="bowl.html">Bowl Libanais</a></li>
+        <div class="footer__col">
+          <h4>Menu</h4>
+          <ul>
+            <li><a href="menu.html">Carte complète</a></li>
+            <li><a href="bowl.html">Bowl</a></li>
             <li><a href="wrap-sandwich.html">Wraps</a></li>
-        <li><a href="mezzebox.html">Mezzé Box</a></li>
-            <li><a href="traiteur.html">Traiteur</a></li>
+            <li><a href="mezzebox.html">Mezzé Box</a></li>
+            <li><a href="halal.html">Halal</a></li>
+            <li><a href="vegetarien-vegan.html">Végé &amp; Vegan</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="https://commandes.yallaeat.fr/order/" rel="noopener noreferrer" target="_blank">Commander en ligne</a></li>
+            <li><a href="emporter.html">À emporter</a></li>
+            <li><a href="livraison.html">Livraison</a></li>
+            <li><a href="dejeuner-lyon-9.html">Déjeuner Lyon 9</a></li>
+            <li><a href="traiteur.html">Traiteur entreprise</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Entreprise</h4>
+          <ul>
+            <li><a href="mission.html">Notre mission</a></li>
+            <li><a href="blog.html">Blog</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="mentions-legales.html">Mentions légales</a></li>
-            <li><a href="https://commandes.yallaeat.fr/order/" rel="noopener noreferrer" target="_blank">Commandez</a></li>
-            <li><a href="emporter.html">À Emporter</a></li>
-            <li><a href="halal.html">Halal</a></li>
-            <li><a href="vegetarien-vegan.html">Végé & Vegan</a></li>
-            <li><a href="dejeuner-lyon-9.html">Déjeuner Lyon 9</a></li>
-            <li><a href="blog.html">Blog</a></li>
           </ul>
-        </nav>
+        </div>
       </div>
       <div class="footer__bottom">
         <p class="footer__copy">&copy; 2026 YallaEat &mdash; Tous droits réservés</p>
