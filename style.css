@@ -155,19 +155,30 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .cta-banner h2 em{font-family:'Playfair Display',serif;font-style:italic;color:var(--gold)}
 .cta-banner p{color:rgba(255,255,255,.55);font-size:.9em;margin-bottom:32px}
 
-/* 13. FOOTER */
-.site-footer,.footer{padding:48px 5% 28px;background:var(--black);border-top:1px solid rgba(255,255,255,.06);color:#fff}
+/* 13. FOOTER — unified 3-column layout */
+.site-footer,.footer{padding:3rem 5% 2rem;background:var(--black);border-top:1px solid rgba(255,255,255,.06);color:#fff}
+.footer__inner{max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2rem}
+.footer__brand{display:flex;flex-direction:column;gap:.8rem}
+.footer__logo{font-size:1.4rem;font-weight:800;color:#fff;margin-bottom:.6rem}
+.footer__logo span{color:var(--gold)}
+.footer__tagline{font-size:.83rem;color:rgba(255,255,255,.6);line-height:1.6}
+.footer__col h3{font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.footer__col ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.footer__col ul a{font-size:.85rem;color:rgba(255,255,255,.72);transition:color .3s}
+.footer__col ul a:hover{color:var(--gold)}
+.footer__bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:1.5rem;max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+.footer__copy{font-size:.78rem;color:rgba(255,255,255,.3)}
+.footer__legal{font-size:.78rem;color:rgba(255,255,255,.3);transition:color .3s}
+.footer__legal:hover{color:rgba(255,255,255,.6)}
+/* Legacy flat footer compat (blog articles) */
 .footer-inner{max-width:var(--max-width);margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center}
-.footer-logo{font-weight:800;font-size:1.4rem;letter-spacing:-1px;color:#fff}
+.footer-logo{font-weight:800;font-size:1.4rem;letter-spacing:-1px;color:#fff;text-decoration:none}
 .footer-logo span{color:var(--gold)}
 .footer-tagline{font-size:.83rem;color:rgba(255,255,255,.45);line-height:1.6}
 .footer-links,.footer-nav{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
 .footer-links a,.footer-nav a{font-size:.82rem;color:rgba(255,255,255,.5);transition:color .3s}
 .footer-links a:hover,.footer-nav a:hover{color:#fff}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
 .footer-copy{font-size:.75rem;color:rgba(255,255,255,.3);width:100%;text-align:center}
-.footer-legal{font-size:.78rem;color:rgba(255,255,255,.3);transition:color .3s}
-.footer-legal:hover{color:rgba(255,255,255,.6)}
 
 /* 14. CONTENT GRID */
 .content-section{padding:64px 5%;max-width:1200px;margin:0 auto}
@@ -198,13 +209,20 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   .nav--light .nav-links.open{position:fixed;inset:0;background:var(--cream);flex-direction:column;justify-content:center;gap:32px;display:flex;opacity:1;pointer-events:all;z-index:999}
   .nav--light .nav-links.open a{font-size:1.4em;color:var(--black)}
   .features-grid{grid-template-columns:repeat(2,1fr)}
-  .footer-bottom{flex-direction:column;text-align:center}
+  .footer__inner{grid-template-columns:1fr 1fr 1fr;gap:2rem}
+  .footer__brand{grid-column:1/-1}
+  .footer__bottom{flex-direction:column;text-align:center}
 }
 @media(max-width:600px){
   .articles-grid{grid-template-columns:1fr}
   .article-card.featured{flex-direction:column}
   .article-card.featured .article-card-band,.article-card.featured .article-card__band{width:auto;height:5px}
   .features-grid{grid-template-columns:1fr}
+  .footer__inner{grid-template-columns:1fr!important;gap:1.5rem;text-align:center}
+  .footer__brand{text-align:center}
+  .footer__col{text-align:center}
+  .footer__col ul{align-items:center}
+  .footer__bottom{flex-direction:column;text-align:center}
   .page-hero{padding:120px 5% 60px;min-height:40vh}
   .page-hero h1{letter-spacing:-1px}
   .cta-banner{padding:40px 24px;border-radius:20px}
