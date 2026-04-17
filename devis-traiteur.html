@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulateur Devis Traiteur Libanais Lyon — YallaEat</title>
+<meta name="description" content="Simulez votre devis traiteur libanais halal à Lyon 9. Mariages, événements d’entreprise, anniversaires. Réponse sous 24h.">
+<link rel="canonical" href="https://www.yallaeat.fr/devis-traiteur.html">
+<link rel="alternate" hreflang="fr-fr" href="https://www.yallaeat.fr/devis-traiteur.html">
+<link rel="alternate" hreflang="x-default" href="https://www.yallaeat.fr/devis-traiteur.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Simulateur Devis Traiteur Libanais Lyon — YallaEat">
+<meta property="og:description" content="Créez votre devis traiteur libanais halal en 5 minutes. Bowls, mezzes, boxes pour tous vos événements à Lyon.">
+<meta property="og:image" content="https://www.yallaeat.fr/assets/og-yallaeat.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://www.yallaeat.fr/devis-traiteur.html">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="YallaEat">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Simulateur Devis Traiteur Libanais Lyon — YallaEat">
+<meta name="twitter:description" content="Devis traiteur libanais halal Lyon 9. Mariages, entreprises, anniversaires.">
+<meta name="twitter:image" content="https://www.yallaeat.fr/assets/og-yallaeat.jpg">
+<meta name="geo.region" content="FR-69">
+<meta name="geo.placename" content="Lyon 9">
+<meta name="geo.position" content="45.7676;4.8136">
+<meta name="ICBM" content="45.7676, 4.8136">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="ga4.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.yallaeat.fr/"},{"@type":"ListItem","position":2,"name":"Traiteur","item":"https://www.yallaeat.fr/traiteur.html"},{"@type":"ListItem","position":3,"name":"Simulateur Devis","item":"https://www.yallaeat.fr/devis-traiteur.html"}]}</script>
+<style>
+.wizard-wrap{max-width:800px;margin:0 auto;padding:24px 20px 120px}
+h1{text-align:center;font-size:1.8rem;font-weight:900;letter-spacing:-1px;color:var(--green-d);padding:32px 0 8px}
+h1 em{font-family:Georgia,serif;font-style:italic;color:var(--gold)}
+.subtitle{text-align:center;color:var(--gray);font-size:.9rem;margin-bottom:32px}
+
+/* Progress */
+.progress{display:flex;align-items:center;gap:4px;margin-bottom:36px;padding:0 8px}
+.prog-step{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative}
+.prog-dot{width:32px;height:32px;border-radius:50%;background:#e0e0e0;color:#999;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;transition:all .3s;z-index:1}
+.prog-step.active .prog-dot{background:var(--green-d);color:#fff;box-shadow:0 4px 12px rgba(13,79,61,.3)}
+.prog-step.done .prog-dot{background:var(--gold);color:#fff}
+.prog-label{font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-l);text-align:center}
+.prog-step.active .prog-label,.prog-step.done .prog-label{color:var(--green-d)}
+.prog-line{flex:1;height:2px;background:#e0e0e0;min-width:12px}
+.prog-line.done{background:var(--gold)}
+
+/* Panels */
+.panel{display:none;animation:fadeUp .4s ease}
+.panel.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.panel-title{font-size:1.3rem;font-weight:800;color:var(--green-d);margin-bottom:6px}
+.panel-sub{color:var(--gray);font-size:.88rem;margin-bottom:24px}
+
+/* Cards grid */
+.cards{display:grid;gap:12px}
+.cards-3{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+.cards-4{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+.cards-2{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+.card{background:#fff;border-radius:var(--radius);padding:20px 16px;text-align:center;border:2px solid transparent;cursor:pointer;transition:all .25s;box-shadow:var(--shadow)}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.12)}
+.card.selected{border-color:var(--green-d);background:var(--green-xl)}
+.card-icon{font-size:2rem;margin-bottom:8px}
+.card-label{font-weight:700;font-size:.88rem;color:var(--green-d)}
+.card-desc{font-size:.75rem;color:var(--gray);margin-top:4px;line-height:1.4}
+
+/* Formula cards */
+.formula-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.formula-card{background:#fff;border-radius:var(--radius);padding:24px 20px;text-align:center;border:2px solid transparent;cursor:pointer;transition:all .25s;box-shadow:var(--shadow);position:relative}
+.formula-card:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,.12)}
+.formula-card.selected{border-color:var(--green-d);background:var(--green-xl)}
+.formula-card.popular::before{content:"Populaire";position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:.65rem;font-weight:700;padding:3px 12px;border-radius:20px;text-transform:uppercase;letter-spacing:.5px}
+.formula-size{font-size:2rem;font-weight:900;color:var(--green-d)}
+.formula-name{font-size:1rem;font-weight:700;margin:4px 0}
+.formula-price{font-size:1.4rem;font-weight:900;color:var(--gold-d);margin:8px 0}
+.formula-price span{font-size:.7rem;font-weight:500;color:var(--gray)}
+.formula-details{list-style:none;font-size:.78rem;color:var(--gray);line-height:1.8;text-align:left;padding:0 8px}
+.formula-details li::before{content:"✓ ";color:var(--green)}
+
+/* Slider */
+.persons-display{font-size:3.5rem;font-weight:900;color:var(--green-d);text-align:center;margin:16px 0 8px}
+.persons-unit{text-align:center;color:var(--gray);font-size:.85rem;margin-bottom:20px}
+input[type=range]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;background:#e0e0e0;outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--green-d);cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.range-labels{display:flex;justify-content:space-between;font-size:.75rem;color:var(--gray-l);margin-top:4px}
+.persons-input{display:block;width:120px;margin:16px auto 0;padding:8px 12px;border:2px solid #e0e0e0;border-radius:10px;font-size:1rem;text-align:center;font-family:inherit;font-weight:700}
+.persons-input:focus{outline:none;border-color:var(--green-d)}
+
+/* Item selection */
+.category{margin-bottom:28px}
+.cat-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.cat-title{font-size:1rem;font-weight:700;color:var(--green-d)}
+.cat-counter{font-size:.75rem;font-weight:600;padding:4px 12px;border-radius:20px;background:#e0e0e0;color:var(--gray)}
+.cat-counter.full{background:var(--green-d);color:#fff}
+.cat-counter.over{background:var(--gold);color:#fff}
+.cat-hint{font-size:.75rem;color:var(--gray);margin-bottom:12px}
+.item-row{display:flex;align-items:center;gap:12px;padding:12px 16px;background:#fff;border-radius:12px;margin-bottom:6px;cursor:pointer;transition:all .2s;border:2px solid transparent}
+.item-row:hover{background:var(--cream-d)}
+.item-row.selected{border-color:var(--green-d);background:var(--green-xl)}
+.item-row.disabled{opacity:.35;pointer-events:none}
+.item-check{width:24px;height:24px;border-radius:8px;border:2px solid #ccc;display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0;transition:all .2s}
+.item-row.selected .item-check{background:var(--green-d);border-color:var(--green-d);color:#fff}
+.item-info{flex:1}
+.item-name{font-weight:600;font-size:.88rem}
+.item-desc{font-size:.72rem;color:var(--gray);margin-top:2px}
+.item-badges{display:flex;gap:4px;margin-top:4px}
+.item-badge{font-size:.6rem;font-weight:600;padding:2px 8px;border-radius:12px}
+.badge-vegan{background:#e8f5e9;color:#2e7d32}
+.badge-vege{background:#e8f5e9;color:#388e3c}
+.badge-halal{background:#e3f2fd;color:#1565c0}
+.badge-sg{background:#fff3e0;color:#e65100}
+.item-tag{font-size:.72rem;font-weight:600;color:var(--green);white-space:nowrap;flex-shrink:0}
+.item-tag.extra{color:var(--gold-d)}
+
+/* Quantity input for verrines */
+.qty-wrap{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.qty-btn{width:28px;height:28px;border-radius:50%;border:2px solid #ccc;background:#fff;font-size:1rem;font-weight:700;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;color:var(--gray)}
+.qty-btn:hover{border-color:var(--green-d);color:var(--green-d)}
+.qty-val{font-size:.9rem;font-weight:700;min-width:28px;text-align:center}
+
+/* Box mode */
+.box-card{background:#fff;border-radius:var(--radius);padding:20px;margin-bottom:12px;box-shadow:var(--shadow)}
+.box-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.box-name{font-weight:700;font-size:1rem;color:var(--green-d)}
+.box-price{font-weight:800;color:var(--gold-d);font-size:1.1rem}
+.box-content{font-size:.78rem;color:var(--gray);margin-bottom:12px;line-height:1.5}
+.box-qty{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+.box-qty-label{font-size:.8rem;color:var(--gray)}
+
+/* Filters */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.filter-pill{padding:6px 14px;border-radius:20px;font-size:.75rem;font-weight:600;background:#fff;border:2px solid #e0e0e0;cursor:pointer;transition:all .2s}
+.filter-pill:hover{border-color:var(--green)}
+.filter-pill.active{background:var(--green-d);color:#fff;border-color:var(--green-d)}
+
+.nav-btns{display:flex;justify-content:space-between;margin-top:32px;gap:12px}
+.wiz-btn{padding:12px 28px;border-radius:50px;font-size:.88rem;font-weight:700;border:none;cursor:pointer;transition:all .25s;font-family:inherit}
+.wiz-btn-back{background:#fff;color:var(--gray);border:2px solid #e0e0e0}
+.wiz-btn-back:hover{border-color:var(--green-d);color:var(--green-d)}
+.wiz-btn-next{background:var(--green-d);color:#fff;box-shadow:0 4px 16px rgba(13,79,61,.3)}
+.wiz-btn-next:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(13,79,61,.4)}
+.wiz-btn-gold{background:var(--gold);color:#fff;box-shadow:0 4px 16px rgba(249,173,77,.3)}
+.wiz-btn-gold:hover{transform:translateY(-2px);background:var(--gold-d)}
+
+/* Recap */
+.recap-section{background:#fff;border-radius:var(--radius);padding:20px;margin-bottom:16px;box-shadow:var(--shadow)}
+.recap-title{font-size:.85rem;font-weight:700;color:var(--gold-d);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.recap-row{display:flex;justify-content:space-between;padding:6px 0;font-size:.85rem;border-bottom:1px solid #f0f0f0}
+.recap-row:last-child{border-bottom:none}
+.recap-label{color:var(--gray)}
+.recap-value{font-weight:600}
+.recap-total-box{background:var(--green-d);color:#fff;border-radius:var(--radius);padding:24px;text-align:center;margin:16px 0}
+.recap-total-label{font-size:.85rem;opacity:.7;margin-bottom:4px}
+.recap-total-amount{font-size:2.2rem;font-weight:900}
+.recap-total-detail{font-size:.8rem;opacity:.6;margin-top:4px}
+
+/* Form */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:500px){.form-grid{grid-template-columns:1fr}}
+.form-group{display:flex;flex-direction:column;gap:4px}
+.form-group.full{grid-column:1/-1}
+.form-label{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--gray)}
+.form-input{padding:10px 14px;border:2px solid #e0e0e0;border-radius:10px;font-size:.88rem;font-family:inherit;transition:border-color .2s}
+.form-input:focus{outline:none;border-color:var(--green-d)}
+textarea.form-input{min-height:80px;resize:vertical}
+
+/* Price bar */
+.price-bar{position:fixed;bottom:0;left:0;right:0;background:var(--green-d);color:#fff;padding:12px 24px;z-index:100;display:none;box-shadow:0 -4px 24px rgba(0,0,0,.15)}
+.price-bar-inner{max-width:800px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.price-bar-detail{font-size:.8rem;opacity:.75}
+.price-bar-total{font-size:1.1rem;font-weight:800}
+
+/* Box distribute */
+.box-distribute-total{text-align:center;margin:16px 0;padding:12px;border-radius:12px;font-weight:700;font-size:.9rem}
+.box-distribute-total.ok{background:var(--green-xl);color:var(--green-d)}
+.box-distribute-total.warn{background:#fff3e0;color:#e65100}
+
+@media(max-width:600px){
+  .formula-cards{grid-template-columns:1fr}
+  .cards-3{grid-template-columns:repeat(2,1fr)}
+  h1{font-size:1.4rem}
+}
+
+</style>
+</head>
+<body>
+<nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
+  <a href="index.html" class="nav-logo" aria-label="YallaEat — Accueil">YALLA<span>EAT</span></a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Accueil</a>
+    <a href="menu.html">Menu</a>
+    <a href="bowl.html">Bowl</a>
+    <a href="wrap-sandwich.html" >Wraps</a>
+    <a href="mezzebox.html">Mezzé Box</a>
+    <a href="traiteur.html" class="active" aria-current="page">Traiteur</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://commandes.yallaeat.fr/order/" class="btn-cta" target="_blank" rel="noopener noreferrer">COMMANDEZ</a>
+  </div>
+  <button class="nav-burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" type="button">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="page-hero__content">
+    <span class="page-hero__tag">Traiteur Halal Lyon 9</span>
+    <h1 class="page-hero__title">Simulateur de Devis<br><em>Traiteur Libanais</em></h1>
+    <p class="page-hero__desc">Composez votre menu en 7 étapes et obtenez une estimation instantanée.</p>
+  </div>
+</section>
+
+<!-- Breadcrumb -->
+<nav class="breadcrumb" aria-label="Fil d’Ariane">
+  <div class="container" style="max-width:var(--max-width,1200px);margin:0 auto;padding:0 5%">
+    <ol class="breadcrumb__list">
+      <li class="breadcrumb__item"><a href="index.html">Accueil</a></li>
+      <li class="breadcrumb__item"><a href="traiteur.html">Traiteur</a></li>
+      <li class="breadcrumb__item breadcrumb__item--active" aria-current="page">Simulateur Devis</li>
+    </ol>
+  </div>
+</nav>
+
+
+<!-- Wizard -->
+<section class="content-section" style="background:var(--cream,#fdf8f3);padding:48px 0 80px">
+  <div class="wizard-wrap">
+    <div class="progress" id="progress"></div>
+
+    <!-- Panel 1 -->
+    <div class="panel active" id="panel-1">
+      <div class="panel-title">Quel type d’événement ?</div>
+      <div class="panel-sub">Sélectionnez la catégorie la plus proche</div>
+      <div class="cards cards-3" id="eventGrid"></div>
+      <div class="nav-btns"><span></span><button class="wiz-btn wiz-btn-next" onclick="next()">Suivant</button></div>
+    </div>
+
+    <!-- Panel 2 -->
+    <div class="panel" id="panel-2">
+      <div class="panel-title">Combien d’invités ?</div>
+      <div class="panel-sub">Ajustez avec le curseur ou saisissez le nombre exact</div>
+      <div class="persons-display" id="personsDisplay">30</div>
+      <div class="persons-unit">invités</div>
+      <input type="range" id="personsSlider" min="10" max="500" value="30" step="5" oninput="updatePersons(this.value)">
+      <div class="range-labels"><span>10</span><span>100</span><span>200</span><span>300</span><span>500</span></div>
+      <input type="number" id="personsInput" class="persons-input" min="10" max="500" value="30" onchange="updatePersons(this.value)">
+      <div class="nav-btns"><button class="wiz-btn wiz-btn-back" onclick="prev()">&larr; Retour</button><button class="wiz-btn wiz-btn-next" onclick="next()">Suivant &rarr;</button></div>
+    </div>
+
+    <!-- Panel 3 -->
+    <div class="panel" id="panel-3">
+      <div class="panel-title">Quel style de service ?</div>
+      <div class="panel-sub">Choisissez le format qui correspond à votre événement</div>
+      <div class="cards cards-2" id="styleGrid"></div>
+      <div class="nav-btns"><button class="wiz-btn wiz-btn-back" onclick="prev()">&larr; Retour</button><button class="wiz-btn wiz-btn-next" onclick="next()">Suivant &rarr;</button></div>
+    </div>
+
+    <!-- Panel 4 -->
+    <div class="panel" id="panel-4">
+      <div class="panel-title" id="formulaTitle">Choisissez votre formule</div>
+      <div class="panel-sub" id="formulaSub">3 formules adaptées à vos envies</div>
+      <div id="formulaContainer"></div>
+      <div class="nav-btns"><button class="wiz-btn wiz-btn-back" onclick="prev()">&larr; Retour</button><button class="wiz-btn wiz-btn-next" onclick="next()">Suivant &rarr;</button></div>
+    </div>
+
+    <!-- Panel 5 -->
+    <div class="panel" id="panel-5">
+      <div class="panel-title" id="persoTitle">Personnalisez votre menu</div>
+      <div class="panel-sub" id="persoSub">Sélectionnez les plats de votre choix</div>
+      <div id="filtersContainer"></div>
+      <div id="persoContainer"></div>
+      <div class="nav-btns"><button class="wiz-btn wiz-btn-back" onclick="prev()">&larr; Retour</button><button class="wiz-btn wiz-btn-next" onclick="next()">Suivant &rarr;</button></div>
+    </div>
+
+    <!-- Panel 6 -->
+    <div class="panel" id="panel-6">
+      <div class="panel-title">Boissons &amp; Desserts</div>
+      <div class="panel-sub">Ajoutez des extras à votre formule</div>
+      <div id="bevContainer"></div>
+      <div id="desContainer"></div>
+      <div class="nav-btns"><button class="wiz-btn wiz-btn-back" onclick="prev()">&larr; Retour</button><button class="wiz-btn wiz-btn-next" onclick="next()">Voir le récap &rarr;</button></div>
+    </div>
+
+    <!-- Panel 7: Recap + Contact -->
+    <div class="panel" id="panel-7">
+      <div class="panel-title">Récapitulatif &amp; Demande de devis</div>
+      <div class="panel-sub">Vérifiez votre sélection et renseignez vos coordonnées</div>
+      <div id="recapContainer"></div>
+      <div class="recap-section" style="margin-top:24px">
+        <div class="recap-title">Vos coordonnées</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="cName">Nom *</label>
+            <input type="text" id="cName" class="form-input" placeholder="Votre nom" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cEmail">Email *</label>
+            <input type="email" id="cEmail" class="form-input" placeholder="votre@email.fr" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cPhone">Téléphone</label>
+            <input type="tel" id="cPhone" class="form-input" placeholder="06 XX XX XX XX">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cDate">Date de l’événement</label>
+            <input type="date" id="cDate" class="form-input">
+          </div>
+          <div class="form-group full">
+            <label class="form-label" for="cMsg">Message complémentaire</label>
+            <textarea id="cMsg" class="form-input" placeholder="Adresse, contraintes alimentaires..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="nav-btns" style="flex-wrap:wrap;gap:12px">
+        <button class="wiz-btn wiz-btn-back" onclick="prev()">&larr; Retour</button>
+        <button class="wiz-btn wiz-btn-gold" onclick="downloadPDF()">Télécharger PDF</button>
+        <button class="wiz-btn wiz-btn-next" onclick="sendDevis()">Envoyer ma demande &#9993;</button>
+      </div>
+      <p style="font-size:.75rem;color:var(--gray,#888);text-align:center;margin-top:12px">
+        Réponse garantie sous 24h — yallaeat69@gmail.com — 09 80 66 77 88
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<div class="price-bar" id="priceBar">
+  <div class="price-bar-inner">
+    <div>
+      <div class="price-bar-detail" id="pricePLabel">(30 pers.)</div>
+      <div style="font-size:.75rem;opacity:.6">Estimation</div>
+    </div>
+    <div style="text-align:right">
+      <div style="font-size:.75rem;opacity:.75" id="pricePP">0,00€/pers</div>
+      <div class="price-bar-total" id="priceTotal">0€</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="content-section" style="background:var(--green-d,#0d4f3d);padding:56px 0;text-align:center">
+  <div class="container" style="max-width:700px;margin:0 auto;padding:0 5%">
+    <h2 style="color:#fff;font-size:1.8rem;font-weight:900;margin-bottom:12px">Une question avant de simuler ?</h2>
+    <p style="color:rgba(255,255,255,.75);margin-bottom:28px">Appelez-nous ou consultez notre page traiteur pour toutes nos formules.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+      <a href="tel:+33980667788" style="display:inline-block;padding:12px 28px;border-radius:50px;font-weight:700;border:2px solid #fff;color:#fff;text-decoration:none">09 80 66 77 88</a>
+      <a href="traiteur.html" style="display:inline-block;padding:12px 28px;border-radius:50px;font-weight:700;background:var(--gold,#f9ad4d);color:#fff;text-decoration:none">Voir les formules traiteur</a>
+    </div>
+  </div>
+</section>
+<footer class="footer" role="contentinfo">
+  <div class="container" style="max-width:var(--max-width,1200px);margin:0 auto;padding:0 5%">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="footer__logo">YALLA<span>EAT</span></div>
+        <p class="footer__tagline">Restaurant libanais Lyon 9 (Vaise).<br>Shawarma, bowls &amp; mezzés faits maison.<br>Halal · Végé · Vegan · Sans gluten.</p>
+        <p class="footer__tagline" style="margin-top:.8rem"><strong style="color:#fff">29 Rue de Bourgogne · 69009 Lyon</strong><br>09 80 66 77 88</p>
+      </div>
+      <div class="footer__col">
+        <h3>Menu</h3>
+        <ul>
+          <li><a href="menu.html">Carte complète</a></li>
+          <li><a href="bowl.html">Bowl</a></li>
+          <li><a href="wrap-sandwich.html">Wraps</a></li>
+          <li><a href="mezzebox.html">Mezzé Box</a></li>
+          <li><a href="halal.html">Halal</a></li>
+          <li><a href="vegetarien-vegan.html">Végé &amp; Vegan</a></li>
+          <li><a href="shawarma-lyon.html">Shawarma</a></li>
+          <li><a href="grillade-libanaise.html">Grillades</a></li>
+          <li><a href="falafel-lyon.html">Falafel</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="https://commandes.yallaeat.fr/order/" rel="noopener noreferrer" target="_blank">Commander en ligne</a></li>
+          <li><a href="emporter.html">À emporter</a></li>
+          <li><a href="livraison.html">Livraison</a></li>
+          <li><a href="dejeuner-lyon-9.html">Déjeuner Lyon 9</a></li>
+          <li><a href="traiteur.html">Traiteur entreprise</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h3>YallaEat</h3>
+        <ul>
+          <li><a href="mission.html">Notre mission</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 YallaEat &mdash; Tous droits réservés</p>
+      <a href="mentions-legales.html" class="footer__legal">Mentions légales</a>
+    </div>
+  </div>
+</footer>
+
+<button class="back-top" id="backTop" aria-label="Retour en haut">&#x2191;</button>
+<script>
+
+(function(){
+  var nav=document.getElementById("nav");
+  var bt=document.getElementById("backTop");
+  window.addEventListener("scroll",function(){nav.classList.toggle("scrolled",window.scrollY>40);bt.classList.toggle("visible",window.scrollY>400);},{passive:true});
+  var burger=document.getElementById("burger");
+  var links=document.getElementById("navLinks");
+  burger.addEventListener("click",function(){var o=links.classList.toggle("open");burger.classList.toggle("open",o);burger.setAttribute("aria-expanded",String(o));});
+  links.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){links.classList.remove("open");burger.classList.remove("open");burger.setAttribute("aria-expanded","false");});});
+  var revs=document.querySelectorAll(".reveal");
+  var rObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add("visible");rObs.unobserve(e.target);}});},{threshold:0.08});
+  revs.forEach(function(r){rObs.observe(r);});
+  bt.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"});});
+  var faqBtns=document.querySelectorAll(".faq-q");
+  faqBtns.forEach(function(btn){
+    btn.addEventListener("click",function(){
+      var expanded=btn.getAttribute("aria-expanded")==="true";
+      faqBtns.forEach(function(b){b.setAttribute("aria-expanded","false");var a=document.getElementById(b.getAttribute("aria-controls"));if(a)a.classList.remove("open");});
+      if(!expanded){btn.setAttribute("aria-expanded","true");var a=document.getElementById(btn.getAttribute("aria-controls"));if(a)a.classList.add("open");}
+    });
+  });
+})();
+
+</script>
+<script>
+/* ===== DATA ===== */
+const EVENTS = [
+  {id:'mariage',label:'Mariage',icon:'💍'},
+  {id:'anniversaire',label:'Anniversaire',icon:'🎂'},
+  {id:'corporate',label:'Corporate',icon:'💼'},
+  {id:'cocktail',label:'Cocktail',icon:'🍸'},
+  {id:'prive',label:'Privé / Famille',icon:'👨‍👩‍👧‍👦'},
+  {id:'autre',label:'Autre',icon:'✨'}
+];
+
+const STYLES = [
+  {id:'verrines',label:'Verrines & Bouchées',icon:'🥂',desc:'Pièces individuelles élégantes — commandez par quantité'},
+  {id:'buffet',label:'Buffet',icon:'🍽️',desc:'Grands bols en libre-service — idéal grands groupes'},
+  {id:'table',label:'Repas à table',icon:'🪑',desc:'Petits bols sur table — plus de variété'},
+  {id:'box',label:'Plateau-repas',icon:'🍱',desc:'Plateaux individuels complets — chacun choisit sa formule'}
+];
+
+const FORMULAS = {
+  verrines: {
+    S:{label:'Essentiel',price:15,pieces:6,bevIncl:false},
+    M:{label:'Généreux',price:22,pieces:9,bevIncl:false,popular:true},
+    L:{label:'Prestige',price:28,pieces:12,bevIncl:true}
+  },
+  buffet: {
+    S:{label:'Essentiel',price:18,coldSlots:4,hotSlots:1,baseSlots:1,bevIncl:false},
+    M:{label:'Généreux',price:25,coldSlots:5,hotSlots:2,baseSlots:2,bevIncl:false,popular:true},
+    L:{label:'Prestige',price:35,coldSlots:7,hotSlots:3,baseSlots:2,bevIncl:true}
+  },
+  table: {
+    S:{label:'Essentiel',price:20,coldSlots:5,hotSlots:1,baseSlots:1,bevIncl:false},
+    M:{label:'Généreux',price:28,coldSlots:6,hotSlots:2,baseSlots:2,bevIncl:false,popular:true},
+    L:{label:'Prestige',price:38,coldSlots:8,hotSlots:3,baseSlots:2,bevIncl:true}
+  }
+};
+
+const VERRINES = [
+  {id:'vr1',name:'Verrine houmous pistache',price:2.5,premium:false,tags:['vegan','sg']},
+  {id:'vr2',name:'Verrine moutabal',price:2.5,premium:false,tags:['vegan','sg']},
+  {id:'vr3',name:'Verrine taboulé',price:2.5,premium:false,tags:['vegan']},
+  {id:'vr4',name:'Verrine labné grenade',price:2.5,premium:false,tags:['vege']},
+  {id:'vr5',name:'Verrine fattouche',price:3,premium:false,tags:['vegan']},
+  {id:'vr6',name:'Mini falafel + tarator',price:2.5,premium:false,tags:['vegan']},
+  {id:'vr7',name:'Feuilles de vigne (×2)',price:2.5,premium:false,tags:['vegan']},
+  {id:'vr8',name:'Mini kebbé',price:3,premium:true,extra:0.5,tags:['halal']},
+  {id:'vr9',name:'Verrine mouhamara',price:3,premium:true,extra:0.5,tags:['vegan']},
+  {id:'vr10',name:'Mini taouk brochette',price:3.5,premium:true,extra:1,tags:['halal']},
+  {id:'vr11',name:'Mini shawarma cup',price:3.5,premium:true,extra:1,tags:['halal']}
+];
+
+const COLD_MEZZES = [
+  {id:'mf1',name:'Houmous',desc:'Pois chiches, tahini, citron',price:3,tags:['vegan','sg']},
+  {id:'mf2',name:'Moutabal',desc:'Aubergines grillées, tahini',price:3,tags:['vegan','sg']},
+  {id:'mf3',name:'Labné',desc:'Fromage frais, huile d\'olive, menthe',price:3,tags:['vege']},
+  {id:'mf4',name:'Taboulé vert',desc:'Persil, menthe, boulgour, citron',price:3,tags:['vegan']},
+  {id:'mf5',name:'Salade fattouche',desc:'Laitue, pain grillé, sumac',price:3.5,tags:['vegan']},
+  {id:'mf6',name:'Feuilles de vigne',desc:'Riz, herbes, citron',price:3.5,tags:['vegan']},
+  {id:'mf7',name:'Salade de choux',desc:'Chou blanc, vinaigrette citron',price:2.5,tags:['vegan']},
+  {id:'mf8',name:'Toum',desc:'Crème d\'ail montée',price:1.5,tags:['vegan']}
+];
+
+const HOT_MEZZES = [
+  {id:'mc1',name:'Falafel ×4 + tarator',desc:'Pois chiches, herbes, sésame',price:4,tags:['vegan']},
+  {id:'mc2',name:'Shawarma poulet + toum',desc:'Poulet mariné, épices, ail',price:5,tags:['halal']},
+  {id:'mc3',name:'Taouk poulet + toum',desc:'Brochette grillée, yaourt',price:5,tags:['halal']},
+  {id:'mc6',name:'Shawarma boeuf',desc:'Boeuf effiloché aux épices',price:6,tags:['halal']},
+  {id:'mc7',name:'Chou-fleur zaatar',desc:'Chou-fleur rôti, curcuma',price:4,tags:['vegan','sg']}
+];
+
+const BASES = [
+  {id:'mc4',name:'Riz à la vermicelle',desc:'Riz basmati, vermicelles dorés',price:3,tags:['vege']},
+  {id:'mc5',name:'Pomme de terre sautée',desc:'Dorées aux herbes',price:3,tags:['vegan']},
+  {id:'bs3',name:'Salade verte',desc:'Laitue, concombre, tomates',price:2.5,tags:['vegan','sg']},
+  {id:'bs4',name:'Boulgour',desc:'Boulgour nature',price:3,tags:['vegan']}
+];
+
+const BOXES = [
+  {id:'bx1',name:'Plateau Végétarien',content:'Houmous + moutabal + falafel ×4 + taboulé + fattouche + feuilles de vigne + riz + dessert',price:14,tags:['vegan']},
+  {id:'bx2',name:'Plateau Taouk Poulet',content:'Houmous + taouk grillé + riz vermicelle + taboulé + toum + dessert',price:16,tags:['halal']},
+  {id:'bx3',name:'Plateau Shawarma Poulet',content:'Houmous + shawarma poulet + riz vermicelle + fattouche + toum + dessert',price:16,tags:['halal']},
+  {id:'bx4',name:'Plateau Shawarma Boeuf',content:'Houmous + shawarma boeuf + riz vermicelle + moutabal + toum + dessert',price:18,tags:['halal']},
+  {id:'bx5',name:'Plateau Mixte Grillades',content:'Houmous + taouk + shawarma poulet + riz + taboulé + toum + dessert',price:19,tags:['halal']}
+];
+
+const BEVERAGES = [
+  {id:'bv1',name:'Eau plate (50cl)',price:2},
+  {id:'bv2',name:'Eau pétillante',price:2.5},
+  {id:'bv3',name:'Coca / Sprite / Orangina',price:2.5},
+  {id:'bv4',name:'Limonade maison',price:3.5},
+  {id:'bv5',name:'Jus de rose maison',price:3.5},
+  {id:'bv6',name:'Jus de mûre maison',price:3.5},
+  {id:'bv7',name:'Pack boissons complet',price:5.5}
+];
+
+const DESSERTS = [
+  {id:'ds1',name:'Baklawa (pièce)',price:2.5},
+  {id:'ds2',name:'Mouhalabiyeh (flan libanais)',price:4},
+  {id:'ds3',name:'Halawa pistache',price:3.5},
+  {id:'ds4',name:'Yaourt confiture de rose',price:3.5},
+  {id:'ds5',name:'Plateau desserts mixte',price:6}
+];
+
+const TAG_MAP = {
+  vegan:{label:'Vegan',cls:'badge-vegan'},
+  vege:{label:'Végé',cls:'badge-vege'},
+  halal:{label:'Halal',cls:'badge-halal'},
+  sg:{label:'Sans gluten',cls:'badge-sg'}
+};
+
+/* ===== STATE ===== */
+const S = {
+  step:1, event:'', persons:30, style:'', formula:'',
+  // Verrines mode: {id: qty}
+  verrineQty: {},
+  // Buffet/Table mode: selected IDs
+  selCold:[], selHot:[], selBase:[],
+  // Box mode: {id: qty}
+  boxQty: {},
+  // Extras
+  selBev:[], selDes:[],
+  filters:{vegan:false,vege:false,halal:false,sg:false}
+};
+
+const STEPS = ['Événement','Invités','Style','Formule','Menu','Extras','Récap'];
+
+/* ===== PROGRESS ===== */
+function renderProgress(){
+  const el = document.getElementById('progress');
+  let h = '';
+  STEPS.forEach((s,i) => {
+    const n = i+1;
+    const cls = n < S.step ? 'done' : n === S.step ? 'active' : '';
+    const dot = n < S.step ? '✓' : n;
+    h += `<div class="prog-step ${cls}"><div class="prog-dot">${dot}</div><div class="prog-label">${s}</div></div>`;
+    if(i < STEPS.length-1) h += `<div class="prog-line${n < S.step ? ' done' : ''}"></div>`;
+  });
+  el.innerHTML = h;
+}
+
+/* ===== NAVIGATION ===== */
+function goTo(n){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-'+n).classList.add('active');
+  S.step = n;
+  renderProgress();
+  document.getElementById('priceBar').style.display = n >= 4 ? 'block' : 'none';
+  if(n===4) renderFormula();
+  if(n===5) renderPerso();
+  if(n===6) renderExtras();
+  if(n===7) renderRecap();
+  updatePrice();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function next(){
+  if(S.step===1 && !S.event){alert('Sélectionnez un événement.');return;}
+  if(S.step===3 && !S.style){alert('Choisissez un style.');return;}
+  if(S.step===4 && S.style!=='box' && !S.formula){alert('Choisissez une formule.');return;}
+  if(S.step < 7) goTo(S.step+1);
+}
+function prev(){if(S.step > 1) goTo(S.step-1);}
+
+/* ===== STEP 1: EVENT ===== */
+function renderEvents(){
+  document.getElementById('eventGrid').innerHTML = EVENTS.map(e=>
+    `<div class="card${S.event===e.id?' selected':''}" onclick="pickEvent('${e.id}')">
+      <div class="card-icon">${e.icon}</div>
+      <div class="card-label">${e.label}</div>
+    </div>`
+  ).join('');
+}
+function pickEvent(id){S.event=id;renderEvents();}
+
+/* ===== STEP 2: PERSONS ===== */
+function updatePersons(v){
+  v = Math.max(10,Math.min(500,parseInt(v)||10));
+  S.persons = v;
+  document.getElementById('personsDisplay').textContent = v;
+  document.getElementById('personsSlider').value = v;
+  document.getElementById('personsInput').value = v;
+  updatePrice();
+}
+
+/* ===== STEP 3: STYLE ===== */
+function renderStyles(){
+  document.getElementById('styleGrid').innerHTML = STYLES.map(s=>
+    `<div class="card${S.style===s.id?' selected':''}" onclick="pickStyle('${s.id}')">
+      <div class="card-icon">${s.icon}</div>
+      <div class="card-label">${s.label}</div>
+      <div class="card-desc">${s.desc}</div>
+    </div>`
+  ).join('');
+}
+function pickStyle(id){
+  S.style=id;
+  S.formula='';
+  S.verrineQty={};S.selCold=[];S.selHot=[];S.selBase=[];S.boxQty={};S.selBev=[];S.selDes=[];
+  renderStyles();
+}
+
+/* ===== STEP 4: FORMULA ===== */
+function renderFormula(){
+  const ct = document.getElementById('formulaContainer');
+  if(S.style==='box'){
+    document.getElementById('formulaTitle').textContent = 'Choisissez vos plateaux-repas';
+    document.getElementById('formulaSub').textContent = 'Répartissez le nombre de plateaux par variante';
+    renderBoxSelection(ct);
+    return;
+  }
+  document.getElementById('formulaTitle').textContent = 'Choisissez votre formule';
+  document.getElementById('formulaSub').textContent = '3 formules adaptées à vos envies et votre budget';
+  const formulas = FORMULAS[S.style];
+  if(!formulas){ct.innerHTML='';return;}
+  ct.innerHTML = '<div class="formula-cards">'+Object.entries(formulas).map(([k,f])=>{
+    let details = '';
+    if(S.style==='verrines'){
+      details = `<li>${f.pieces} pièces/pers incluses</li>`;
+    } else {
+      details = `<li>${f.coldSlots} mezzés froids</li><li>${f.hotSlots} protéine${f.hotSlots>1?'s':''}</li><li>${f.baseSlots} base${f.baseSlots>1?'s':''}</li><li>Pain inclus</li>`;
+    }
+    if(f.bevIncl) details += '<li>Boissons incluses</li>';
+    return `<div class="formula-card${S.formula===k?' selected':''}${f.popular?' popular':''}" onclick="pickFormula('${k}')">
+      <div class="formula-size">${k}</div>
+      <div class="formula-name">${f.label}</div>
+      <div class="formula-price">${f.price}€<span>/pers</span></div>
+      <ul class="formula-details">${details}</ul>
+    </div>`;
+  }).join('')+'</div>';
+}
+
+function pickFormula(k){
+  S.formula=k;
+  S.verrineQty={};S.selCold=[];S.selHot=[];S.selBase=[];
+  renderFormula();
+  updatePrice();
+}
+
+function renderBoxSelection(ct){
+  const totalBoxes = Object.values(S.boxQty).reduce((a,b)=>a+b,0);
+  const match = totalBoxes === S.persons;
+  let h = `<div class="box-distribute-total ${match?'ok':'warn'}">
+    ${totalBoxes} / ${S.persons} plateaux répartis ${match?'✓':'— ajustez pour matcher le nombre d\'invités'}
+  </div>`;
+  BOXES.forEach(b=>{
+    const qty = S.boxQty[b.id]||0;
+    h += `<div class="box-card">
+      <div class="box-header">
+        <div class="box-name">${b.name}</div>
+        <div class="box-price">${b.price}€/plateau</div>
+      </div>
+      <div class="box-content">${b.content}</div>
+      <div class="box-qty">
+        <span class="box-qty-label">Quantité :</span>
+        <div class="qty-wrap">
+          <div class="qty-btn" onclick="adjBox('${b.id}',-1)">−</div>
+          <div class="qty-val">${qty}</div>
+          <div class="qty-btn" onclick="adjBox('${b.id}',1)">+</div>
+        </div>
+      </div>
+    </div>`;
+  });
+  ct.innerHTML = h;
+}
+
+function adjBox(id,d){
+  if(!S.boxQty[id]) S.boxQty[id]=0;
+  S.boxQty[id] = Math.max(0, S.boxQty[id]+d);
+  renderFormula();
+  updatePrice();
+}
+
+/* ===== STEP 5: PERSONALIZATION ===== */
+function renderPerso(){
+  const ct = document.getElementById('persoContainer');
+  const fct = document.getElementById('filtersContainer');
+  if(S.style==='box'){
+    document.getElementById('persoTitle').textContent = 'Récapitulatif des plateaux';
+    document.getElementById('persoSub').textContent = 'Vos plateaux sont prêts — passez aux boissons';
+    fct.innerHTML = '';
+    let h = '';
+    BOXES.forEach(b=>{
+      const qty = S.boxQty[b.id]||0;
+      if(qty>0) h += `<div class="item-row selected"><div class="item-check">✓</div><div class="item-info"><div class="item-name">${b.name} × ${qty}</div><div class="item-desc">${b.content}</div></div><div class="item-tag">${(qty*b.price).toFixed(0)}€</div></div>`;
+    });
+    ct.innerHTML = h || '<p style="color:var(--gray);text-align:center">Aucun plateau sélectionné — retournez à l\'étape précédente</p>';
+    return;
+  }
+  if(S.style==='verrines'){
+    document.getElementById('persoTitle').textContent = 'Choisissez vos verrines';
+    const f = FORMULAS.verrines[S.formula];
+    const totalPieces = f ? f.pieces * S.persons : 0;
+    const currentPieces = Object.values(S.verrineQty).reduce((a,b)=>a+b,0);
+    document.getElementById('persoSub').textContent = `${currentPieces} / ${totalPieces} pièces réparties (${f?f.pieces:0} pièces/pers × ${S.persons} invités)`;
+    renderFilters(fct);
+    let h = '';
+    VERRINES.forEach(v=>{
+      if(!matchFilters(v.tags)) return;
+      const qty = S.verrineQty[v.id]||0;
+      const premLabel = v.premium ? ` <span style="color:var(--gold-d);font-size:.7rem">(premium +${v.extra}€/pce)</span>` : '';
+      h += `<div class="item-row${qty>0?' selected':''}">
+        <div class="item-info">
+          <div class="item-name">${v.name}${premLabel}</div>
+          <div class="item-badges">${renderBadges(v.tags)}</div>
+        </div>
+        <div class="qty-wrap">
+          <div class="qty-btn" onclick="adjVerrine('${v.id}',-5)">−</div>
+          <div class="qty-val">${qty}</div>
+          <div class="qty-btn" onclick="adjVerrine('${v.id}',5)">+</div>
+        </div>
+      </div>`;
+    });
+    ct.innerHTML = h;
+    return;
+  }
+  // Buffet or Table
+  const mode = S.style;
+  const f = FORMULAS[mode][S.formula];
+  if(!f){ct.innerHTML='';return;}
+  document.getElementById('persoTitle').textContent = mode==='buffet' ? 'Composez votre buffet' : 'Composez votre menu à table';
+  document.getElementById('persoSub').textContent = 'Sélectionnez vos plats par catégorie';
+  renderFilters(fct);
+  let h = '';
+  h += renderCategory('Mezzés froids', COLD_MEZZES, S.selCold, 'cold', f.coldSlots, 3);
+  h += renderCategory('Protéines & Chauds', HOT_MEZZES, S.selHot, 'hot', f.hotSlots, 4);
+  h += renderCategory('Bases & Accompagnements', BASES, S.selBase, 'base', f.baseSlots, 2.5);
+  ct.innerHTML = h;
+}
+
+function renderFilters(ct){
+  ct.innerHTML = '<div class="filters">'+
+    Object.entries(TAG_MAP).map(([k,v])=>
+      `<div class="filter-pill${S.filters[k]?' active':''}" onclick="toggleFilter('${k}')">${v.label}</div>`
+    ).join('')+'</div>';
+}
+
+function toggleFilter(k){S.filters[k]=!S.filters[k];renderPerso();}
+
+function matchFilters(tags){
+  const active = Object.entries(S.filters).filter(([,v])=>v).map(([k])=>k);
+  if(!active.length) return true;
+  return active.every(f=>tags.includes(f));
+}
+
+function renderBadges(tags){
+  return (tags||[]).map(t=>{
+    const info = TAG_MAP[t];
+    return info ? `<span class="item-badge ${info.cls}">${info.label}</span>` : '';
+  }).join('');
+}
+
+function renderCategory(title, items, selected, cat, quota, extraPrice){
+  const count = selected.length;
+  const counterCls = count > quota ? 'over' : count >= quota ? 'full' : '';
+  let h = `<div class="category">
+    <div class="cat-header">
+      <div class="cat-title">${title}</div>
+      <div class="cat-counter ${counterCls}">${count}/${quota}</div>
+    </div>
+    <div class="cat-hint">Choisissez-en ${quota} — extra : +${extraPrice}€/pers</div>`;
+  items.forEach(item => {
+    if(!matchFilters(item.tags)) return;
+    const isSel = selected.includes(item.id);
+    const idx = selected.indexOf(item.id);
+    const isExtra = idx >= quota;
+    h += `<div class="item-row${isSel?' selected':''}" onclick="toggleItem('${cat}','${item.id}')">
+      <div class="item-check">${isSel?'✓':''}</div>
+      <div class="item-info">
+        <div class="item-name">${item.name}</div>
+        <div class="item-desc">${item.desc||''}</div>
+        <div class="item-badges">${renderBadges(item.tags)}</div>
+      </div>
+      <div class="item-tag${isExtra?' extra':''}">${isSel?(isExtra?'+'+extraPrice+'€/pers':'inclus'):''}</div>
+    </div>`;
+  });
+  h += '</div>';
+  return h;
+}
+
+function toggleItem(cat, id){
+  let arr = cat==='cold'?S.selCold:cat==='hot'?S.selHot:S.selBase;
+  const idx = arr.indexOf(id);
+  if(idx>=0) arr.splice(idx,1); else arr.push(id);
+  renderPerso();
+  updatePrice();
+}
+
+function adjVerrine(id, d){
+  if(!S.verrineQty[id]) S.verrineQty[id]=0;
+  S.verrineQty[id] = Math.max(0, S.verrineQty[id]+d);
+  renderPerso();
+  updatePrice();
+}
+
+/* ===== STEP 6: BEVERAGES & DESSERTS ===== */
+function renderExtras(){
+  const bevFree = isBevFree();
+  let bh = '<div class="category"><div class="cat-title">Boissons</div>';
+  if(bevFree) bh += '<div class="cat-hint">Formule Prestige : boissons incluses !</div>';
+  BEVERAGES.forEach(b=>{
+    const sel = S.selBev.includes(b.id);
+    bh += `<div class="item-row${sel?' selected':''}" onclick="toggleBev('${b.id}')">
+      <div class="item-check">${sel?'✓':''}</div>
+      <div class="item-info"><div class="item-name">${b.name}</div></div>
+      <div class="item-tag">${sel&&bevFree?'inclus':b.price+'€/pers'}</div>
+    </div>`;
+  });
+  bh += '</div>';
+  document.getElementById('bevContainer').innerHTML = bh;
+
+  const isBox = S.style==='box';
+  let dh = '';
+  if(isBox){
+    dh = '<div class="category"><div class="cat-title">Desserts</div><div class="cat-hint">Desserts déjà inclus dans vos plateaux</div></div>';
+  } else {
+    dh = '<div class="category"><div class="cat-title">Desserts</div>';
+    DESSERTS.forEach(d=>{
+      const sel = S.selDes.includes(d.id);
+      dh += `<div class="item-row${sel?' selected':''}" onclick="toggleDes('${d.id}')">
+        <div class="item-check">${sel?'✓':''}</div>
+        <div class="item-info"><div class="item-name">${d.name}</div></div>
+        <div class="item-tag">${d.price}€/pers</div>
+      </div>`;
+    });
+    dh += '</div>';
+  }
+  document.getElementById('desContainer').innerHTML = dh;
+}
+
+function toggleBev(id){const i=S.selBev.indexOf(id);if(i>=0)S.selBev.splice(i,1);else S.selBev.push(id);renderExtras();updatePrice();}
+function toggleDes(id){const i=S.selDes.indexOf(id);if(i>=0)S.selDes.splice(i,1);else S.selDes.push(id);renderExtras();updatePrice();}
+
+function isBevFree(){
+  if(S.style==='box') return false;
+  const f = FORMULAS[S.style]?.[S.formula];
+  return f?.bevIncl || false;
+}
+
+/* ===== PRICE ===== */
+function calcPrice(){
+  if(S.style==='box'){
+    let total = 0;
+    BOXES.forEach(b=>{total += (S.boxQty[b.id]||0)*b.price;});
+    // Beverages per box
+    if(!isBevFree()){
+      const totalBoxes = Object.values(S.boxQty).reduce((a,b)=>a+b,0);
+      S.selBev.forEach(id=>{const b=BEVERAGES.find(x=>x.id===id);if(b)total+=b.price*totalBoxes;});
+    }
+    const totalBoxes = Object.values(S.boxQty).reduce((a,b)=>a+b,0)||1;
+    return {pp: totalBoxes>0?total/totalBoxes:0, total};
+  }
+
+  const f = FORMULAS[S.style]?.[S.formula];
+  if(!f) return {pp:0,total:0};
+  let pp = f.price;
+
+  if(S.style==='verrines'){
+    const totalPiecesIncl = f.pieces * S.persons;
+    const totalPiecesChosen = Object.values(S.verrineQty).reduce((a,b)=>a+b,0);
+    const extraPieces = Math.max(0, totalPiecesChosen - totalPiecesIncl);
+    const extraCost = extraPieces * 2.5;
+    // Premium surcharge
+    let premCost = 0;
+    VERRINES.forEach(v=>{
+      if(v.premium && S.verrineQty[v.id]) premCost += S.verrineQty[v.id] * (v.extra||0);
+    });
+    pp += (extraCost + premCost) / S.persons;
+  } else {
+    // Buffet / Table
+    const extraCold = Math.max(0, S.selCold.length - f.coldSlots) * 3;
+    const extraHot = Math.max(0, S.selHot.length - f.hotSlots) * 4;
+    const extraBase = Math.max(0, S.selBase.length - f.baseSlots) * 2.5;
+    pp += extraCold + extraHot + extraBase;
+  }
+
+  // Beverages
+  if(!f.bevIncl){
+    S.selBev.forEach(id=>{const b=BEVERAGES.find(x=>x.id===id);if(b)pp+=b.price;});
+  }
+
+  // Desserts
+  S.selDes.forEach(id=>{const d=DESSERTS.find(x=>x.id===id);if(d)pp+=d.price;});
+
+  return {pp, total: pp * S.persons};
+}
+
+function fmtPrice(n){return n.toLocaleString('fr-FR',{minimumFractionDigits:0,maximumFractionDigits:0})+'€';}
+function fmtPriceDec(n){return n.toLocaleString('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2})+'€';}
+
+function updatePrice(){
+  const {pp,total} = calcPrice();
+  document.getElementById('pricePP').textContent = fmtPriceDec(pp);
+  document.getElementById('priceTotal').textContent = fmtPrice(total);
+  const lbl = S.style==='box' ? `(${Object.values(S.boxQty).reduce((a,b)=>a+b,0)} plateaux)` : `(${S.persons} pers.)`;
+  document.getElementById('pricePLabel').textContent = lbl;
+}
+
+/* ===== STEP 7: RECAP ===== */
+function renderRecap(){
+  const {pp,total} = calcPrice();
+  const styleLabel = STYLES.find(s=>s.id===S.style)?.label||'—';
+  const eventLabel = EVENTS.find(e=>e.id===S.event)?.label||'—';
+  let h = '';
+
+  // Event info
+  h += `<div class="recap-section"><div class="recap-title">Événement</div>
+    <div class="recap-row"><span class="recap-label">Type</span><span class="recap-value">${eventLabel}</span></div>
+    <div class="recap-row"><span class="recap-label">Invités</span><span class="recap-value">${S.persons} personnes</span></div>
+    <div class="recap-row"><span class="recap-label">Style</span><span class="recap-value">${styleLabel}</span></div>`;
+  if(S.style!=='box') h += `<div class="recap-row"><span class="recap-label">Formule</span><span class="recap-value">${S.formula} — ${FORMULAS[S.style][S.formula]?.label||''}</span></div>`;
+  h += '</div>';
+
+  // Menu
+  h += '<div class="recap-section"><div class="recap-title">Menu sélectionné</div>';
+  if(S.style==='box'){
+    BOXES.forEach(b=>{
+      const qty=S.boxQty[b.id]||0;
+      if(qty>0) h+=`<div class="recap-row"><span class="recap-label">${b.name} × ${qty}</span><span class="recap-value">${qty*b.price}€</span></div>`;
+    });
+  } else if(S.style==='verrines'){
+    VERRINES.forEach(v=>{
+      const qty=S.verrineQty[v.id]||0;
+      if(qty>0) h+=`<div class="recap-row"><span class="recap-label">${v.name} × ${qty}</span><span class="recap-value">${v.premium?'premium':''}</span></div>`;
+    });
+  } else {
+    const f = FORMULAS[S.style][S.formula];
+    if(S.selCold.length){
+      h += '<div style="font-size:.72rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px;padding:8px 0 4px">Mezzés froids</div>';
+      S.selCold.forEach((id,i)=>{
+        const item=COLD_MEZZES.find(m=>m.id===id);if(!item)return;
+        h+=`<div class="recap-row"><span class="recap-label">${item.name}</span><span class="recap-value">${i>=f.coldSlots?'+3€/pers':'inclus'}</span></div>`;
+      });
+    }
+    if(S.selHot.length){
+      h += '<div style="font-size:.72rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px;padding:8px 0 4px">Protéines</div>';
+      S.selHot.forEach((id,i)=>{
+        const item=HOT_MEZZES.find(m=>m.id===id);if(!item)return;
+        h+=`<div class="recap-row"><span class="recap-label">${item.name}</span><span class="recap-value">${i>=f.hotSlots?'+4€/pers':'inclus'}</span></div>`;
+      });
+    }
+    if(S.selBase.length){
+      h += '<div style="font-size:.72rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px;padding:8px 0 4px">Bases</div>';
+      S.selBase.forEach((id,i)=>{
+        const item=BASES.find(m=>m.id===id);if(!item)return;
+        h+=`<div class="recap-row"><span class="recap-label">${item.name}</span><span class="recap-value">${i>=f.baseSlots?'+2.50€/pers':'inclus'}</span></div>`;
+      });
+    }
+  }
+  h += '</div>';
+
+  // Extras
+  if(S.selBev.length || S.selDes.length){
+    h += '<div class="recap-section"><div class="recap-title">Extras</div>';
+    S.selBev.forEach(id=>{
+      const b=BEVERAGES.find(x=>x.id===id);if(!b)return;
+      h+=`<div class="recap-row"><span class="recap-label">${b.name}</span><span class="recap-value">${isBevFree()?'inclus':b.price+'€/pers'}</span></div>`;
+    });
+    S.selDes.forEach(id=>{
+      const d=DESSERTS.find(x=>x.id===id);if(!d)return;
+      h+=`<div class="recap-row"><span class="recap-label">${d.name}</span><span class="recap-value">${d.price}€/pers</span></div>`;
+    });
+    h += '</div>';
+  }
+
+  // Total
+  h += `<div class="recap-total-box">
+    <div class="recap-total-label">Total estimé</div>
+    <div class="recap-total-amount">${fmtPrice(total)}</div>
+    <div class="recap-total-detail">${fmtPriceDec(pp)} ${S.style==='box'?'/ plateau':'/ personne'} × ${S.style==='box'?Object.values(S.boxQty).reduce((a,b)=>a+b,0)+' plateaux':S.persons+' pers.'}</div>
+  </div>`;
+
+  document.getElementById('recapContainer').innerHTML = h;
+}
+
+/* ===== SEND ===== */
+function sendDevis(){
+  const name  = document.getElementById('cName').value.trim();
+  const email = document.getElementById('cEmail').value.trim();
+  const phone = document.getElementById('cPhone').value.trim();
+  const date  = document.getElementById('cDate').value;
+  const msg   = document.getElementById('cMsg').value.trim();
+  if(!name||!email){alert('Merci de renseigner votre nom et email.');return;}
+
+  const {pp,total} = calcPrice();
+  const styleLabel = STYLES.find(s=>s.id===S.style)?.label||'—';
+  const eventLabel = EVENTS.find(e=>e.id===S.event)?.label||'—';
+
+  let body = 'DEMANDE DE DEVIS TRAITEUR YALLAEAT
+
+';
+  body += 'Événement : ' + eventLabel + '
+';
+  body += 'Invités : ' + S.persons + ' personnes
+';
+  body += 'Style : ' + styleLabel + '
+';
+  if(S.style!=='box') body += 'Formule : ' + S.formula + ' — ' + (FORMULAS[S.style]?.[S.formula]?.label||'') + '
+';
+  body += '
+Total estimé : ' + fmtPrice(total) + ' (' + fmtPriceDec(pp) + '/pers)
+';
+  body += '
+Contact : ' + name + '
+';
+  body += 'Email : ' + email + '
+';
+  if(phone) body += 'Tél : ' + phone + '
+';
+  if(date)  body += 'Date : ' + date + '
+';
+  if(msg)   body += '
+Message : ' + msg + '
+';
+
+  const subject = 'Devis Traiteur — ' + eventLabel + ' ' + S.persons + ' pers — ' + fmtPrice(total);
+  window.location.href = 'mailto:yallaeat69@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+}
+
+/* ===== PDF ===== */
+function downloadPDF(){
+  const {jsPDF}=window.jspdf;
+  if(!jsPDF){alert('PDF non disponible.');return;}
+  const doc=new jsPDF({unit:'mm',format:'a4'});
+  const W=210,mg=20;let y=mg;
+  const {pp,total}=calcPrice();
+
+  // Header
+  doc.setFillColor(13,79,61);doc.rect(0,0,W,40,'F');
+  doc.setFont('helvetica','bold');doc.setFontSize(18);doc.setTextColor(249,173,77);
+  doc.text('DEVIS TRAITEUR',W/2,18,{align:'center'});
+  doc.setFontSize(9);doc.setTextColor(200,200,200);
+  doc.text('Généré le '+new Date().toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'}),W/2,28,{align:'center'});
+  y=50;
+
+  function title(t){doc.setFont('helvetica','bold');doc.setFontSize(10);doc.setTextColor(13,79,61);doc.text(t.toUpperCase(),mg,y);y+=7;}
+  function row(l,v){if(y>270){doc.addPage();y=20;}doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(80,80,80);doc.text(l,mg,y);doc.setTextColor(30,30,30);doc.text(String(v),mg+55,y);y+=5.5;}
+
+  title('Événement');
+  row('Type',EVENTS.find(e=>e.id===S.event)?.label||'—');
+  row('Invités',S.persons+' personnes');
+  row('Style',STYLES.find(s=>s.id===S.style)?.label||'—');
+  if(S.style!=='box') row('Formule',S.formula+' — '+(FORMULAS[S.style]?.[S.formula]?.label||''));
+  y+=4;
+
+  title('Menu');
+  if(S.style==='box'){
+    BOXES.forEach(b=>{const q=S.boxQty[b.id]||0;if(q>0)row(b.name+' × '+q,q*b.price+'€');});
+  } else if(S.style==='verrines'){
+    VERRINES.forEach(v=>{const q=S.verrineQty[v.id]||0;if(q>0)row(v.name+' × '+q,v.premium?'premium':'');});
+  } else {
+    S.selCold.forEach(id=>{const m=COLD_MEZZES.find(x=>x.id===id);if(m)row(m.name,'mezzé froid');});
+    S.selHot.forEach(id=>{const m=HOT_MEZZES.find(x=>x.id===id);if(m)row(m.name,'protéine');});
+    S.selBase.forEach(id=>{const m=BASES.find(x=>x.id===id);if(m)row(m.name,'base');});
+  }
+  y+=4;
+
+  if(S.selBev.length){
+    title('Boissons');
+    S.selBev.forEach(id=>{const b=BEVERAGES.find(x=>x.id===id);if(b)row(b.name,isBevFree()?'inclus':b.price+'€/pers');});
+    y+=3;
+  }
+  if(S.selDes.length){
+    title('Desserts');
+    S.selDes.forEach(id=>{const d=DESSERTS.find(x=>x.id===id);if(d)row(d.name,d.price+'€/pers');});
+    y+=3;
+  }
+
+  // Contact
+  const cName=document.getElementById('cName').value.trim();
+  const cEmail=document.getElementById('cEmail').value.trim();
+  const cPhone=document.getElementById('cPhone').value.trim();
+  const cDate=document.getElementById('cDate').value;
+  if(cName||cEmail){
+    title('Contact');
+    if(cName)row('Nom',cName);if(cEmail)row('Email',cEmail);if(cPhone)row('Tél',cPhone);
+    if(cDate)row('Date',new Date(cDate+'T00:00:00').toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'}));
+    y+=4;
+  }
+
+  // Total
+  if(y>260){doc.addPage();y=20;}
+  doc.setFillColor(249,173,77);doc.rect(mg,y,W-2*mg,14,'F');
+  doc.setFont('helvetica','bold');doc.setFontSize(11);doc.setTextColor(13,79,61);
+  doc.text('TOTAL',mg+4,y+10);
+  doc.text(fmtPrice(total),W-mg-4,y+10,{align:'right'});
+  y+=20;
+
+  doc.setFont('helvetica','italic');doc.setFontSize(7);doc.setTextColor(150,150,150);
+  doc.text('Ce devis est indicatif et sera confirmé par notre équipe sous 48h.',mg,y);
+
+  doc.save('devis-traiteur.pdf');
+}
+
+/* ===== INIT ===== */
+renderProgress();
+renderEvents();
+renderStyles();
+</script>
+</body>
+</html>
