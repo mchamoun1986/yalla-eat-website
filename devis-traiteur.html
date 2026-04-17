@@ -33,8 +33,8 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.yallaeat.fr/"},{"@type":"ListItem","position":2,"name":"Traiteur","item":"https://www.yallaeat.fr/traiteur.html"},{"@type":"ListItem","position":3,"name":"Simulateur Devis","item":"https://www.yallaeat.fr/devis-traiteur.html"}]}</script>
 <style>
 .wizard-wrap{max-width:800px;margin:0 auto;padding:24px 20px 120px}
-h1{text-align:center;font-size:1.8rem;font-weight:900;letter-spacing:-1px;color:var(--green-d);padding:32px 0 8px}
-h1 em{font-family:Georgia,serif;font-style:italic;color:var(--gold)}
+.wizard-wrap h1{text-align:center;font-size:1.8rem;font-weight:900;letter-spacing:-1px;color:var(--green-d);padding:32px 0 8px}
+.wizard-wrap h1 em{font-family:Georgia,serif;font-style:italic;color:var(--gold)}
 .subtitle{text-align:center;color:var(--gray);font-size:.9rem;margin-bottom:32px}
 
 /* Progress */
@@ -60,7 +60,7 @@ h1 em{font-family:Georgia,serif;font-style:italic;color:var(--gold)}
 .cards-3{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
 .cards-4{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
 .cards-2{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
-.card{background:#fff;border-radius:var(--radius);padding:20px 16px;text-align:center;border:2px solid transparent;cursor:pointer;transition:all .25s;box-shadow:var(--shadow)}
+.card{background:#fff;border-radius:var(--radius);padding:20px 16px;text-align:center;border:2px solid transparent;cursor:pointer;transition:all .25s;box-shadow:var(--shadow-sm)}
 .card:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.12)}
 .card.selected{border-color:var(--green-d);background:var(--green-xl)}
 .card-icon{font-size:2rem;margin-bottom:8px}
@@ -69,7 +69,7 @@ h1 em{font-family:Georgia,serif;font-style:italic;color:var(--gold)}
 
 /* Formula cards */
 .formula-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
-.formula-card{background:#fff;border-radius:var(--radius);padding:24px 20px;text-align:center;border:2px solid transparent;cursor:pointer;transition:all .25s;box-shadow:var(--shadow);position:relative}
+.formula-card{background:#fff;border-radius:var(--radius);padding:24px 20px;text-align:center;border:2px solid transparent;cursor:pointer;transition:all .25s;box-shadow:var(--shadow-sm);position:relative}
 .formula-card:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,.12)}
 .formula-card.selected{border-color:var(--green-d);background:var(--green-xl)}
 .formula-card.popular::before{content:"Populaire";position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:.65rem;font-weight:700;padding:3px 12px;border-radius:20px;text-transform:uppercase;letter-spacing:.5px}
@@ -122,7 +122,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;heigh
 .qty-val{font-size:.9rem;font-weight:700;min-width:28px;text-align:center}
 
 /* Box mode */
-.box-card{background:#fff;border-radius:var(--radius);padding:20px;margin-bottom:12px;box-shadow:var(--shadow)}
+.box-card{background:#fff;border-radius:var(--radius);padding:20px;margin-bottom:12px;box-shadow:var(--shadow-sm)}
 .box-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
 .box-name{font-weight:700;font-size:1rem;color:var(--green-d)}
 .box-price{font-weight:800;color:var(--gold-d);font-size:1.1rem}
@@ -146,7 +146,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;heigh
 .wiz-btn-gold:hover{transform:translateY(-2px);background:var(--gold-d)}
 
 /* Recap */
-.recap-section{background:#fff;border-radius:var(--radius);padding:20px;margin-bottom:16px;box-shadow:var(--shadow)}
+.recap-section{background:#fff;border-radius:var(--radius);padding:20px;margin-bottom:16px;box-shadow:var(--shadow-sm)}
 .recap-title{font-size:.85rem;font-weight:700;color:var(--gold-d);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
 .recap-row{display:flex;justify-content:space-between;padding:6px 0;font-size:.85rem;border-bottom:1px solid #f0f0f0}
 .recap-row:last-child{border-bottom:none}
@@ -206,23 +206,21 @@ textarea.form-input{min-height:80px;resize:vertical}
 </nav>
 
 <!-- Page Hero -->
-<section class="page-hero">
+<header class="page-hero" role="banner">
+  <span class="float-decor" style="top:12%;left:6%;animation-delay:0s">🍽️</span>
+  <span class="float-decor" style="top:20%;right:8%;animation-delay:4s">🥂</span>
+  <span class="float-decor" style="bottom:18%;left:12%;animation-delay:8s">🧆</span>
+  <span class="float-decor" style="bottom:14%;right:10%;animation-delay:2s">📋</span>
   <div class="page-hero__content">
-    <span class="page-hero__tag">Traiteur Halal Lyon 9</span>
-    <h1 class="page-hero__title">Simulateur de Devis<br><em>Traiteur Libanais</em></h1>
-    <p class="page-hero__desc">Composez votre menu en 7 étapes et obtenez une estimation instantanée.</p>
+    <span class="hero-tag">Simulateur · Traiteur · Lyon 9</span>
+    <h1>Simulez votre <em>devis traiteur</em></h1>
+    <p>Composez votre menu en 7 étapes et obtenez une estimation instantanée. De 10 à 500 personnes.</p>
   </div>
-</section>
+</header>
 
 <!-- Breadcrumb -->
 <nav class="breadcrumb" aria-label="Fil d’Ariane">
-  <div class="container" style="max-width:var(--max-width,1200px);margin:0 auto;padding:0 5%">
-    <ol class="breadcrumb__list">
-      <li class="breadcrumb__item"><a href="index.html">Accueil</a></li>
-      <li class="breadcrumb__item"><a href="traiteur.html">Traiteur</a></li>
-      <li class="breadcrumb__item breadcrumb__item--active" aria-current="page">Simulateur Devis</li>
-    </ol>
-  </div>
+  <a href="index.html">Accueil</a> &rsaquo; <a href="traiteur.html">Traiteur</a> &rsaquo; <span aria-current="page">Simulateur Devis</span>
 </nav>
 
 
@@ -1123,6 +1121,73 @@ function downloadPDF(){
 renderProgress();
 renderEvents();
 renderStyles();
+</script>
+
+<footer class="footer" role="contentinfo">
+  <div class="container" style="max-width:var(--max-width,1200px);margin:0 auto;padding:0 5%">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="footer__logo">YALLA<span>EAT</span></div>
+        <p class="footer__tagline">Restaurant libanais Lyon 9 (Vaise).<br>Shawarma, bowls &amp; mezzés faits maison.<br>Halal · Végé · Vegan · Sans gluten.</p>
+        <p class="footer__tagline" style="margin-top:.8rem"><strong style="color:#fff">29 Rue de Bourgogne · 69009 Lyon</strong><br>09 80 66 77 88</p>
+      </div>
+      <div class="footer__col">
+        <h3>Menu</h3>
+        <ul>
+          <li><a href="menu.html">Carte complète</a></li>
+          <li><a href="bowl.html">Bowl</a></li>
+          <li><a href="wrap-sandwich.html">Wraps</a></li>
+          <li><a href="mezzebox.html">Mezzé Box</a></li>
+          <li><a href="halal.html">Halal</a></li>
+          <li><a href="vegetarien-vegan.html">Végé &amp; Vegan</a></li>
+          <li><a href="shawarma-lyon.html">Shawarma</a></li>
+          <li><a href="grillade-libanaise.html">Grillades</a></li>
+          <li><a href="falafel-lyon.html">Falafel</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="https://commandes.yallaeat.fr/order/" rel="noopener noreferrer" target="_blank">Commander en ligne</a></li>
+          <li><a href="emporter.html">À emporter</a></li>
+          <li><a href="livraison.html">Livraison</a></li>
+          <li><a href="dejeuner-lyon-9.html">Déjeuner Lyon 9</a></li>
+          <li><a href="traiteur.html">Traiteur entreprise</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h3>YallaEat</h3>
+        <ul>
+          <li><a href="mission.html">Notre mission</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 YallaEat &mdash; Tous droits réservés</p>
+      <a href="mentions-legales.html" class="footer__legal">Mentions légales</a>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Retour en haut de page" title="Retour en haut">&uarr;</button>
+<script>
+(function(){
+  var nav=document.getElementById("nav");
+  var bt=document.getElementById("backToTop");
+  window.addEventListener("scroll",function(){nav.classList.toggle("scrolled",window.scrollY>40);bt.classList.toggle("visible",window.scrollY>400);},{passive:true});
+  bt.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"});});
+  var burger=document.getElementById("burger");
+  var navLinks=document.getElementById("navLinks");
+  burger.addEventListener("click",function(){
+    var open=navLinks.classList.toggle("open");
+    burger.classList.toggle("active",open);
+    burger.setAttribute("aria-expanded",open);
+    document.body.style.overflow=open?"hidden":"";
+  });
+})();
 </script>
 </body>
 </html>
