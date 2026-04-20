@@ -22,8 +22,8 @@
 :root{--shadow:0 4px 24px rgba(0,0,0,.08)}
 
 .wizard-wrap{max-width:800px;margin:0 auto;padding:24px 20px 120px}
-.wizard-wrap h1{text-align:center;font-size:1.8rem;font-weight:900;letter-spacing:-1px;color:var(--green-d);padding:32px 0 8px}
-.wizard-wrap h1 em{font-family:'Playfair Display',Georgia,serif;font-style:italic;color:var(--gold)}
+.wizard-wrap h2{text-align:center;font-size:1.8rem;font-weight:900;letter-spacing:-1px;color:var(--green-d);padding:32px 0 8px}
+.wizard-wrap h2 em{font-family:'Playfair Display',Georgia,serif;font-style:italic;color:var(--gold)}
 .subtitle{text-align:center;color:var(--gray);font-size:.9rem;margin-bottom:32px}
 .progress{display:flex;align-items:center;gap:4px;margin-bottom:36px;padding:0 8px}
 .prog-step{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative}
@@ -142,7 +142,7 @@ textarea.form-input{min-height:80px;resize:vertical}
 @media(max-width:600px){
   .formula-cards{grid-template-columns:1fr}
   .cards-3{grid-template-columns:repeat(2,1fr)}
-  .wizard-wrap h1{font-size:1.4rem}
+  .wizard-wrap h2{font-size:1.4rem}
 }
 </style>
 </head>
@@ -186,7 +186,7 @@ textarea.form-input{min-height:80px;resize:vertical}
 
 <!-- WIZARD (original logic, unchanged) -->
 <div class="wizard-wrap">
-  <h1>Votre devis <em>traiteur</em></h1>
+  <h2>Votre devis <em>traiteur</em></h2>
   <p class="subtitle">Simulez votre commande en quelques clics</p>
 
   <div class="progress" id="progress"></div>
