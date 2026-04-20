@@ -297,11 +297,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
       <h2>Envoyez un <em>message</em></h2>
       <p>Une question, une réservation, un devis traiteur&nbsp;? Remplissez le formulaire et nous vous répondons sous 24h.</p>
     </div>
-    <form class="contact-form" action="https://formsubmit.co/yallaeat69@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="Nouveau message depuis yallaeat.fr">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://www.yallaeat.fr/contact.html">
-      <input type="text" name="_honey" style="display:none">
+    <form class="contact-form" id="contactForm" onsubmit="return sendContact(event)">
       <div class="form-row">
         <div class="form-group">
           <label for="name">Nom complet *</label>
@@ -314,16 +310,16 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
       </div>
       <div class="form-row">
         <div class="form-group">
-          <label for="phone">Téléphone</label>
+          <label for="phone">T&eacute;l&eacute;phone</label>
           <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78">
         </div>
         <div class="form-group">
           <label for="subject">Sujet *</label>
           <select id="subject" name="subject" required>
             <option value="" disabled selected>Choisir un sujet</option>
-            <option value="Réservation">Réservation</option>
+            <option value="R&eacute;servation">R&eacute;servation</option>
             <option value="Devis traiteur">Devis traiteur</option>
-            <option value="Commande spéciale">Commande spéciale</option>
+            <option value="Commande sp&eacute;ciale">Commande sp&eacute;ciale</option>
             <option value="Partenariat">Partenariat</option>
             <option value="Autre">Autre</option>
           </select>
@@ -332,13 +328,42 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
       <div class="form-row">
         <div class="form-group full">
           <label for="message">Message *</label>
-          <textarea id="message" name="message" required placeholder="Décrivez votre demande..."></textarea>
+          <textarea id="message" name="message" required placeholder="D&eacute;crivez votre demande..."></textarea>
         </div>
       </div>
       <div class="form-submit">
-        <button type="submit">Envoyer le message &rarr;</button>
+        <button type="submit" id="contactBtn">Envoyer le message &rarr;</button>
       </div>
     </form>
+    <script>
+    function sendContact(e){
+      e.preventDefault();
+      var btn=document.getElementById('contactBtn');
+      var name=document.getElementById('name').value.trim();
+      var email=document.getElementById('email').value.trim();
+      var phone=document.getElementById('phone').value.trim();
+      var subject=document.getElementById('subject').value;
+      var message=document.getElementById('message').value.trim();
+      if(!name||!email||!subject||!message){alert('Merci de remplir tous les champs obligatoires.');return false;}
+      btn.textContent='Envoi en cours...';btn.disabled=true;
+      fetch('https://formspree.io/f/xqewdaje',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify({_subject:'Contact YallaEat \u2014 '+subject,_replyto:email,nom:name,email:email,telephone:phone||'Non renseign\u00e9',sujet:subject,message:message})
+      }).then(function(res){
+        if(res.ok){
+          btn.textContent='\u2713 Message envoy\u00e9 !';btn.style.background='var(--gold)';btn.style.color='var(--black)';
+          document.getElementById('contactForm').reset();
+          alert('Votre message a \u00e9t\u00e9 envoy\u00e9 avec succ\u00e8s !\nNous vous r\u00e9pondons sous 24h.\n\nMerci \u2014 YallaEat');
+          setTimeout(function(){btn.textContent='Envoyer le message \u2192';btn.disabled=false;btn.style.background='';btn.style.color='';},4000);
+        }else{throw new Error('err');}
+      }).catch(function(){
+        btn.textContent='Envoyer le message \u2192';btn.disabled=false;
+        alert('Erreur lors de l\'envoi. Veuillez r\u00e9essayer ou nous contacter au 09 80 66 77 88.');
+      });
+      return false;
+    }
+    </script>
   </div>
 </section>
 
