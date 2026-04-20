@@ -48,7 +48,7 @@
     "image":"https://www.yallaeat.fr/assets/og-yallaeat.jpg",
     "description":"Restaurant libanais à Lyon 9 (Vaise). Shawarma, taouk, grillades, bowls, wraps et mezzé boxes 100% fait maison et halal. Options végétariennes, vegan, sans gluten.",
     "servesCuisine":["Libanais","Méditerranéen","Halal","Végétarien","Vegan"],
-    "hasMenu":"https://www.yallaeat.fr/menu.html",
+    "hasMenu":"https://www.yallaeat.fr/menu",
     "priceRange":"€€","currenciesAccepted":"EUR",
     "paymentAccepted":"Cash, Credit Card, Contactless",
     "address":{"@type":"PostalAddress","streetAddress":"29 Rue de Bourgogne","addressLocality":"Lyon","addressRegion":"Auvergne-Rhône-Alpes","postalCode":"69009","addressCountry":"FR"},
@@ -61,7 +61,7 @@
     "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.7","reviewCount":"113","bestRating":"5"},
     "sameAs":["https://www.instagram.com/yallaeat/","https://www.tiktok.com/@yallaeat"],
     "potentialAction":{"@type":"OrderAction","target":"https://commandes.yallaeat.fr/order/"}
-  ,"hasOfferCatalog":{"@type":"OfferCatalog","name":"Carte YallaEat","itemListElement":[{"@type":"OfferCatalog","name":"Bowls Libanais","url":"https://www.yallaeat.fr/bowl.html"},{"@type":"OfferCatalog","name":"MezzéBox","url":"https://www.yallaeat.fr/mezzebox.html"},{"@type":"OfferCatalog","name":"Carte complète","url":"https://www.yallaeat.fr/menu.html"}]}
+  ,"hasOfferCatalog":{"@type":"OfferCatalog","name":"Carte YallaEat","itemListElement":[{"@type":"OfferCatalog","name":"Bowls Libanais","url":"https://www.yallaeat.fr/bowl"},{"@type":"OfferCatalog","name":"MezzéBox","url":"https://www.yallaeat.fr/mezzebox"},{"@type":"OfferCatalog","name":"Carte complète","url":"https://www.yallaeat.fr/menu"}]}
   }
   </script>
 
@@ -350,16 +350,16 @@
 
   <!-- NAV -->
   <nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
-  <a href="index.html" class="nav-logo" aria-label="YallaEat — Accueil">YALLA<span>EAT</span></a>
+  <a href="/" class="nav-logo" aria-label="YallaEat — Accueil">YALLA<span>EAT</span></a>
   <div class="nav-links" id="navLinks">
-    <a href="index.html" class="active" aria-current="page">Accueil</a>
-    <a href="menu.html">Menu</a>
-    <a href="bowl.html">Bowl</a>
-    <a href="wrap-sandwich.html">Wraps</a>
-    <a href="mezzebox.html">Mezzé Box</a>
-    <a href="traiteur.html">Traiteur</a>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html">Contact</a>
+    <a href="/" class="active" aria-current="page">Accueil</a>
+    <a href="/menu">Menu</a>
+    <a href="/bowl">Bowl</a>
+    <a href="/wrap-sandwich">Wraps</a>
+    <a href="/mezzebox">Mezzé Box</a>
+    <a href="/traiteur">Traiteur</a>
+    <a href="/blog">Blog</a>
+    <a href="/contact">Contact</a>
     <a href="https://commandes.yallaeat.fr/order/" class="btn-cta" target="_blank" rel="noopener noreferrer">COMMANDEZ</a>
   </div>
   <button class="nav-burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" type="button">
@@ -368,14 +368,14 @@
 </nav>
 
   <nav class="nav__mobile" id="mobile-nav" role="navigation" aria-label="Navigation mobile" aria-hidden="true">
-    <a href="index.html" onclick="closeMenu()">Accueil</a>
-    <a href="menu.html" onclick="closeMenu()">Menu</a>
-    <a href="bowl.html" onclick="closeMenu()">Bowl</a>
-    <a href="wrap-sandwich.html" onclick="closeMenu()">Wraps</a>
-    <a href="mezzebox.html" onclick="closeMenu()">Mezzé Box</a>
-    <a href="traiteur.html" onclick="closeMenu()">Traiteur</a>
-    <a href="contact.html" onclick="closeMenu()">Contact</a>
-    <a href="blog.html" onclick="closeMenu()">Blog</a>
+    <a href="/" onclick="closeMenu()">Accueil</a>
+    <a href="/menu" onclick="closeMenu()">Menu</a>
+    <a href="/bowl" onclick="closeMenu()">Bowl</a>
+    <a href="/wrap-sandwich" onclick="closeMenu()">Wraps</a>
+    <a href="/mezzebox" onclick="closeMenu()">Mezzé Box</a>
+    <a href="/traiteur" onclick="closeMenu()">Traiteur</a>
+    <a href="/contact" onclick="closeMenu()">Contact</a>
+    <a href="/blog" onclick="closeMenu()">Blog</a>
     <a href="https://commandes.yallaeat.fr/order/" class="nav__cta" rel="noopener noreferrer" target="_blank">COMMANDEZ</a>
   </nav>
 
@@ -413,10 +413,10 @@
           </p>
           <div class="hero__ctas">
             <a href="https://commandes.yallaeat.fr/order/" class="btn btn-primary" rel="noopener noreferrer" target="_blank">Commandez en ligne →</a>
-            <a href="menu.html" class="btn btn-outline">Voir le menu</a>
+            <a href="/menu" class="btn btn-outline">Voir le menu</a>
           </div>
         </div>
-        <a href="bowl.html" class="hero__bowl-wrap" aria-label="Composer ton bowl sur mesure">
+        <a href="/bowl" class="hero__bowl-wrap" aria-label="Composer ton bowl sur mesure">
           <div class="hero__bowl">
             <div class="bowl__ingredient">🥬</div>
             <div class="bowl__ingredient">🍅</div>
@@ -479,7 +479,7 @@
     <section class="concept" id="concept" aria-labelledby="concept-title">
       <div class="container">
         <div class="concept__header">
-          <div class="section-tag">Comment &ccedil;a marche</div>
+          <div class="section-tag">Comment ça marche</div>
           <h2 class="concept__title" id="concept-title">Compose ton repas <em>sur mesure</em></h2>
           <p class="concept__subtitle">Choisis chaque composant selon tes envies et tes besoins. Chaque bowl est unique, tout comme toi.</p>
         </div>
@@ -595,7 +595,7 @@
           </article>
         </div>
         <div class="menu-section__cta">
-          <a href="menu.html" class="btn btn-primary">Voir le menu →</a>
+          <a href="/menu" class="btn btn-primary">Voir le menu →</a>
         </div>
       </div>
     </section>
@@ -667,7 +667,7 @@
               <div class="traiteur__feat"><div class="traiteur__feat-icon">📋</div><span>Devis gratuit sous 24h</span></div>
               <div class="traiteur__feat"><div class="traiteur__feat-icon">🌱</div><span>Halal, végé, vegan</span></div>
             </div>
-            <a href="traiteur.html" class="btn btn-green">Demandez un devis &rarr;</a>
+            <a href="/traiteur" class="btn btn-green">Demandez un devis &rarr;</a>
           </div>
           <div class="traiteur__visual" style="transition-delay:.15s">
             <div class="traiteur__img-wrap">
@@ -698,7 +698,7 @@
           </article>
           <article class="review-card" style="transition-delay:.1s">
             <div class="review-card__stars" aria-label="5 étoiles sur 5">&starf;&starf;&starf;&starf;&starf;</div>
-            <p class="review-card__text">&laquo;&nbsp;Parfait pour les déjeuners d&apos;équipe. On a commandé pour 15 personnes, tout le monde était ravi &mdash; et &ccedil;a change des pizzas habituelles&nbsp;! Service traiteur très pro.&nbsp;&raquo;</p>
+            <p class="review-card__text">&laquo;&nbsp;Parfait pour les déjeuners d&apos;équipe. On a commandé pour 15 personnes, tout le monde était ravi &mdash; et ça change des pizzas habituelles&nbsp;! Service traiteur très pro.&nbsp;&raquo;</p>
             <div class="review-card__author">
               <div class="review-card__avatar">K</div>
               <div><div class="review-card__name">Karim B.</div><div class="review-card__source">Google &middot; Vaise</div></div>
@@ -803,41 +803,41 @@
         <div class="footer__col">
           <h3>Menu</h3>
           <ul>
-            <li><a href="menu.html">Carte complète</a></li>
-            <li><a href="bowl.html">Bowl</a></li>
-            <li><a href="wrap-sandwich.html">Wraps</a></li>
-            <li><a href="mezzebox.html">Mezzé Box</a></li>
-            <li><a href="halal.html">Halal</a></li>
-            <li><a href="vegetarien-vegan.html">Végé &amp; Vegan</a></li>
-            <li><a href="shawarma-lyon.html">Shawarma</a></li>
-            <li><a href="grillade-libanaise.html">Grillades</a></li>
-            <li><a href="falafel-lyon.html">Falafel</a></li>
+            <li><a href="/menu">Carte complète</a></li>
+            <li><a href="/bowl">Bowl</a></li>
+            <li><a href="/wrap-sandwich">Wraps</a></li>
+            <li><a href="/mezzebox">Mezzé Box</a></li>
+            <li><a href="/halal">Halal</a></li>
+            <li><a href="/vegetarien-vegan">Végé &amp; Vegan</a></li>
+            <li><a href="/shawarma-lyon">Shawarma</a></li>
+            <li><a href="/grillade-libanaise">Grillades</a></li>
+            <li><a href="/falafel-lyon">Falafel</a></li>
           </ul>
         </div>
         <div class="footer__col">
           <h3>Services</h3>
           <ul>
             <li><a href="https://commandes.yallaeat.fr/order/" rel="noopener noreferrer" target="_blank">Commander en ligne</a></li>
-            <li><a href="emporter.html">À emporter</a></li>
-            <li><a href="livraison.html">Livraison</a></li>
-            <li><a href="dejeuner-lyon-9.html">Déjeuner Lyon 9</a></li>
-          <li><a href="restaurant-libanais-lyon-9.html">Restaurant Libanais Lyon 9</a></li>
-            <li><a href="traiteur.html">Traiteur entreprise</a></li>
+            <li><a href="/emporter">À emporter</a></li>
+            <li><a href="/livraison">Livraison</a></li>
+            <li><a href="/dejeuner-lyon-9">Déjeuner Lyon 9</a></li>
+          <li><a href="/restaurant-libanais-lyon-9">Restaurant Libanais Lyon 9</a></li>
+            <li><a href="/traiteur">Traiteur entreprise</a></li>
           </ul>
         </div>
         <div class="footer__col">
           <h3>Entreprise</h3>
           <ul>
-            <li><a href="mission.html">Notre mission</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="mentions-legales.html">Mentions légales</a></li>
+            <li><a href="/mission">Notre mission</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/mentions-legales">Mentions légales</a></li>
           </ul>
         </div>
       </div>
       <div class="footer__bottom">
         <p class="footer__copy">&copy; 2026 YallaEat &mdash; Tous droits réservés &middot; Mis à jour : avril 2026</p>
-        <a href="mentions-legales.html" class="footer__legal">Mentions légales</a>
+        <a href="/mentions-legales" class="footer__legal">Mentions légales</a>
       </div>
     </div>
   </footer>
