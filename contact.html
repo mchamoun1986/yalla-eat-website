@@ -335,6 +335,15 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
         <button type="submit" id="contactBtn">Envoyer le message &rarr;</button>
       </div>
     </form>
+    <div id="contactSuccess" style="display:none;text-align:center;padding:48px 32px;background:#fff;border-radius:20px;box-shadow:0 20px 80px rgba(0,0,0,.06);border:1px solid rgba(0,0,0,.04)">
+      <div style="font-size:3.5em;margin-bottom:16px">&#x2705;</div>
+      <h3 style="font-size:1.4em;font-weight:800;color:var(--green-d);margin-bottom:8px">Message envoy&eacute; !</h3>
+      <p style="color:var(--gray);font-size:.95em;line-height:1.7;max-width:400px;margin:0 auto 24px">Merci pour votre message. Nous vous r&eacute;pondons sous 24h.</p>
+      <p style="font-weight:700;color:var(--green-d);font-size:.9em">YallaEat &mdash; 09 80 66 77 88</p>
+    </div>
+    <div id="contactError" style="display:none;text-align:center;padding:32px;background:#fff3f3;border-radius:16px;border:1px solid #ffcdd2;margin-top:16px">
+      <p style="color:#c62828;font-weight:600;font-size:.95em">Erreur lors de l'envoi. Veuillez r&eacute;essayer ou nous contacter au 09 80 66 77 88.</p>
+    </div>
     <script>
     function sendContact(e){
       e.preventDefault();
@@ -344,22 +353,21 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
       var phone=document.getElementById('phone').value.trim();
       var subject=document.getElementById('subject').value;
       var message=document.getElementById('message').value.trim();
-      if(!name||!email||!subject||!message){alert('Merci de remplir tous les champs obligatoires.');return false;}
+      if(!name||!email||!subject||!message)return false;
       btn.textContent='Envoi en cours...';btn.disabled=true;
+      document.getElementById('contactError').style.display='none';
       fetch('https://formspree.io/f/xqewdaje',{
         method:'POST',
         headers:{'Content-Type':'application/json','Accept':'application/json'},
         body:JSON.stringify({_subject:'Contact YallaEat \u2014 '+subject,_replyto:email,nom:name,email:email,telephone:phone||'Non renseign\u00e9',sujet:subject,message:message})
       }).then(function(res){
         if(res.ok){
-          btn.textContent='\u2713 Message envoy\u00e9 !';btn.style.background='var(--gold)';btn.style.color='var(--black)';
-          document.getElementById('contactForm').reset();
-          alert('Votre message a \u00e9t\u00e9 envoy\u00e9 avec succ\u00e8s !\nNous vous r\u00e9pondons sous 24h.\n\nMerci \u2014 YallaEat');
-          setTimeout(function(){btn.textContent='Envoyer le message \u2192';btn.disabled=false;btn.style.background='';btn.style.color='';},4000);
+          document.getElementById('contactForm').style.display='none';
+          document.getElementById('contactSuccess').style.display='block';
         }else{throw new Error('err');}
       }).catch(function(){
         btn.textContent='Envoyer le message \u2192';btn.disabled=false;
-        alert('Erreur lors de l\'envoi. Veuillez r\u00e9essayer ou nous contacter au 09 80 66 77 88.');
+        document.getElementById('contactError').style.display='block';
       });
       return false;
     }
