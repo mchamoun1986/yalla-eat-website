@@ -1,8 +1,8 @@
 // YallaEat GA4 Tracking
 // Lazy-loaded on first user interaction — zero impact on LCP/FCP
 (function(){
-  var GA_ID = 'G-XXXXXXXXXX'; // TODO: replace with real GA4 measurement ID before enabling
-  if (GA_ID === 'G-XXXXXXXXXX') return; // no-op while placeholder
+  var GA_ID = 'G-M3I38CT1GK';
+  if (!GA_ID) return;
 
   var loaded = false;
   function loadGA() {
