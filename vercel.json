@@ -33,5 +33,7 @@
   "redirects": [
     { "source": "/config-traiteur.xlsx", "destination": "/", "statusCode": 404 },
     { "source": "/build_config_xlsx.py", "destination": "/", "statusCode": 404 }
-  ]
+  ],
+  "rewrites": [],
+  "trailingSlash": false
 }
