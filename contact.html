@@ -186,7 +186,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
   "address":{"@type":"PostalAddress","streetAddress":"29 Rue de Bourgogne","addressLocality":"Lyon","postalCode":"69009","addressCountry":"FR"},
   "geo":{"@type":"GeoCoordinates","latitude":45.7676,"longitude":4.8136},
   "openingHoursSpecification":[
-    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"11:30","closes":"15:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"12:00","closes":"14:30"},
     {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"18:30","closes":"22:00"}
   ],
   "servesCuisine":["Libanais","Halal","Végétarien","Vegan"],
@@ -235,7 +235,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
     <h1>Contactez <em>YallaEat</em> Lyon 9</h1>
     <p class="hero-desc">Sur place, à emporter ou en livraison &mdash; on vous attend&nbsp;!</p>
   </div>
-  <div class="scroll-hint"><span>Scroll</span><div class="scroll-line"></div></div>
+  <div class="scroll-hint"><span>Défiler</span><div class="scroll-line"></div></div>
 </header>
 
 <!-- CONTACT INFO + MAP -->
@@ -387,11 +387,11 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
     <table class="horaires-table">
       <thead><tr><th>Jour</th><th>Midi</th><th>Soir</th></tr></thead>
       <tbody>
-        <tr id="row-1"><td>Lundi</td><td class="td-open">11h30 &ndash; 15h00</td><td class="td-open">18h30 &ndash; 22h00</td></tr>
-        <tr id="row-2"><td>Mardi</td><td class="td-open">11h30 &ndash; 15h00</td><td class="td-open">18h30 &ndash; 22h00</td></tr>
-        <tr id="row-3"><td>Mercredi</td><td class="td-open">11h30 &ndash; 15h00</td><td class="td-open">18h30 &ndash; 22h00</td></tr>
-        <tr id="row-4"><td>Jeudi</td><td class="td-open">11h30 &ndash; 15h00</td><td class="td-open">18h30 &ndash; 22h00</td></tr>
-        <tr id="row-5"><td>Vendredi</td><td class="td-open">11h30 &ndash; 15h00</td><td class="td-open">18h30 &ndash; 22h00</td></tr>
+        <tr id="row-1"><td>Lundi</td><td class="td-open">12h00 &ndash; 14h30</td><td class="td-open">18h30 &ndash; 22h00</td></tr>
+        <tr id="row-2"><td>Mardi</td><td class="td-open">12h00 &ndash; 14h30</td><td class="td-open">18h30 &ndash; 22h00</td></tr>
+        <tr id="row-3"><td>Mercredi</td><td class="td-open">12h00 &ndash; 14h30</td><td class="td-open">18h30 &ndash; 22h00</td></tr>
+        <tr id="row-4"><td>Jeudi</td><td class="td-open">12h00 &ndash; 14h30</td><td class="td-open">18h30 &ndash; 22h00</td></tr>
+        <tr id="row-5"><td>Vendredi</td><td class="td-open">12h00 &ndash; 14h30</td><td class="td-open">18h30 &ndash; 22h00</td></tr>
         <tr id="row-6"><td>Samedi</td><td class="td-closed">&mdash;</td><td class="td-open">18h30 &ndash; 22h00</td></tr>
         <tr id="row-7"><td>Dimanche</td><td class="td-closed">&mdash;</td><td class="td-open">18h30 &ndash; 22h00</td></tr>
       </tbody>
@@ -574,20 +574,20 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
   if(todayRow)todayRow.classList.add('today-row');
   const now=new Date(),totalMin=now.getHours()*60+now.getMinutes(),dow=now.getDay();
   const hasMidi=dow>=1&&dow<=5;
-  const inMidi=hasMidi&&totalMin>=690&&totalMin<900;
+  const inMidi=hasMidi&&totalMin>=720&&totalMin<870;
   const inSoir=totalMin>=1110&&totalMin<1320;
   const isOpen=inMidi||inSoir;
   const dot=document.getElementById('statusDot'),txt=document.getElementById('statusText');
   if(isOpen){
     dot.classList.remove('closed-dot');
-    txt.textContent='Ouvert en ce moment — fermeture à '+(inMidi?'15h00':'22h00');
+    txt.textContent='Ouvert en ce moment — fermeture à '+(inMidi?'14h30':'22h00');
     txt.style.color='var(--green-m)';
   }else{
     dot.classList.add('closed-dot');
     let msg='Fermé';
-    if(hasMidi&&totalMin<690)msg='Fermé — ouverture à 11h30';
+    if(hasMidi&&totalMin<720)msg='Fermé — ouverture à 12h00';
     else if(totalMin<1110)msg='Fermé — ouverture à 18h30';
-    else msg='Fermé — ouverture demain à '+(dow===5?'18h30':'11h30');
+    else msg='Fermé — ouverture demain à '+(dow===5?'18h30':'12h00');
     txt.textContent=msg;
   }
 })();
