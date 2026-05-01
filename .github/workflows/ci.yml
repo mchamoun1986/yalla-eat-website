@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check HTML files exist
+        run: |
+          echo "HTML files found:"
+          find . -name "*.html" -not -path "./node_modules/*" | wc -l
+
+      - name: Validate no broken internal links
+        run: |
+          echo "Checking for broken internal href references..."
+          errors=0
+          for file in $(find . -name "*.html" -not -path "./node_modules/*"); do
+            grep -oP 'href="(?!http|mailto|tel|#|javascript)([^"]+\.html)"' "$file" 2>/dev/null | while read -r match; do
+              target=$(echo "$match" | grep -oP '(?<=href=")[^"]+')
+              dir=$(dirname "$file")
+              if [ ! -f "$dir/$target" ] && [ ! -f "./$target" ]; then
+                echo "BROKEN: $file -> $target"
+                errors=$((errors + 1))
+              fi
+            done
+          done
+          echo "Link check complete."
