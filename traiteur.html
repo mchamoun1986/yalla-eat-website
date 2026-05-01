@@ -25,7 +25,7 @@
   {"@context":"https://schema.org","@type":"FoodEstablishment","name":"YallaEat — Traiteur Libanais Lyon","description":"Service traiteur libanais à Lyon. Buffets, plateaux-repas et mezzés maison pour événements de 10 à 200 personnes.","url":"https://www.yallaeat.fr/traiteur","telephone":"+33980667788","email":"yallaeat69@gmail.com","servesCuisine":["Libanais","Halal","Végétarien","Vegan"],"address":{"@type":"PostalAddress","streetAddress":"29 Rue de Bourgogne","addressLocality":"Lyon","addressRegion":"Auvergne-Rhône-Alpes","postalCode":"69009","addressCountry":"FR"},"areaServed":{"@type":"City","name":"Lyon"},"priceRange":"€€"}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"YallaEat propose-t-il un service traiteur à Lyon ?","acceptedAnswer":{"@type":"Answer","text":"Oui, YallaEat propose un service traiteur libanais complet à Lyon et sa région. Buffets, plateaux-repas et MezzéBox grand format pour 10 à 200 personnes. Idéal pour entreprises, mariages, anniversaires et tout événement."}},{"@type":"Question","name":"Pour quels événements peut-on commander le traiteur YallaEat ?","acceptedAnswer":{"@type":"Answer","text":"Nos formules traiteur s’adaptent à tous les événements : déjeuners d’entreprise, séminaires, mariages, anniversaires, bapêmes, soirées privées. Cuisine halal, options végétariennes et vegan disponibles."}},{"@type":"Question","name":"Comment demander un devis traiteur chez YallaEat ?","acceptedAnswer":{"@type":"Answer","text":"Contactez-nous par email à yallaeat69@gmail.com ou par téléphone au 09 80 66 77 88. Précisez la date, le nombre de personnes et vos préférences alimentaires. Devis gratuit sous 24h."}}]}
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"YallaEat propose-t-il un service traiteur à Lyon ?","acceptedAnswer":{"@type":"Answer","text":"Oui, YallaEat propose un service traiteur libanais complet à Lyon et sa région. Buffets, plateaux-repas et MezzéBox grand format pour 10 à 200 personnes. Idéal pour entreprises, mariages, anniversaires et tout événement."}},{"@type":"Question","name":"Pour quels événements peut-on commander le traiteur YallaEat ?","acceptedAnswer":{"@type":"Answer","text":"Nos formules traiteur s’adaptent à tous les événements : déjeuners d’entreprise, séminaires, mariages, anniversaires, baptêmes, soirées privées. Cuisine halal, options végétariennes et vegan disponibles."}},{"@type":"Question","name":"Comment demander un devis traiteur chez YallaEat ?","acceptedAnswer":{"@type":"Answer","text":"Contactez-nous par email à yallaeat69@gmail.com ou par téléphone au 09 80 66 77 88. Précisez la date, le nombre de personnes et vos préférences alimentaires. Devis gratuit sous 24h."}}]}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.yallaeat.fr/"},{"@type":"ListItem","position":2,"name":"Traiteur","item":"https://www.yallaeat.fr/traiteur"}]}
@@ -250,7 +250,7 @@
               <span class="diet-badge halal">✔ Halal certifié</span>
               <span class="diet-badge vege">🌿 Végétarien</span>
               <span class="diet-badge vegan">🌱 Vegan</span>
-              <span class="diet-badge gf">Gluten-free sur demande</span>
+              <span class="diet-badge gf">Sans gluten sur demande</span>
             </div>
           </div>
           <div class="split-image">
@@ -273,7 +273,7 @@
             <li>Séminaires et conférences</li>
             <li>Mariages et réceptions</li>
             <li>Anniversaires et fêtes privées</li>
-            <li>Bapêmes et communions</li>
+            <li>Baptêmes et communions</li>
             <li>Soirées associatives et culturelles</li>
             <li>Pots de départ et team buildings</li>
             <li>Tout autre événement sur mesure</li>
@@ -323,7 +323,7 @@
           <li class="faq-item">
             <button class="faq-btn" aria-expanded="false" aria-controls="faq-t2">Pour quels événements peut-on commander le traiteur YallaEat ?<span class="faq-icon" aria-hidden="true">+</span></button>
             <div class="faq-answer" id="faq-t2" role="region">
-              <p>Nos formules traiteur s’adaptent à tous les événements : déjeuners d’entreprise, séminaires, mariages, anniversaires, bapêmes, soirées privées. Cuisine halal, options végétariennes et vegan disponibles.</p>
+              <p>Nos formules traiteur s’adaptent à tous les événements : déjeuners d’entreprise, séminaires, mariages, anniversaires, baptêmes, soirées privées. Cuisine halal, options végétariennes et vegan disponibles.</p>
             </div>
           </li>
           <li class="faq-item">
@@ -411,16 +411,16 @@
 </footer>
   <button id="back-to-top" aria-label="Retour en haut de page" title="Retour en haut">&#8593;</button>
   <script>
-    const header = document.getElementById("site-header");
-    window.addEventListener("scroll", () => { header.classList.toggle("scrolled", window.scrollY > 60); }, { passive: true });
+    const header = document.getElementById("nav");
+    window.addEventListener("scroll", () => { if (header) header.classList.toggle("scrolled", window.scrollY > 60); }, { passive: true });
     const burger = document.getElementById("burger");
-    const navMenu = document.getElementById("nav-menu");
+    const navMenu = document.getElementById("navLinks");
     burger.addEventListener("click", () => {
       const isOpen = navMenu.classList.toggle("open");
       burger.setAttribute("aria-expanded", isOpen);
       burger.classList.toggle("active", isOpen);
     });
-    navMenu.querySelectorAll(".nav-link, .nav-cta").forEach(link => {
+    navMenu.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
         navMenu.classList.remove("open");
         burger.setAttribute("aria-expanded", "false");

@@ -448,9 +448,10 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
     <span class="newsletter-tag">Newsletter</span>
     <h2>Restez informé</h2>
     <p>Recettes exclusives, offres spéciales et actualités de YallaEat directement dans votre boîte mail. Pas de spam — promis.</p>
-    <form class="newsletter-form" onsubmit="return false;" aria-label="Formulaire d’inscription newsletter">
+    <form class="newsletter-form" action="https://formspree.io/f/xqewdaje" method="POST" aria-label="Formulaire d’inscription newsletter">
+      <input type="hidden" name="_subject" value="Nouvelle inscription newsletter YallaEat">
       <label for="nl-email" class="sr-only">Votre adresse email</label>
-      <input type="email" id="nl-email" class="newsletter-input" placeholder="votre@email.fr" autocomplete="email" aria-label="Votre adresse email">
+      <input type="email" id="nl-email" name="email" class="newsletter-input" placeholder="votre@email.fr" autocomplete="email" aria-label="Votre adresse email" required>
       <button type="submit" class="newsletter-btn">S’abonner</button>
     </form>
   </div>
@@ -553,10 +554,27 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
       var input=nlForm.querySelector(".newsletter-input");
       var btn=nlForm.querySelector(".newsletter-btn");
       if(input&&input.value.indexOf("@")>-1){
-        btn.textContent="Merci !";
-        btn.style.background="var(--green-m)";
-        input.value="";
-        setTimeout(function(){btn.textContent="S’abonner";btn.style.background="";},3000);
+        btn.textContent="Envoi...";
+        btn.disabled=true;
+        fetch(nlForm.action,{method:"POST",body:new FormData(nlForm),headers:{"Accept":"application/json"}})
+        .then(function(r){
+          if(r.ok){
+            btn.textContent="Merci !";
+            btn.style.background="var(--green-m)";
+            input.value="";
+          }else{
+            btn.textContent="Erreur — réessayez";
+            btn.style.background="#c0392b";
+          }
+          btn.disabled=false;
+          setTimeout(function(){btn.textContent="S’abonner";btn.style.background="";},4000);
+        })
+        .catch(function(){
+          btn.textContent="Erreur réseau";
+          btn.style.background="#c0392b";
+          btn.disabled=false;
+          setTimeout(function(){btn.textContent="S’abonner";btn.style.background="";},4000);
+        });
       }
     });
   }

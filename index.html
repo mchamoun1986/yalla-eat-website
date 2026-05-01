@@ -58,7 +58,7 @@
       {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"11:30","closes":"15:00"},
       {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"18:30","closes":"22:00"}
     ],
-    "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"113","bestRating":"5"},
+    "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.7","reviewCount":"113","bestRating":"5"},
     "sameAs":["https://www.instagram.com/yallaeat/","https://www.tiktok.com/@yallaeat","https://www.facebook.com/61561933693216"],
     "potentialAction":{"@type":"OrderAction","target":"https://commandes.yallaeat.fr/order/"}
   ,"hasOfferCatalog":{"@type":"OfferCatalog","name":"Carte YallaEat","itemListElement":[{"@type":"OfferCatalog","name":"Bowls Libanais","url":"https://www.yallaeat.fr/bowl"},{"@type":"OfferCatalog","name":"MezzéBox","url":"https://www.yallaeat.fr/mezzebox"},{"@type":"OfferCatalog","name":"Carte complète","url":"https://www.yallaeat.fr/menu"}]}
@@ -898,7 +898,7 @@
       if(selections.garniture.length){p.push(selections.garniture.join(' + '));selections.garniture.forEach(function(g){totalKcal+=extractKcal(g);});}
       if(selections.sauce.length){p.push(selections.sauce.join(' + '));}
       if(selections.topping){p.push(selections.topping);totalKcal+=extractKcal(selections.topping);}
-      if(!p.length){resultEl.innerHTML='Clique sur les ingredients pour composer ton bowl';resultEl.style.background='var(--cream)';}
+      if(!p.length){resultEl.innerHTML='Clique sur les ingrédients pour composer ton bowl';resultEl.style.background='var(--cream)';}
       else{
         var done=selections.base&&selections.base2&&selections.protein&&selections.garniture.length&&selections.sauce.length&&selections.topping;
         var kcalHtml=totalKcal>0?'<strong style="color:var(--green-d);font-size:1.15em;margin-top:8px;display:inline-block">Total : ~'+totalKcal+' kcal</strong>':'';
