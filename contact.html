@@ -475,7 +475,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
         <div class="platform-card-icon">&#128690;</div>
         <h3>Deliveroo</h3>
         <p>Disponible sur Deliveroo &mdash; livraison à Lyon</p>
-        <a href="https://deliveroo.fr/en/menu/lyon/lyon-vaise/yalla-libanais-44-quai-saint-vincent-69001" target="_blank" rel="noopener noreferrer" class="platform-card-btn">Ouvrir Deliveroo &rarr;</a>
+        <a href="https://deliveroo.fr/en/menu/lyon/lyon-vaise/yalla-libanais-29-rue-de-bourgogne-69009" target="_blank" rel="noopener noreferrer" class="platform-card-btn">Ouvrir Deliveroo &rarr;</a>
       </div>
     </div>
   </div>
@@ -587,7 +587,7 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
     let msg='Fermé';
     if(hasMidi&&totalMin<720)msg='Fermé — ouverture à 12h00';
     else if(totalMin<1110)msg='Fermé — ouverture à 18h30';
-    else msg='Fermé — ouverture demain à '+(dow===5?'18h30':'12h00');
+    else msg='Fermé — ouverture demain à '+((dow===5||dow===6)?'18h30':'12h00');
     txt.textContent=msg;
   }
 })();
