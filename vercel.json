@@ -9,7 +9,8 @@
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
         { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
         { "key": "X-XSS-Protection", "value": "1; mode=block" },
-        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://formspree.io https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.yallaeat.fr https://static.wixstatic.com; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://formspree.io; frame-src https://maps.google.com https://www.google.com" }
+        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains" },
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://formspree.io https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.yallaeat.fr; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://formspree.io; frame-src https://maps.google.com https://www.google.com" }
       ]
     },
     {
@@ -33,7 +34,8 @@
   ],
   "redirects": [
     { "source": "/config-traiteur.xlsx", "destination": "/", "statusCode": 404 },
-    { "source": "/build_config_xlsx.py", "destination": "/", "statusCode": 404 }
+    { "source": "/build_config_xlsx.py", "destination": "/", "statusCode": 404 },
+    { "source": "/blog/menu-vegetarien-libanais-plats", "destination": "/blog/menu-vegetarien-libanais", "statusCode": 301 }
   ],
   "rewrites": [],
   "trailingSlash": false

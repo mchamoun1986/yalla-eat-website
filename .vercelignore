@@ -1,4 +1,12 @@
-config-traiteur.xlsx
+CLAUDE.md
+BRAND_GUIDELINES.html
+BRAND_GUIDELINES.md
+DESIGN_AUDIT_REPORT.md
+generate-icons.html
+generate-icons.js
+screenshots/
+.worktrees/
 build_config_xlsx.py
-~$*
+config-traiteur.xlsx
+_build_devis.py
 Traiteur idée/
