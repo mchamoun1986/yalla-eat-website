@@ -72,7 +72,7 @@
     .reveal.revealed{opacity:1;transform:translateY(0)}
     .site-footer{padding:48px 24px 28px;background:var(--black);border-top:1px solid rgba(255,255,255,.06)}
     .footer-inner{max-width:var(--max-width);margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center}
-    .footer-logo{font-weight:800;font-size:1.4rem;letter-spacing:-1px;color:#fff}.footer-logo span{color:var(--green-m)}
+    .footer-logo{font-weight:800;font-size:1.4rem;letter-spacing:-1px;color:#fff}.footer-logo span{color:var(--gold)}
     .footer-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:16px 32px}
     .footer-nav a{font-size:.82rem;color:rgba(255,255,255,.4);transition:color .3s}.footer-nav a:hover{color:#fff}
     .footer-copy{font-size:.75rem;color:rgba(255,255,255,.25);padding-top:20px;border-top:1px solid rgba(255,255,255,.06);width:100%;text-align:center}
@@ -139,6 +139,7 @@
 <script src="ga4.js" defer></script>
 </head>
 <body>
+<a href="#main-content" class="sr-only skip-link">Aller au contenu principal</a>
   <nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
   <a href="/" class="nav-logo" aria-label="YallaEat — Accueil">YALLA<span>EAT</span></a>
   <div class="nav-links" id="navLinks">
@@ -156,7 +157,7 @@
     <span></span><span></span><span></span>
   </button>
 </nav>
-  <main>
+  <main id="main-content">
     <section class="hero-traiteur" aria-label="Traiteur libanais Lyon YallaEat">
       <div class="hero-inner">
         <span class="hero-tag">TRAITEUR LIBANAIS</span>

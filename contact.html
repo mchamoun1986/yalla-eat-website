@@ -146,7 +146,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 .social-card-link:hover{background:var(--green-d);color:#fff}
 .footer{padding:40px 5% 24px;background:var(--black);border-top:1px solid rgba(255,255,255,.06)}
 .footer-inner{display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto;flex-wrap:wrap;gap:20px}
-.footer-logo{font-weight:800;font-size:1.3em;color:#fff;letter-spacing:-1px}.footer-logo span{color:var(--green-m)}
+.footer-logo{font-weight:800;font-size:1.3em;color:#fff;letter-spacing:-1px}.footer-logo span{color:var(--gold)}
 .footer-links{display:flex;gap:24px}.footer-links a{font-size:.8em;color:rgba(255,255,255,.4);transition:color .3s}.footer-links a:hover{color:#fff}
 .footer-copy{width:100%;text-align:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.06);margin-top:20px}.footer-copy p{font-size:.75em;color:rgba(255,255,255,.25)}
 .btt{position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:var(--green-d);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2em;box-shadow:0 4px 20px rgba(13,79,61,.3);opacity:0;transform:translateY(20px);transition:all .3s;z-index:100;cursor:pointer}
@@ -165,8 +165,9 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 .form-group{display:flex;flex-direction:column;gap:6px}
 .form-group.full{grid-column:1 / -1}
 .form-group label{font-size:.8em;font-weight:600;color:var(--black);letter-spacing:.3px}
-.form-group input,.form-group select,.form-group textarea{font-family:'Poppins',sans-serif;padding:14px 18px;border:2px solid rgba(0,0,0,.08);border-radius:var(--radius-sm);font-size:.9em;transition:all .3s;background:var(--cream);color:var(--black);outline:none}
+.form-group input,.form-group select,.form-group textarea{font-family:'Poppins',sans-serif;padding:14px 18px;border:2px solid rgba(0,0,0,.08);border-radius:var(--radius-sm);font-size:.9em;transition:all .3s;background:var(--cream);color:var(--black);outline:revert}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--green-d);box-shadow:0 0 0 4px rgba(13,79,61,.08)}
+.form-group input:focus:not(:focus-visible),.form-group select:focus:not(:focus-visible),.form-group textarea:focus:not(:focus-visible){outline:none}
 .form-group textarea{resize:vertical;min-height:140px}
 .form-submit{margin-top:24px;text-align:center}
 .form-submit button{background:var(--green-d);color:#fff;padding:16px 48px;border-radius:60px;font-weight:700;font-size:1em;letter-spacing:.3px;box-shadow:0 8px 32px rgba(13,79,61,.3);transition:all .3s ease;cursor:pointer;border:none;font-family:'Poppins',sans-serif}
@@ -206,6 +207,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 <script src="ga4.js" defer></script>
 </head>
 <body>
+<a href="#main-content" class="sr-only skip-link">Aller au contenu principal</a>
 
 <!-- NAV -->
 <nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
@@ -225,6 +227,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
     <span></span><span></span><span></span>
   </button>
 </nav>
+<main id="main-content">
 
 <!-- HERO -->
 <header class="hero">
@@ -386,6 +389,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
       <span id="statusText">Vérification en cours&hellip;</span>
     </div>
     <table class="horaires-table">
+      <caption>Horaires d'ouverture</caption>
       <thead><tr><th>Jour</th><th>Midi</th><th>Soir</th></tr></thead>
       <tbody>
         <tr id="row-1"><td>Lundi</td><td class="td-open">12h00 &ndash; 14h30</td><td class="td-open">18h30 &ndash; 22h00</td></tr>
@@ -509,6 +513,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 <iframe src="https://maps.google.com/maps?q=29+Rue+de+Bourgogne+Lyon+69009&output=embed" width="100%" height="350" style="border:0;border-radius:16px" allowfullscreen loading="lazy" title="YallaEat — 29 Rue de Bourgogne, Lyon 9"></iframe>
 </div>
 
+</main>
 <footer class="footer" role="contentinfo">
   <div class="container" style="max-width:var(--max-width,1200px);margin:0 auto;padding:0 5%">
     <div class="footer__inner">
@@ -557,7 +562,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
     </div>
   </div>
 </footer>
-<div class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
+<button class="btt" id="btt" aria-label="Retour en haut de page" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
 const nav=document.getElementById('nav'),btt=document.getElementById('btt');

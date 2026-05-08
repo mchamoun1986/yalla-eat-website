@@ -11,6 +11,12 @@
 <meta property="og:image" content="https://www.yallaeat.fr/assets/og-yallaeat.jpg">
 <meta property="og:url" content="https://www.yallaeat.fr/devis-traiteur">
 <meta property="og:locale" content="fr_FR">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="YallaEat">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Devis Traiteur Libanais Lyon — YallaEat">
+<meta name="twitter:description" content="Simulez votre devis traiteur libanais en 2 minutes. Buffets, plateaux-repas, verrines — de 10 à 200 personnes.">
+<meta name="twitter:image" content="https://www.yallaeat.fr/assets/og-yallaeat.jpg">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="style.css">
@@ -62,11 +68,12 @@
 .formula-details li::before{content:"\2713 ";color:var(--green)}
 .persons-display{font-size:3.5rem;font-weight:900;color:var(--green-d);text-align:center;margin:16px 0 8px}
 .persons-unit{text-align:center;color:var(--gray);font-size:.85rem;margin-bottom:20px}
-input[type=range]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;background:#e0e0e0;outline:none}
+input[type=range]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;background:#e0e0e0;outline:revert}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--green-d);cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.2)}
 .range-labels{display:flex;justify-content:space-between;font-size:.75rem;color:var(--gray-l);margin-top:4px}
 .persons-input{display:block;width:120px;margin:16px auto 0;padding:8px 12px;border:2px solid #e0e0e0;border-radius:10px;font-size:1rem;text-align:center;font-family:inherit;font-weight:700}
-.persons-input:focus{outline:none;border-color:var(--green-d)}
+.persons-input:focus{outline:revert;border-color:var(--green-d)}
+.persons-input:focus:not(:focus-visible){outline:none}
 .category{margin-bottom:28px}
 .cat-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
 .cat-title{font-size:1rem;font-weight:700;color:var(--green-d)}
@@ -130,7 +137,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;heigh
 .form-group.full{grid-column:1/-1}
 .form-label{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--gray)}
 .form-input{padding:10px 14px;border:2px solid #e0e0e0;border-radius:10px;font-size:.88rem;font-family:inherit;transition:border-color .2s}
-.form-input:focus{outline:none;border-color:var(--green-d)}
+.form-input:focus{outline:revert;border-color:var(--green-d)}
+.form-input:focus:not(:focus-visible){outline:none}
 textarea.form-input{min-height:80px;resize:vertical}
 .price-bar{position:fixed;bottom:0;left:0;right:0;background:var(--green-d);color:#fff;padding:12px 24px;z-index:100;display:none;box-shadow:0 -4px 24px rgba(0,0,0,.15)}
 .price-bar-inner{max-width:800px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
@@ -147,6 +155,7 @@ textarea.form-input{min-height:80px;resize:vertical}
 </style>
 </head>
 <body>
+<a href="#main-content" class="sr-only skip-link">Aller au contenu principal</a>
 
 <!-- NAV -->
 <nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
@@ -183,6 +192,7 @@ textarea.form-input{min-height:80px;resize:vertical}
 <nav class="breadcrumb" aria-label="Fil d'Ariane">
   <a href="/">Accueil</a> &rsaquo; <a href="/traiteur">Traiteur</a> &rsaquo; <span aria-current="page">Simulateur Devis</span>
 </nav>
+<main id="main-content">
 
 <!-- WIZARD (original logic, unchanged) -->
 <div class="wizard-wrap">
@@ -205,8 +215,10 @@ textarea.form-input{min-height:80px;resize:vertical}
     <div class="panel-sub">Ajustez le nombre de personnes</div>
     <div class="persons-display" id="personsDisplay">30</div>
     <div class="persons-unit">personnes</div>
+    <label for="personsSlider" class="sr-only">Nombre d'invités</label>
     <input type="range" id="personsSlider" min="10" max="200" value="30" oninput="updatePersons(this.value)">
     <div class="range-labels"><span>10</span><span>200</span></div>
+    <label for="personsInput" class="sr-only">Nombre d'invités</label>
     <input type="number" class="persons-input" id="personsInput" min="10" max="200" value="30" oninput="updatePersons(this.value)">
     <div class="wiz-nav">
       <button class="wiz-btn wiz-back" onclick="prev()">&larr; Précédent</button>
@@ -263,12 +275,12 @@ textarea.form-input{min-height:80px;resize:vertical}
     <div class="recap-section" style="margin-top:24px">
       <div class="recap-title">Vos coordonnées</div>
       <div class="form-grid">
-        <div class="form-group"><label class="form-label">Nom complet *</label><input type="text" id="cName" class="form-input" placeholder="Votre nom"></div>
-        <div class="form-group"><label class="form-label">Email *</label><input type="email" id="cEmail" class="form-input" placeholder="votre@email.com"></div>
-        <div class="form-group"><label class="form-label">Téléphone</label><input type="tel" id="cPhone" class="form-input" placeholder="+33 6 ..."></div>
-        <div class="form-group"><label class="form-label">Date événement</label><input type="date" id="cDate" class="form-input"></div>
-        <div class="form-group"><label class="form-label">Code parrainage</label><input type="text" id="cCode" class="form-input" placeholder="Si vous en avez un" oninput="applyCode()"></div>
-        <div class="form-group full"><label class="form-label">Message (optionnel)</label><textarea id="cMsg" class="form-input" placeholder="Précisions, allergies, demandes spéciales..."></textarea></div>
+        <div class="form-group"><label for="cName" class="form-label">Nom complet *</label><input type="text" id="cName" class="form-input" placeholder="Votre nom"></div>
+        <div class="form-group"><label for="cEmail" class="form-label">Email *</label><input type="email" id="cEmail" class="form-input" placeholder="votre@email.com"></div>
+        <div class="form-group"><label for="cPhone" class="form-label">Téléphone</label><input type="tel" id="cPhone" class="form-input" placeholder="+33 6 ..."></div>
+        <div class="form-group"><label for="cDate" class="form-label">Date événement</label><input type="date" id="cDate" class="form-input"></div>
+        <div class="form-group"><label for="cCode" class="form-label">Code parrainage</label><input type="text" id="cCode" class="form-input" placeholder="Si vous en avez un" oninput="applyCode()"></div>
+        <div class="form-group full"><label for="cMsg" class="form-label">Message (optionnel)</label><textarea id="cMsg" class="form-input" placeholder="Précisions, allergies, demandes spéciales..."></textarea></div>
       </div>
     </div>
     <div class="wiz-nav">
@@ -356,6 +368,7 @@ renderStyles();
 </script>
 
 <!-- FOOTER -->
+</main>
 <footer class="footer" role="contentinfo">
   <div class="container" style="max-width:var(--max-width,1200px);margin:0 auto;padding:0 5%">
     <div class="footer__inner">

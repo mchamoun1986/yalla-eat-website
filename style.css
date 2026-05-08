@@ -31,6 +31,7 @@ img{max-width:100%;display:block}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
 .container{max-width:var(--max-width);margin:0 auto;padding:0 24px}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip-link:focus{position:fixed;top:8px;left:8px;z-index:10000;padding:12px 24px;background:var(--green-d);color:#fff;border-radius:8px;font-size:1rem;text-decoration:none;outline:3px solid var(--gold)}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 .reveal.visible,.reveal.revealed{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
@@ -153,7 +154,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .cta-banner__inner{position:relative;z-index:1}
 .cta-banner h2{font-size:clamp(1.6em,3vw,2.4em);font-weight:800;letter-spacing:-.5px;margin-bottom:10px}
 .cta-banner h2 em{font-family:'Playfair Display',serif;font-style:italic;color:var(--gold)}
-.cta-banner p{color:rgba(255,255,255,.55);font-size:.9em;margin-bottom:32px}
+.cta-banner p{color:rgba(255,255,255,.75);font-size:.9em;margin-bottom:32px}
 
 /* 13. FOOTER — unified 3-column layout */
 .site-footer,.footer{padding:3rem 5% 2rem;background:var(--black);border-top:1px solid rgba(255,255,255,.06);color:#fff}
@@ -167,16 +168,16 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .footer__col ul a{font-size:.85rem;color:rgba(255,255,255,.72);transition:color .3s}
 .footer__col ul a:hover{color:var(--gold)}
 .footer__bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:1.5rem;max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
-.footer__copy{font-size:.78rem;color:rgba(255,255,255,.3)}
-.footer__legal{font-size:.78rem;color:rgba(255,255,255,.3);transition:color .3s}
+.footer__copy{font-size:.78rem;color:rgba(255,255,255,.6)}
+.footer__legal{font-size:.78rem;color:rgba(255,255,255,.6);transition:color .3s}
 .footer__legal:hover{color:rgba(255,255,255,.6)}
 /* Legacy flat footer compat (blog articles) */
 .footer-inner{max-width:var(--max-width);margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center}
 .footer-logo{font-weight:800;font-size:1.4rem;letter-spacing:-1px;color:#fff;text-decoration:none}
 .footer-logo span{color:var(--gold)}
-.footer-tagline{font-size:.83rem;color:rgba(255,255,255,.45);line-height:1.6}
+.footer-tagline{font-size:.83rem;color:rgba(255,255,255,.65);line-height:1.6}
 .footer-links,.footer-nav{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
-.footer-links a,.footer-nav a{font-size:.82rem;color:rgba(255,255,255,.5);transition:color .3s}
+.footer-links a,.footer-nav a{font-size:.82rem;color:rgba(255,255,255,.7);transition:color .3s}
 .footer-links a:hover,.footer-nav a:hover{color:#fff}
 .footer-copy{font-size:.75rem;color:rgba(255,255,255,.3);width:100%;text-align:center}
 
@@ -227,3 +228,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   .page-hero h1{letter-spacing:-1px}
   .cta-banner{padding:40px 24px;border-radius:20px}
 }
+
+/* 15. FOCUS-VISIBLE — keyboard accessibility */
+.btn-cta:focus-visible,.btn-green:focus-visible,.btn-primary:focus-visible,.btn-order:focus-visible,.nav-cta:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.nav-links a:focus-visible,.nav__links a:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
