@@ -159,8 +159,7 @@
     .hero__bowl-wrap{display:flex;align-items:center;justify-content:center}
     .hero__bowl{position:relative;width:340px;height:340px;animation:bowlFloat 5s ease-in-out infinite}
     @keyframes bowlFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
-    .bowl__base{position:absolute;inset:40px;background:radial-gradient(circle at 40% 35%,#4a6741,#1f3d1c);border-radius:50%;box-shadow:0 20px 60px rgba(0,0,0,.5),inset 0 -8px 20px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center}
-    .bowl__label{font-size:.75rem;font-weight:700;color:var(--white);text-align:center;letter-spacing:.06em;text-transform:uppercase;opacity:.85}
+    .bowl__img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:310px;width:auto;filter:drop-shadow(0 18px 30px rgba(0,0,0,.45));pointer-events:none;transition:opacity .35s ease}
     .bowl__ingredient{position:absolute;width:54px;height:54px;background:var(--green-dark);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;border:2px solid rgba(255,255,255,.12);box-shadow:var(--shadow-md);animation:ingredientSpin 12s linear infinite;transform-origin:170px 170px}
     .bowl__ingredient:nth-child(1){animation-delay:0s}.bowl__ingredient:nth-child(2){animation-delay:-1.71s}.bowl__ingredient:nth-child(3){animation-delay:-3.43s}.bowl__ingredient:nth-child(4){animation-delay:-5.14s}.bowl__ingredient:nth-child(5){animation-delay:-6.86s}.bowl__ingredient:nth-child(6){animation-delay:-8.57s}.bowl__ingredient:nth-child(7){animation-delay:-10.29s}
     @keyframes ingredientSpin{from{transform:rotate(0deg) translateX(150px) rotate(0deg)}to{transform:rotate(360deg) translateX(150px) rotate(-360deg)}}
@@ -478,7 +477,7 @@
             <div class="bowl__ingredient">🫒</div>
             <div class="bowl__ingredient">🥑</div>
             <div class="bowl__ingredient">🫓</div>
-            <div class="bowl__base"><div class="bowl__label">Ton bowl<br>sur mesure</div></div>
+            <img id="heroBowl" class="bowl__img" src="assets/bowl-anim/00.webp" alt="Compose ton bowl sur mesure" width="461" height="640">
           </div>
         </a>
       </div>
@@ -1049,6 +1048,20 @@
         if(target){e.preventDefault();var top=target.getBoundingClientRect().top+window.scrollY-72;window.scrollTo({top:top,behavior:"smooth"});}
       });
     });
+  </script>
+
+  <script>
+  /* Hero bowl — remplissage progressif synchro (approx) avec les ingrédients qui tournent */
+  (function(){
+    var img=document.getElementById("heroBowl");
+    if(!img) return;
+    if(!window.matchMedia("(min-width:769px)").matches) return; /* bol masqué en mobile */
+    var n=8, base="assets/bowl-anim/", frames=[];
+    for(var k=0;k<n;k++){var p=base+("0"+k).slice(-2)+".webp";frames.push(p);var pre=new Image();pre.src=p;}
+    if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){img.src=frames[n-1];return;}
+    var i=0;
+    setInterval(function(){i=(i+1)%n;img.src=frames[i];},1500);
+  })();
   </script>
 
 </body>
