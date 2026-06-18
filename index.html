@@ -229,27 +229,6 @@
     .choice-or .label{font-family:'Playfair Display',serif;font-style:italic;font-size:1.6rem;font-weight:700;color:#d49341;background:var(--cream,#fff9f2);padding:.5rem 1rem;border-radius:50%;width:60px;height:60px;display:flex;align-items:center;justify-content:center;border:2px dashed rgba(212,147,65,.4);position:relative;z-index:2}
     .choice-or::before{content:"";position:absolute;top:50%;left:-1rem;right:-1rem;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(212,147,65,.3) 50%,transparent 100%);z-index:1}
     @media(max-width:780px){.concept-choice{grid-template-columns:1fr;gap:1rem}.choice-or{padding:.4rem 0}.choice-or::before{left:20%;right:20%;top:50%;transform:none}}
-    .builder{width:min(960px,92vw);margin-inline:auto;display:flex;flex-direction:column;gap:1.25rem}
-    .builder__step{background:var(--white);border-radius:var(--radius-md);padding:1.5rem 2rem;box-shadow:var(--shadow-sm);border:1px solid rgba(0,0,0,.05);transition:box-shadow var(--transition),border-color var(--transition)}
-    .builder__step:hover{box-shadow:var(--shadow-md);border-color:rgba(61,139,55,.15)}
-    .builder__step-head{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
-    .builder__num{width:36px;height:36px;border-radius:50%;background:var(--green-bright);color:var(--white);font-size:.85rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-    .builder__step-title{font-weight:700;font-size:1rem;color:var(--green-dark)}
-    .builder__chips{display:flex;flex-wrap:wrap;gap:.6rem}
-    .chip{padding:.45rem 1.1rem;border-radius:50px;font-size:.83rem;font-weight:500;background:var(--cream);color:var(--text-mid);border:1.5px solid rgba(0,0,0,.1);cursor:pointer;transition:var(--transition)}
-    .chip:hover,.chip.selected{background:var(--green-bright);color:var(--white);border-color:var(--green-bright);transform:translateY(-1px);box-shadow:0 4px 12px rgba(61,139,55,.3)}
-    .kcal{font-size:.65em;color:var(--text-light);font-weight:400;margin-left:2px}
-    /* BUILDER DEMO */
-    .builder-demo{max-width:900px;margin:48px auto 0;background:var(--white);border-radius:20px;padding:36px;box-shadow:0 20px 80px rgba(0,0,0,.06);border:1px solid rgba(0,0,0,.04);position:relative;overflow:hidden}
-    .builder-demo::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--green-dark),var(--green-bright),var(--orange),var(--green-dark))}
-    .builder-demo h3{text-align:center;font-size:1.1em;font-weight:700;margin-bottom:24px;color:var(--text-dark)}
-    .builder-row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:20px}
-    .builder-row-label{width:100%;text-align:center;font-size:.7em;text-transform:uppercase;letter-spacing:2px;font-weight:600;color:var(--text-light);margin-bottom:8px}
-    .builder-chip{padding:8px 16px;border-radius:50px;font-size:.8em;font-weight:500;background:var(--cream);border:2px solid transparent;cursor:pointer;transition:all .25s ease;user-select:none;color:var(--text-mid)}
-    .builder-chip:hover{border-color:var(--green-bright);background:var(--green-xl)}
-    .builder-chip.selected{background:var(--green-bright);color:var(--white);border-color:var(--green-bright);box-shadow:0 4px 12px rgba(61,139,55,.3);transform:scale(1.05)}
-    .builder-chip.selected-gold{background:var(--orange);color:var(--white);border-color:var(--orange);box-shadow:0 4px 12px rgba(244,160,18,.3);transform:scale(1.05)}
-    .builder-result{text-align:center;padding:20px;margin-top:16px;border-radius:12px;background:var(--cream);font-size:.9em;font-weight:600;color:var(--green-dark);min-height:60px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;transition:all .4s;flex-direction:column}
     /* MENU */
     .menu-section{background:var(--green-dark);padding:5rem 0}
     .menu-section__header{text-align:center;margin-bottom:3rem}
@@ -916,57 +895,6 @@
     burger.addEventListener("click",function(){mobileNav.classList.contains("open")?closeMenu():openMenu();});
     document.addEventListener("keydown",function(e){if(e.key==="Escape"&&mobileNav.classList.contains("open"))closeMenu();});
 
-    // Static step chips (visual only)
-    document.querySelectorAll(".chip").forEach(function(chip){
-      chip.setAttribute("aria-pressed","false");
-      chip.setAttribute("role","button");
-      chip.addEventListener("click",function(){
-        var group=chip.closest(".builder__chips");
-        var title=chip.closest(".builder__step").querySelector(".builder__step-title").textContent;
-        var isMulti=title.indexOf("Garnitures")!==-1||title.indexOf("Sauce")!==-1;
-        if(!isMulti){group.querySelectorAll(".chip").forEach(function(c){c.classList.remove("selected");c.setAttribute("aria-pressed","false");});}
-        chip.classList.toggle("selected");
-        chip.setAttribute("aria-pressed",chip.classList.contains("selected")?"true":"false");
-      });
-    });
-
-    document.querySelectorAll('.builder-chip').forEach(c=>{c.setAttribute('tabindex','0');c.setAttribute('role','button');c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();c.click()}})});
-
-    // Bowl builder with calorie calculator
-    const selections={base:null,base2:null,protein:null,garniture:[],sauce:[],topping:null};
-    const resultEl=document.getElementById("builderResult");
-    const multiGroups={garniture:7,sauce:2};
-    document.querySelectorAll(".builder-chip").forEach(chip=>{
-      chip.addEventListener("click",()=>{
-        const g=chip.dataset.group,v=chip.dataset.val;
-        if(multiGroups[g]){
-          const cls=g==="sauce"?"selected-gold":"selected";
-          if(chip.classList.contains(cls)){chip.classList.remove(cls);selections[g]=selections[g].filter(d=>d!==v);}
-          else if(selections[g].length<multiGroups[g]){chip.classList.add(cls);selections[g].push(v);}
-        }else{
-          document.querySelectorAll(".builder-chip[data-group="+JSON.stringify(g)+"]").forEach(c=>c.classList.remove("selected"));
-          chip.classList.add("selected");selections[g]=v;
-        }
-        updateResult();
-      });
-    });
-    function extractKcal(str){var m=str.match(/(\d+)\s*kcal/i);return m?parseInt(m[1]):0;}
-    function updateResult(){
-      var p=[];var totalKcal=0;
-      if(selections.base){p.push(selections.base);totalKcal+=extractKcal(selections.base);}
-      if(selections.base2){p.push(selections.base2);totalKcal+=extractKcal(selections.base2);}
-      if(selections.protein){p.push(selections.protein);totalKcal+=extractKcal(selections.protein);}
-      if(selections.garniture.length){p.push(selections.garniture.join(' + '));selections.garniture.forEach(function(g){totalKcal+=extractKcal(g);});}
-      if(selections.sauce.length){p.push(selections.sauce.join(' + '));}
-      if(selections.topping){p.push(selections.topping);totalKcal+=extractKcal(selections.topping);}
-      if(!p.length){resultEl.innerHTML='Clique sur les ingrédients pour composer ton bowl';resultEl.style.background='var(--cream)';}
-      else{
-        var done=selections.base&&selections.base2&&selections.protein&&selections.garniture.length&&selections.sauce.length&&selections.topping;
-        var kcalHtml=totalKcal>0?'<strong style="color:var(--green-d);font-size:1.15em;margin-top:8px;display:inline-block">Total : ~'+totalKcal+' kcal</strong>':'';
-        resultEl.innerHTML='<span style="word-break:break-word;text-align:center">'+p.join(' → ')+'</span><br>'+kcalHtml+(done?'<span style="color:#f9ad4d;margin-top:4px;display:block">Ton bowl est prêt !</span>':'');
-        resultEl.style.background=done?'#f0fae8':'var(--cream)';
-      }
-    }
 
     var revealEls=document.querySelectorAll(".reveal");
     var revealObserver=new IntersectionObserver(function(entries){
