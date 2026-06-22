@@ -926,7 +926,7 @@
     for(var k=0;k<n;k++){var p=base+("0"+k).slice(-2)+".webp";frames.push(p);var pre=new Image();pre.src=p;}
     if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){img.src=frames[n-1];return;}
     var i=0;
-    setInterval(function(){i=(i+1)%n;img.src=frames[i];},1500);
+    setInterval(function(){i=(i+1)%n;img.src=frames[i];},560);
   })();
   </script>
 
