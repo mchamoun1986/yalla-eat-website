@@ -162,6 +162,19 @@
     .bowl__img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:310px;width:auto;filter:drop-shadow(0 18px 30px rgba(0,0,0,.45));pointer-events:none;transition:opacity .35s ease}
     .bowl__ingredient{position:absolute;width:54px;height:54px;background:var(--green-dark);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;border:2px solid rgba(255,255,255,.12);box-shadow:var(--shadow-md);animation:ingredientSpin 12s linear infinite;transform-origin:170px 170px}
     .bowl__ingredient:nth-child(1){animation-delay:0s}.bowl__ingredient:nth-child(2){animation-delay:-1.71s}.bowl__ingredient:nth-child(3){animation-delay:-3.43s}.bowl__ingredient:nth-child(4){animation-delay:-5.14s}.bowl__ingredient:nth-child(5){animation-delay:-6.86s}.bowl__ingredient:nth-child(6){animation-delay:-8.57s}.bowl__ingredient:nth-child(7){animation-delay:-10.29s}
+    .bowl__stats{position:absolute;left:100%;top:50%;transform:translateY(-50%);margin-left:18px;display:flex;flex-direction:column;gap:.7rem;z-index:5;pointer-events:none}
+    .bowl-stat{display:flex;align-items:center;gap:.6rem;background:rgba(255,249,242,.96);border:1.5px solid rgba(249,173,77,.5);border-radius:16px;padding:.55rem .85rem;box-shadow:0 10px 28px rgba(13,79,61,.2);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);white-space:nowrap}
+    .bowl-stat__ico{font-size:1.35rem;line-height:1}
+    .bowl-stat__num{font-family:Poppins,system-ui,sans-serif;font-weight:900;font-size:1.5rem;color:var(--green-dark);line-height:1;font-variant-numeric:tabular-nums;display:inline-block;min-width:2.1em;text-align:right}
+    .bowl-stat__unit{font-weight:700;font-size:.78rem;color:var(--gold-d,#d49341);margin-left:2px}
+    .bowl-stat__lbl{font-size:.56rem;text-transform:uppercase;letter-spacing:.13em;color:var(--text-light,#6e6e6e);font-weight:600;margin-top:2px}
+    .bowl-stat.pop .bowl-stat__num{animation:statPop .45s ease}
+    @keyframes statPop{0%{transform:scale(1)}40%{transform:scale(1.2);color:var(--orange,#f9ad4d)}100%{transform:scale(1)}}
+    @media(max-width:980px){.bowl__stats{right:auto;left:50%;top:100%;transform:translateX(-50%);flex-direction:row;margin:14px 0 0}}
+    .bowl__burst{position:absolute;left:50%;top:48%;width:0;height:0;z-index:6;pointer-events:none}
+    .spark{position:absolute;left:0;top:0;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff 0%,var(--gold,#f9ad4d) 60%,rgba(249,173,77,0) 100%);opacity:0;box-shadow:0 0 14px 3px rgba(249,173,77,.9)}
+    .spark.go{animation:sparkFly 1.25s cubic-bezier(.15,.7,.3,1) forwards}
+    @keyframes sparkFly{0%{opacity:0;transform:translate(0,0) scale(.2)}12%{opacity:1}65%{opacity:1}100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(1.15)}}
     @keyframes ingredientSpin{from{transform:rotate(0deg) translateX(150px) rotate(0deg)}to{transform:rotate(360deg) translateX(150px) rotate(-360deg)}}
     /* PHOTOS */
     .photos{background:var(--green-dark);padding:4rem 0 4rem}
@@ -439,7 +452,7 @@
           <p class="hero__h1-sub">Fait maison &middot; Bowls, shawarma, mezzés &middot; Halal</p>
           <p class="hero__subtitle">
             Shawarma, taouk, bowls, salades, sandwichs et mezzé box sur mesure.
-            100&nbsp;% fait maison et halal &mdash; options végé, vegan et sans gluten.
+            100&nbsp;% fait maison &mdash; options végé, vegan et sans gluten.
             Sur place, à emporter ou en livraison.
           </p>
           <div class="hero__ctas">
@@ -454,9 +467,14 @@
             <div class="bowl__ingredient">🧆</div>
             <div class="bowl__ingredient">🍗</div>
             <div class="bowl__ingredient">🫒</div>
-            <div class="bowl__ingredient">🥑</div>
+            <div class="bowl__ingredient">🍚</div>
             <div class="bowl__ingredient">🫓</div>
             <img id="heroBowl" class="bowl__img" src="assets/bowl-anim/00.webp" alt="Compose ton bowl sur mesure" width="461" height="640">
+            <div class="bowl__burst" aria-hidden="true"></div>
+            <div class="bowl__stats" aria-hidden="true">
+              <div class="bowl-stat"><span class="bowl-stat__ico">💪</span><div class="bowl-stat__txt"><div><span class="bowl-stat__num" id="bowlProt">0</span><span class="bowl-stat__unit">g</span></div><div class="bowl-stat__lbl">protéines</div></div></div>
+              <div class="bowl-stat"><span class="bowl-stat__ico">🔥</span><div class="bowl-stat__txt"><div><span class="bowl-stat__num" id="bowlKcal">0</span><span class="bowl-stat__unit">kcal</span></div><div class="bowl-stat__lbl">énergie</div></div></div>
+            </div>
           </div>
         </a>
       </div>
@@ -466,7 +484,7 @@
     <section class="intro" aria-label="Présentation YallaEat">
       <div class="intro-eyebrow">Bienvenue chez YallaEat</div>
       <div class="intro-card">
-        <p class="intro-p"><strong>YallaEat est un restaurant libanais fast-good à Lyon 9 (Vaise)</strong>, au 29 rue de Bourgogne. Bowls, salades, sandwichs et mezzé boxes 100&nbsp;% fait maison et halal. Options végétariennes, vegan et sans gluten. Noté 4.7/5 sur Google. Ouvert midi et soir — sur place, à emporter ou en livraison via Uber Eats, Deliveroo et <a href="https://commandes.yallaeat.fr/order/">commandes.yallaeat.fr</a>.</p>
+        <p class="intro-p"><strong>YallaEat est un restaurant libanais fast-good à Lyon 9 (Vaise)</strong>, au 29 rue de Bourgogne. Bowls, salades, sandwichs et mezzé boxes 100&nbsp;% fait maison. Options végétariennes, vegan et sans gluten. Noté 4.7/5 sur Google. Ouvert midi et soir — sur place, à emporter ou en livraison via Uber Eats, Deliveroo et <a href="https://commandes.yallaeat.fr/order/">commandes.yallaeat.fr</a>.</p>
         <div class="intro-chips">
           <span class="intro-chip gold">&#x2605; 4.7/5 Google</span>
           <span class="intro-chip">&#x1F331; Végé &amp; Vegan</span>
@@ -495,7 +513,7 @@
       <h2 class="photos__title">Un savoir-faire aussi large que <em>vos envies…</em></h2>
       <div class="photos__grid">
         <div class="photos__item">
-          <img src="assets/bowl-chawarma-poulet-libanais-lyon.webp" alt="Bowl shawarma poulet halal — YallaEat Lyon 9" loading="eager" width="600" height="650" style="--z:1.1;--ty:-6%">
+          <img src="assets/bowl-chawarma-poulet-libanais-lyon.webp" alt="Bowl shawarma poulet — YallaEat Lyon 9" loading="eager" width="600" height="650" style="--z:1.1;--ty:-6%">
           <div class="photos__caption"><div class="title">Bowls</div><div class="from">Dès <strong>9,90&nbsp;€</strong></div></div>
         </div>
         <div class="photos__item" style="transition-delay:.08s">
@@ -503,12 +521,12 @@
           <div class="photos__caption"><div class="title">Salades</div><div class="from">Dès <strong>9,90&nbsp;€</strong></div></div>
         </div>
         <div class="photos__item" style="transition-delay:.16s">
-          <img src="assets/wrap-chawarma-boeuf-libanais.webp" alt="Sandwich shawarma bœuf halal — YallaEat Lyon 9" loading="lazy" width="600" height="650">
+          <img src="assets/wrap-chawarma-boeuf-libanais.webp" alt="Sandwich shawarma bœuf — YallaEat Lyon 9" loading="lazy" width="600" height="650">
           <div class="photos__caption"><div class="title">Sandwichs</div><div class="from">Dès <strong>7,90&nbsp;€</strong></div></div>
         </div>
         <div class="photos__item" style="transition-delay:.24s">
           <img src="assets/mezzebox-vegetarien-libanais.webp" alt="MezzéBox végétarienne libanaise — YallaEat Lyon 9" loading="lazy" width="500" height="540" style="--z:1.15;--ty:-6%">
-          <div class="photos__caption"><div class="title">Mezzé Box</div><div class="from">Dès <strong>20,90&nbsp;€</strong></div></div>
+          <div class="photos__caption"><div class="title">Mezzé Box</div><div class="from">À partager · dès <strong>20,90&nbsp;€</strong></div></div>
         </div>
         <div class="photos__item photos__formule" style="transition-delay:.32s">
           <div class="badge"><span class="l1">«&nbsp;Transformer&nbsp;»</span><span>&#x2726;&nbsp;&nbsp;En formule&nbsp;&nbsp;&#x2726;</span></div>
@@ -577,7 +595,7 @@
             <div class="steps">
               <div class="step"><span class="n">1</span>Une base fraîcheur &amp; féculente</div>
               <div class="step"><span class="n">2</span>Une protéine au choix (halal, végé, vegan)</div>
-              <div class="step"><span class="n">3</span>Jusqu'à 7 garnitures + 2 sauces</div>
+              <div class="step"><span class="n">3</span>6 garnitures, 1 topping et 1 sauce</div>
             </div>
             <a href="https://commandes.yallaeat.fr/order/" class="cta" rel="noopener noreferrer" target="_blank">Composer mon bowl&nbsp;→</a>
           </article>
@@ -709,7 +727,7 @@
           </div>
           <div class="traiteur__visual" style="transition-delay:.15s">
             <div class="traiteur__img-wrap">
-              <img src="assets/mezzebox-plateau-repas-libanais.webp" alt="Plateau traiteur libanais — mezzés, houmous, falafels pour 10 à 200 personnes — YallaEat Lyon 9" loading="lazy" width="600" height="600">
+              <img src="assets/mezzebox-plateau-repas-libanais.webp" alt="Plateau traiteur libanais — mezzés, houmous, falafels pour 10 à 200 personnes — YallaEat Lyon 9" loading="lazy" width="896" height="1196">
               <span class="traiteur__badge">10–200 pers.</span>
             </div>
           </div>
@@ -924,9 +942,18 @@
     if(!window.matchMedia("(min-width:769px)").matches) return; /* bol masqué en mobile */
     var n=8, base="assets/bowl-anim/", frames=[];
     for(var k=0;k<n;k++){var p=base+("0"+k).slice(-2)+".webp";frames.push(p);var pre=new Image();pre.src=p;}
-    if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){img.src=frames[n-1];return;}
+    /* valeurs cumulées (indicatives) kcal + protéines par frame */
+    var KCAL=[0,150,340,425,500,535,575,685], PROT=[0,5,35,41,45,47,48,49];
+    var kcalEl=document.getElementById("bowlKcal"), protEl=document.getElementById("bowlProt");
+    var stats=document.querySelectorAll(".bowl-stat");
+    function tween(el,from,to,dur){if(!el)return;var s=null;function step(ts){if(s===null)s=ts;var p=Math.min(1,(ts-s)/dur);el.textContent=Math.round(from+(to-from)*p);if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
+    function pop(){stats.forEach(function(s){s.classList.remove("pop");void s.offsetWidth;s.classList.add("pop");});}
+    var burstHost=document.querySelector(".bowl__burst");
+    function burst(){if(!burstHost)return;for(var s=0;s<24;s++){(function(){var el=document.createElement("span");el.className="spark";var a=Math.random()*6.283,dist=95+Math.random()*105,sz=(8+Math.random()*10).toFixed(0);el.style.setProperty("--tx",(Math.cos(a)*dist).toFixed(0)+"px");el.style.setProperty("--ty",(Math.sin(a)*dist).toFixed(0)+"px");el.style.width=sz+"px";el.style.height=sz+"px";burstHost.appendChild(el);requestAnimationFrame(function(){el.classList.add("go");});setTimeout(function(){el.remove();},1400);})();}}
+    if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){img.src=frames[n-1];if(kcalEl)kcalEl.textContent=KCAL[n-1];if(protEl)protEl.textContent=PROT[n-1];return;}
     var i=0;
-    setInterval(function(){i=(i+1)%n;img.src=frames[i];},560);
+    function nextFrame(){var prev=i;i=(i+1)%n;img.src=frames[i];tween(kcalEl,KCAL[prev],KCAL[i],725);tween(protEl,PROT[prev],PROT[i],725);pop();if(i===(n-1))burst();setTimeout(nextFrame,i===(n-1)?3400:902);}
+    setTimeout(nextFrame,902);
   })();
   </script>
 
