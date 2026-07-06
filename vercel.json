@@ -10,7 +10,7 @@
         { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
         { "key": "X-XSS-Protection", "value": "1; mode=block" },
         { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains" },
-        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://formspree.io https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.yallaeat.fr; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://formspree.io; frame-src https://maps.google.com https://www.google.com" }
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://formspree.io https://cdnjs.cloudflare.com https://connect.facebook.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.yallaeat.fr https://www.facebook.com; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://formspree.io https://www.facebook.com; frame-src https://maps.google.com https://www.google.com" }
       ]
     },
     {
