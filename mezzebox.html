@@ -136,6 +136,7 @@
 .nav-links a.active::after,.nav__links a.active::after{content:'';position:absolute;bottom:-8px;left:0;right:0;height:2px;background:var(--gold);border-radius:2px}
 .nav--light .nav-links a.active,.nav--light .nav__links a.active{color:var(--green-d)!important}
 .nav--light .nav-links a.active::after,.nav--light .nav__links a.active::after{background:var(--green-d)}
+@media(max-width:768px){.nav .nav-links.open{position:fixed;inset:0;background:var(--green-d);flex-direction:column;justify-content:center;gap:32px;display:flex;opacity:1;pointer-events:all;z-index:999}.nav .nav-links.open a{font-size:1.4em;color:#fff}}
 </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebPage","name":"MezzéBox — Mezzés Libanais Lyon 9","description":"Assortiment de mezzés libanais faits maison chez YallaEat Lyon 9","url":"https://www.yallaeat.fr/mezzebox","mainEntity":{"@type":"Restaurant","name":"YallaEat","address":{"@type":"PostalAddress","streetAddress":"29 Rue de Bourgogne","addressLocality":"Lyon","postalCode":"69009","addressCountry":"FR"},"servesCuisine":["Libanais","Halal","Végétarien","Vegan"]}}
@@ -214,7 +215,7 @@ src="https://www.facebook.com/tr?id=1541330474068971&ev=PageView&noscript=1"
             <div class="price">20,90€</div>
             <p>Vous choisissez les 6 mezzés que vous voulez parmi notre sélection complète. La liberté totale pour personnaliser votre expérience libanaise.</p>
             <ul style="font-size:.88rem; color:var(--gray); padding-left:18px; margin:0 0 12px;">
-              <li>6 mezzés au choix</li><li>Pain pita artisanal inclus</li><li>Composition libre</li>
+              <li>6 mezzés au choix</li><li>Pain libanais inclus</li><li>Composition libre</li>
             </ul>
             <div class="badges"><span class="badge badge-halal">Halal</span><span class="badge badge-box">À composer</span></div>
           </article>
@@ -234,7 +235,7 @@ src="https://www.facebook.com/tr?id=1541330474068971&ev=PageView&noscript=1"
             <div class="price">22,90€</div>
             <p>Les mezzés classiques accompagnés de brochettes de taouk marinées au citron et épices. Le combo parfait pour les amateurs de poulet grillé à la libanaise.</p>
             <ul style="font-size:.88rem; color:var(--gray); padding-left:18px; margin:0 0 12px;">
-              <li>Brochettes taouk grillées</li><li>Houmous &amp; toum ail</li><li>Taboulé &amp; fattouche</li>
+              <li>Brochettes taouk grillées</li><li>Houmous &amp; crème d’ail</li><li>Taboulé &amp; fattouche</li>
             </ul>
             <div class="badges"><span class="badge badge-halal">Halal</span><span class="badge badge-poulet">Poulet</span></div>
           </article>
@@ -295,7 +296,7 @@ src="https://www.facebook.com/tr?id=1541330474068971&ev=PageView&noscript=1"
           <article class="mezze-item"><span class="emoji" aria-hidden="true">🌿</span><h4>Taboulé</h4><p>Persil, tomate, boulgour, citron, huile d’olive — herbé et vif</p></article>
           <article class="mezze-item"><span class="emoji" aria-hidden="true">🥗</span><h4>Fattouche</h4><p>Salade fraîche, sumac, pain grillé croustillant, citron</p></article>
           <article class="mezze-item"><span class="emoji" aria-hidden="true">🍃</span><h4>Feuilles de vigne</h4><p>Riz, persil, tomate, herbes — roulées et mijotées au citron</p></article>
-          <article class="mezze-item"><span class="emoji" aria-hidden="true">🧄</span><h4>Toum</h4><p>Crème d’ail libanaise montée, onctueuse et parfumée</p></article>
+          <article class="mezze-item"><span class="emoji" aria-hidden="true">🧄</span><h4>Crème d’ail</h4><p>Crème d’ail libanaise montée, onctueuse et parfumée</p></article>
           <article class="mezze-item"><span class="emoji" aria-hidden="true">🥬</span><h4>Salade de choux</h4><p>Chou blanc, carotte, citron, herbes fraîches — légère et croquante</p></article>
         </div>
       </div>
@@ -393,16 +394,16 @@ src="https://www.facebook.com/tr?id=1541330474068971&ev=PageView&noscript=1"
 </footer>
   <button id="back-to-top" aria-label="Retour en haut de page" title="Retour en haut">&#8593;</button>
   <script>
-    const header = document.getElementById("site-header");
+    const header = document.getElementById("nav");
     window.addEventListener("scroll", () => { header.classList.toggle("scrolled", window.scrollY > 60); }, { passive: true });
     const burger = document.getElementById("burger");
-    const navMenu = document.getElementById("nav-menu");
+    const navMenu = document.getElementById("navLinks");
     burger.addEventListener("click", () => {
       const isOpen = navMenu.classList.toggle("open");
       burger.setAttribute("aria-expanded", isOpen);
       burger.classList.toggle("active", isOpen);
     });
-    navMenu.querySelectorAll(".nav-link, .nav-cta").forEach(link => {
+    navMenu.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
         navMenu.classList.remove("open");
         burger.setAttribute("aria-expanded", "false");
