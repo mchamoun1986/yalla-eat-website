@@ -2,227 +2,233 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.yallaeat.fr/</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/menu</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/bowl</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/mezzebox</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/traiteur</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/mission</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/contact</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/blog</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/blog/yalla-bowl-libanais-lyon</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/blog/bienfaits-houmous-artisanal</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/blog/falafel-maison-recette</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/blog/livraison-libanais-lyon</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/blog/menu-vegetarien-libanais</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.yallaeat.fr/blog/menu-vegetarien-libanais-plats</loc>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/mentions-legales</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <!-- Hub Page AI SEO -->
   <url>
     <loc>https://www.yallaeat.fr/restaurant-libanais-lyon-9</loc>
-    <lastmod>2026-04-20</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-  <!-- 6 Landing Pages -->
+  <!-- Landing Pages -->
   <url>
     <loc>https://www.yallaeat.fr/emporter</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/halal</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/vegetarien-vegan</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/dejeuner-lyon-9</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/livraison</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/falafel-lyon</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/wrap-sandwich</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/shawarma-lyon</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/grillade-libanaise</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/devis-traiteur</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- 10 Blog Articles -->
+  <!-- Blog Articles -->
   <url>
     <loc>https://www.yallaeat.fr/blog/healthy-food-lyon-9</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/blog/bowl-libanais-vs-poke-bowl</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/blog/dejeuner-rapide-vaise</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/blog/restaurant-halal-lyon-9</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/blog/falafel-maison-vs-fast-food</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/blog/mezzes-emporter-guide</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://www.yallaeat.fr/blog/commander-emporter-lyon-9</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/blog/shawarma-poulet-lyon-recette</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/blog/dejeuner-equipe-vaise-traiteur</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/blog/halal-entreprise-livraison-lyon-9</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/blog/dejeuner-healthy-bureau-lyon-9</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.yallaeat.fr/blog/restaurant-mediterraneen-lyon-9</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
