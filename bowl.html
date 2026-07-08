@@ -82,6 +82,8 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 .bowl-price{font-size:1.05em;font-weight:800;color:var(--green-d);white-space:nowrap;background:var(--green-xl);padding:5px 14px;border-radius:8px;flex-shrink:0;}
 .bowl-price.gold{background:var(--cream-d);color:var(--gold-d)}
 .bowl-price.blue{background:var(--green-xl);color:var(--green-d)}
+.bowl-price .sz{color:var(--gold-d);font-weight:800;letter-spacing:.5px}
+.bowl-price.gold .sz{color:var(--green-d)}
 .bowl-desc{font-size:.8em;color:var(--gray);line-height:1.65;}
 .bowl-kcal{font-size:.68em;color:var(--gray-l);margin-top:2px;}
 .bowl-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
@@ -125,17 +127,6 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{fon
 /* ---- Step card upgrades ---- */
 .step-sub{font-size:.65em;font-weight:500;color:var(--gray);margin-left:4px;letter-spacing:0}
 em.kcal-badge{font-style:normal;font-size:.75em;color:var(--gray-l);margin-left:3px}
-/* ---- Interactive Bowl Builder ---- */
-.builder-demo{max-width:900px;margin:48px auto 0;background:#fff;border-radius:20px;padding:36px;box-shadow:0 20px 80px rgba(0,0,0,.06);border:1px solid rgba(0,0,0,.04);position:relative;overflow:hidden}
-.builder-demo::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#0d4f3d,#97c693,#f9ad4d,#0d4f3d)}
-.builder-demo h3{text-align:center;font-size:1.1em;font-weight:700;margin-bottom:24px}
-.builder-row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:20px}
-.builder-row-label{width:100%;text-align:center;font-size:.7em;text-transform:uppercase;letter-spacing:2px;font-weight:600;color:#6e6e6e;margin-bottom:8px}
-.builder-chip{padding:8px 16px;border-radius:50px;font-size:.8em;font-weight:500;background:#fef3e5;border:2px solid transparent;cursor:pointer;transition:all .25s ease;user-select:none}
-.builder-chip:hover{border-color:#0d4f3d;background:#effae5}
-.builder-chip.selected{background:#0d4f3d;color:#fff;border-color:#0d4f3d;box-shadow:0 4px 12px rgba(13,79,61,.3);transform:scale(1.05)}
-.builder-chip.selected-gold{background:#f9ad4d;color:#fff;border-color:#f9ad4d;box-shadow:0 4px 12px rgba(249,173,77,.3);transform:scale(1.05)}
-.builder-result{text-align:center;padding:20px;margin-top:16px;border-radius:12px;background:#fef3e5;font-size:.9em;font-weight:600;color:#0d4f3d;min-height:60px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;transition:all .4s}
 .nav-links a.active,.nav__links a.active{color:var(--gold)!important;font-weight:700!important;position:relative}
 .nav-links a.active::after,.nav__links a.active::after{content:'';position:absolute;bottom:-8px;left:0;right:0;height:2px;background:var(--gold);border-radius:2px}
 .nav--light .nav-links a.active,.nav--light .nav__links a.active{color:var(--green-d)!important}
@@ -198,171 +189,6 @@ src="https://www.facebook.com/tr?id=1541330474068971&ev=PageView&noscript=1"
     <img src="assets/bowl-taouk-poulet-libanais-lyon.webp" alt="Bowl taouk poulet libanais — YallaEat Lyon 9" loading="eager" style="width:100%;max-width:480px;border-radius:20px;margin:32px auto 0;object-fit:cover;box-shadow:0 20px 60px rgba(0,0,0,.5);border:4px solid rgba(255,255,255,.2)">
   </div>
 </header>
-<section class="section-wrap" id="comment">
-  <div class="section-header">
-    <span class="section-eyebrow">PERSONNALISABLE</span>
-    <h2>Comment <em>ça marche ?</em></h2>
-    <p>6 étapes pour créer votre bowl idéal, avec des ingrédients frais préparés chaque matin.</p>
-  </div>
-  <div class="steps-grid">
-<div class="step-card">
-  <div class="step-num">1</div>
-  <span class="step-emoji">&#x1F957;</span>
-  <h3>Base fraîcheur</h3>
-  <div class="step-items">
-    <span class="step-item">Salade composée <em class="kcal-badge">15kcal</em></span>
-    <span class="step-item">Iceberg <em class="kcal-badge">10kcal</em></span>
-    <span class="step-item">Chou <em class="kcal-badge">20kcal</em></span>
-    <span class="step-item">Carottes <em class="kcal-badge">25kcal</em></span>
-  </div>
-  <span class="step-note">Choix de 1 base</span>
-</div>
-<div class="step-card">
-  <div class="step-num">2</div>
-  <span class="step-emoji">&#x1F35A;</span>
-  <h3>Base féculente</h3>
-  <div class="step-items">
-    <span class="step-item">Riz <em class="kcal-badge">180kcal</em></span>
-    <span class="step-item">Couscous <em class="kcal-badge">170kcal</em></span>
-    <span class="step-item">Quinoa <em class="kcal-badge">185kcal</em></span>
-    <span class="step-item">Pomme de terre <em class="kcal-badge">150kcal</em></span>
-    <span class="step-item">Pâtes <em class="kcal-badge">200kcal</em></span>
-  </div>
-  <span class="step-note">Choix de 1 base</span>
-</div>
-<div class="step-card">
-  <div class="step-num">3</div>
-  <span class="step-emoji">&#x1F9C6;</span>
-  <h3>Protéine <span class="step-sub">6 choix</span></h3>
-  <div class="step-items">
-    <span class="step-item">Taouk grillé <em class="kcal-badge">165kcal</em></span>
-    <span class="step-item">Shawarma poulet <em class="kcal-badge">190kcal</em></span>
-    <span class="step-item">Shawarma bœuf <em class="kcal-badge">250kcal</em></span>
-    <span class="step-item">Falafels <em class="kcal-badge">140kcal</em></span>
-    <span class="step-item">Chou-fleur zaatar <em class="kcal-badge">80kcal</em></span>
-    <span class="step-item">Œuf dur <em class="kcal-badge">75kcal</em></span>
-  </div>
-  <span class="step-note">Choix de 1 protéine</span>
-</div>
-<div class="step-card">
-  <div class="step-num">4</div>
-  <span class="step-emoji">&#x1F96C;</span>
-  <h3>Garnitures <span class="step-sub">13 choix</span></h3>
-  <div class="step-items">
-    <span class="step-item">Houmous <em class="kcal-badge">70kcal</em></span>
-    <span class="step-item">Caviar d’aubergine <em class="kcal-badge">50kcal</em></span>
-    <span class="step-item">Crème d’ail <em class="kcal-badge">90kcal</em></span>
-    <span class="step-item">Tzatziki <em class="kcal-badge">40kcal</em></span>
-    <span class="step-item">Tomates <em class="kcal-badge">15kcal</em></span>
-    <span class="step-item">Olives <em class="kcal-badge">30kcal</em></span>
-    <span class="step-item">Concombres <em class="kcal-badge">8kcal</em></span>
-    <span class="step-item">Maïs <em class="kcal-badge">35kcal</em></span>
-    <span class="step-item">Radis <em class="kcal-badge">5kcal</em></span>
-    <span class="step-item">Oignons <em class="kcal-badge">10kcal</em></span>
-    <span class="step-item">Pickles <em class="kcal-badge">5kcal</em></span>
-    <span class="step-item">Pois chiches <em class="kcal-badge">45kcal</em></span>
-    <span class="step-item gold">Jalapeno <em class="kcal-badge">4kcal</em></span>
-  </div>
-  <span class="step-note">Jusqu’à 6 garnitures</span>
-</div>
-<div class="step-card">
-  <div class="step-num">5</div>
-  <span class="step-emoji">&#x1FAD9;</span>
-  <h3>Sauce maison</h3>
-  <div class="step-items">
-    <span class="step-item">Légère</span>
-    <span class="step-item">Tzatziki</span>
-    <span class="step-item">Crème de sésame citronnée</span>
-    <span class="step-item">Vinaigrette grenade</span>
-    <span class="step-item gold">Crème de sésame pimentée</span>
-  </div>
-  <span class="step-note">Jusqu’à 1 sauce</span>
-</div>
-<div class="step-card">
-  <div class="step-num">6</div>
-  <span class="step-emoji">&#x1FAD3;</span>
-  <h3>Topping</h3>
-  <div class="step-items">
-    <span class="step-item">Pain grillé zaatar <em class="kcal-badge">80kcal</em></span>
-    <span class="step-item">Croutons <em class="kcal-badge">45kcal</em></span>
-    <span class="step-item">Oignons frits <em class="kcal-badge">60kcal</em></span>
-    <span class="step-item">Noix <em class="kcal-badge">65kcal</em></span>
-    <span class="step-item">Cacahuètes <em class="kcal-badge">70kcal</em></span>
-    <span class="step-item">Feta émiettée <em class="kcal-badge">55kcal</em></span>
-  </div>
-  <span class="step-note">Au choix</span>
-</div>
-  </div>
-
-  <!-- Interactive Bowl Builder -->
-  <div class="builder-demo">
-    <h3>Composez votre bowl maintenant !</h3>
-    <div class="builder-row">
-      <div class="builder-row-label">1. Votre Base Fraîcheur</div>
-      <div class="builder-chip" data-group="base" data-val="🥬 Salade composée · 15kcal">🥬 Salade composée &middot; 15kcal</div>
-      <div class="builder-chip" data-group="base" data-val="🥬 Iceberg · 10kcal">🥬 Iceberg &middot; 10kcal</div>
-      <div class="builder-chip" data-group="base" data-val="🥦 Chou · 20kcal">🥦 Chou &middot; 20kcal</div>
-      <div class="builder-chip" data-group="base" data-val="🥕 Carottes · 25kcal">🥕 Carottes &middot; 25kcal</div>
-    </div>
-    <div class="builder-row">
-      <div class="builder-row-label">2. Votre Base Féculente</div>
-      <div class="builder-chip" data-group="base2" data-val="🍚 Riz · 180kcal">🍚 Riz &middot; 180kcal</div>
-      <div class="builder-chip" data-group="base2" data-val="🍛 Couscous · 170kcal">🍛 Couscous &middot; 170kcal</div>
-      <div class="builder-chip" data-group="base2" data-val="🌾 Quinoa · 185kcal">🌾 Quinoa &middot; 185kcal</div>
-      <div class="builder-chip" data-group="base2" data-val="🥔 Pomme de terre · 150kcal">🥔 Pomme de terre &middot; 150kcal</div>
-      <div class="builder-chip" data-group="base2" data-val="🍝 Pâtes · 200kcal">🍝 Pâtes &middot; 200kcal</div>
-    </div>
-    <div class="builder-row">
-      <div class="builder-row-label">3. Votre Protéine</div>
-      <div class="builder-chip" data-group="protein" data-val="🍗 Taouk grillé · 165kcal">🍗 Taouk grillé &middot; 165kcal</div>
-      <div class="builder-chip" data-group="protein" data-val="🍗 Shawarma poulet · 190kcal">🍗 Shawarma poulet &middot; 190kcal</div>
-      <div class="builder-chip" data-group="protein" data-val="🥩 Shawarma bœuf · 250kcal">🥩 Shawarma bœuf &middot; 250kcal</div>
-      <div class="builder-chip" data-group="protein" data-val="🧆 Falafels · 140kcal">🧆 Falafels &middot; 140kcal</div>
-      <div class="builder-chip" data-group="protein" data-val="🥦 Chou-fleur zaatar · 80kcal">🥦 Chou-fleur zaatar &middot; 80kcal</div>
-      <div class="builder-chip" data-group="protein" data-val="🥚 Œuf dur · 75kcal">🥚 Œuf dur &middot; 75kcal</div>
-    </div>
-    <div class="builder-row">
-      <div class="builder-row-label">4. Vos Garnitures (max 6)</div>
-      <div class="builder-chip" data-group="garniture" data-val="🟡 Houmous · 70kcal" data-max="6">🟡 Houmous &middot; 70kcal</div>
-      <div class="builder-chip" data-group="garniture" data-val="🍆 Caviar d’aubergine · 50kcal" data-max="6">🍆 Caviar d’aubergine &middot; 50kcal</div>
-      <div class="builder-chip" data-group="garniture" data-val="🧄 Crème d’ail · 90kcal" data-max="6">🧄 Crème d’ail &middot; 90kcal</div>
-      <div class="builder-chip" data-group="garniture" data-val="🫕 Tzatziki · 40kcal" data-max="6">🫕 Tzatziki &middot; 40kcal</div>
-      <div class="builder-chip" data-group="garniture" data-val="🍅 Tomates · 15kcal" data-max="6">🍅 Tomates &middot; 15kcal</div>
-      <div class="builder-chip" data-group="garniture" data-val="🫒 Olives · 30kcal" data-max="6">🫒 Olives &middot; 30kcal</div>
-      <div class="builder-chip" data-group="garniture" data-val="🥒 Concombres · 8kcal" data-max="6">🥒 Concombres &middot; 8kcal</div>
-      <div class="builder-chip" data-group="garniture" data-val="🌽 Maïs · 35kcal" data-max="6">🌽 Maïs &middot; 35kcal</div>
-      <div class="builder-chip" data-group="garniture" data-val="🌸 Radis · 5kcal" data-max="6">🌸 Radis &middot; 5kcal</div>
-      <div class="builder-chip" data-group="garniture" data-val="🧅 Oignons · 10kcal" data-max="6">🧅 Oignons &middot; 10kcal</div>
-      <div class="builder-chip" data-group="garniture" data-val="🥒 Pickles · 5kcal" data-max="6">🥒 Pickles &middot; 5kcal</div>
-      <div class="builder-chip" data-group="garniture" data-val="🧆 Pois chiches · 45kcal" data-max="6">🧆 Pois chiches &middot; 45kcal</div>
-      <div class="builder-chip" data-group="garniture" data-val="🌶 Jalapeno · 4kcal" data-max="6">🌶 Jalapeno &middot; 4kcal</div>
-    </div>
-    <div class="builder-row">
-      <div class="builder-row-label">5. Votre Sauce Maison (max 1)</div>
-      <div class="builder-chip" data-group="sauce" data-val="🍋 Légère" data-max="1">🍋 Légère</div>
-      <div class="builder-chip" data-group="sauce" data-val="🥛 Tzatziki" data-max="1">🥛 Tzatziki</div>
-      <div class="builder-chip" data-group="sauce" data-val="🌿 Crème de sésame citronnée" data-max="1">🌿 Crème de sésame citronnée</div>
-      <div class="builder-chip" data-group="sauce" data-val="🍇 Vinaigrette grenade" data-max="1">🍇 Vinaigrette grenade</div>
-      <div class="builder-chip" data-group="sauce" data-val="🌶 Crème de sésame pimentée" data-max="1">🌶 Crème de sésame pimentée</div>
-    </div>
-    <div class="builder-row">
-      <div class="builder-row-label">6. Votre Topping</div>
-      <div class="builder-chip" data-group="topping" data-val="🍞 Pain grillé zaatar · 80kcal">🍞 Pain grillé zaatar &middot; 80kcal</div>
-      <div class="builder-chip" data-group="topping" data-val="🥖 Croutons · 45kcal">🥖 Croutons &middot; 45kcal</div>
-      <div class="builder-chip" data-group="topping" data-val="🧅 Oignons frits · 60kcal">🧅 Oignons frits &middot; 60kcal</div>
-      <div class="builder-chip" data-group="topping" data-val="🌰 Noix · 65kcal">🌰 Noix &middot; 65kcal</div>
-      <div class="builder-chip" data-group="topping" data-val="🥜 Cacahuètes · 70kcal">🥜 Cacahuètes &middot; 70kcal</div>
-      <div class="builder-chip" data-group="topping" data-val="🧀 Feta émiettée · 55kcal">🧀 Feta émiettée &middot; 55kcal</div>
-    </div>
-    <div class="builder-result" id="builderResult">
-      Cliquez sur les ingrédients pour composer votre bowl
-    </div>
-  </div>
-
-</section>
-<div class="bowl-img-wrap">
-  <img src="assets/bowl-libanais-composition.webp" alt="Bowl libanais composition — YallaEat Lyon 9" loading="lazy" style="width:100%;border-radius:16px;aspect-ratio:1/1;object-fit:cover">
-</div>
 <section class="section-wrap" id="signatures" style="padding-bottom:80px">
   <div class="section-header">
     <span class="section-eyebrow">NOS BOWLS</span>
@@ -371,13 +197,43 @@ src="https://www.facebook.com/tr?id=1541330474068971&ev=PageView&noscript=1"
   </div>
   <div class="bowls-grid">
 <div class="bowl-card">
-  <div class="bowl-card-band blue"></div>
-  <img src="assets/bowl-libanais-vue-dessus.webp" alt="Bowl libanais vue dessus — YallaEat Lyon 9" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover">
+  <div class="bowl-card-band"></div>
+  <img src="assets/bowl-falafel-vegetarien-lyon.webp" alt="Bowl falafel végétarien — YallaEat Lyon 9" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover">
   <div class="bowl-card-body">
-    <div class="bowl-card-top"><h3>Bowl à composer — Taille L</h3><span class="bowl-price blue">12,40&nbsp;€</span></div>
-    <p class="bowl-desc">Base + protéine + 6 garnitures + 1 topping + 1 sauce maison</p>
-    <div class="bowl-kcal">~650 kcal</div>
-    <div class="bowl-tags"><span class="bowl-tag tag-custom">À composer</span><span class="bowl-tag tag-vege">Végé dispo</span></div>
+    <div class="bowl-card-top"><h3>Falafel Bowl Végétarien</h3><span class="bowl-price"><span class="sz">M</span>&nbsp;9,90 – <span class="sz">L</span>&nbsp;12,40&nbsp;€</span></div>
+    <p class="bowl-desc">Riz blanc, salade mixte, falafels maison, houmous, moutabal, crudités, crème de sésame citronnée</p>
+    <div class="bowl-kcal">~520 kcal</div>
+    <div class="bowl-tags"><span class="bowl-tag tag-vege">Végétarien</span><span class="bowl-tag tag-star">Signature</span></div>
+  </div>
+</div>
+<div class="bowl-card">
+  <div class="bowl-card-band"></div>
+  <img src="assets/bowl-chawarma-poulet-libanais-lyon.webp" alt="Bowl shawarma poulet — YallaEat Lyon 9" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover">
+  <div class="bowl-card-body">
+    <div class="bowl-card-top"><h3>Le Shawarma Poulet Bowl</h3><span class="bowl-price"><span class="sz">M</span>&nbsp;11,30 – <span class="sz">L</span>&nbsp;13,80&nbsp;€</span></div>
+    <p class="bowl-desc">Riz blanc, salade mixte, shawarma poulet, houmous, moutabal, crème de sésame citronnée</p>
+    <div class="bowl-kcal">~620 kcal</div>
+    <div class="bowl-tags"><span class="bowl-tag tag-maison">Halal</span><span class="bowl-tag tag-star">Signature</span></div>
+  </div>
+</div>
+<div class="bowl-card">
+  <div class="bowl-card-band"></div>
+  <img src="assets/bowl-taouk-poulet-libanais-lyon.webp" alt="Bowl taouk poulet libanais — YallaEat Lyon 9" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover">
+  <div class="bowl-card-body">
+    <div class="bowl-card-top"><h3>Le Taouk Bowl</h3><span class="bowl-price"><span class="sz">M</span>&nbsp;11,30 – <span class="sz">L</span>&nbsp;13,80&nbsp;€</span></div>
+    <p class="bowl-desc">Riz blanc, salade mixte, taouk grillé, houmous, moutabal, crème d'ail, tzatziki</p>
+    <div class="bowl-kcal">~600 kcal</div>
+    <div class="bowl-tags"><span class="bowl-tag tag-maison">Halal</span><span class="bowl-tag tag-star">Signature</span></div>
+  </div>
+</div>
+<div class="bowl-card">
+  <div class="bowl-card-band gold"></div>
+  <img src="assets/bowl-chawarma-boeuf-libanais-lyon.webp" alt="Bowl shawarma bœuf libanais — YallaEat Lyon 9" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover">
+  <div class="bowl-card-body">
+    <div class="bowl-card-top"><h3>Shawarma Bœuf Bowl</h3><span class="bowl-price gold"><span class="sz">M</span>&nbsp;12,30 – <span class="sz">L</span>&nbsp;14,80&nbsp;€</span></div>
+    <p class="bowl-desc">Riz blanc, salade mixte, shawarma bœuf, houmous, moutabal, tzatziki, crème de sésame citronnée</p>
+    <div class="bowl-kcal">~680 kcal</div>
+    <div class="bowl-tags"><span class="bowl-tag tag-maison">Halal</span></div>
   </div>
 </div>
 <div class="bowl-card">
@@ -391,43 +247,13 @@ src="https://www.facebook.com/tr?id=1541330474068971&ev=PageView&noscript=1"
   </div>
 </div>
 <div class="bowl-card">
-  <div class="bowl-card-band"></div>
-  <img src="assets/bowl-falafel-vegetarien-lyon.webp" alt="Bowl falafel végétarien — YallaEat Lyon 9" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover">
+  <div class="bowl-card-band blue"></div>
+  <img src="assets/bowl-libanais-vue-dessus.webp" alt="Bowl libanais vue dessus — YallaEat Lyon 9" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover">
   <div class="bowl-card-body">
-    <div class="bowl-card-top"><h3>Falafel Bowl Végétarien</h3><span class="bowl-price">M&nbsp;9,90 · L&nbsp;12,40&nbsp;€</span></div>
-    <p class="bowl-desc">Riz blanc, salade mixte, falafels maison, houmous, moutabal, crudités, crème de sésame citronnée</p>
-    <div class="bowl-kcal">~520 kcal</div>
-    <div class="bowl-tags"><span class="bowl-tag tag-vege">Végétarien</span><span class="bowl-tag tag-star">Signature</span></div>
-  </div>
-</div>
-<div class="bowl-card">
-  <div class="bowl-card-band"></div>
-  <img src="assets/bowl-chawarma-poulet-libanais-lyon.webp" alt="Bowl shawarma poulet — YallaEat Lyon 9" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover">
-  <div class="bowl-card-body">
-    <div class="bowl-card-top"><h3>Le Shawarma Poulet Bowl</h3><span class="bowl-price">M&nbsp;11,30 · L&nbsp;13,80&nbsp;€</span></div>
-    <p class="bowl-desc">Riz blanc, salade mixte, shawarma poulet, houmous, moutabal, crème de sésame citronnée</p>
-    <div class="bowl-kcal">~620 kcal</div>
-    <div class="bowl-tags"><span class="bowl-tag tag-maison">Halal</span><span class="bowl-tag tag-star">Signature</span></div>
-  </div>
-</div>
-<div class="bowl-card">
-  <div class="bowl-card-band"></div>
-  <img src="assets/bowl-taouk-poulet-libanais-lyon.webp" alt="Bowl taouk poulet libanais — YallaEat Lyon 9" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover">
-  <div class="bowl-card-body">
-    <div class="bowl-card-top"><h3>Le Taouk Bowl</h3><span class="bowl-price">M&nbsp;11,30 · L&nbsp;13,80&nbsp;€</span></div>
-    <p class="bowl-desc">Riz blanc, salade mixte, taouk grillé, houmous, moutabal, crème d'ail, tzatziki</p>
-    <div class="bowl-kcal">~600 kcal</div>
-    <div class="bowl-tags"><span class="bowl-tag tag-maison">Halal</span><span class="bowl-tag tag-star">Signature</span></div>
-  </div>
-</div>
-<div class="bowl-card">
-  <div class="bowl-card-band gold"></div>
-  <img src="assets/bowl-chawarma-boeuf-libanais-lyon.webp" alt="Bowl shawarma bœuf libanais — YallaEat Lyon 9" loading="lazy" style="width:100%;aspect-ratio:1/1;object-fit:cover">
-  <div class="bowl-card-body">
-    <div class="bowl-card-top"><h3>Shawarma Bœuf Bowl</h3><span class="bowl-price gold">M&nbsp;12,30 · L&nbsp;14,80&nbsp;€</span></div>
-    <p class="bowl-desc">Riz blanc, salade mixte, shawarma bœuf, houmous, moutabal, tzatziki, crème de sésame citronnée</p>
-    <div class="bowl-kcal">~680 kcal</div>
-    <div class="bowl-tags"><span class="bowl-tag tag-maison">Halal</span></div>
+    <div class="bowl-card-top"><h3>Bowl à composer — Taille L</h3><span class="bowl-price blue">12,40&nbsp;€</span></div>
+    <p class="bowl-desc">Base + protéine + 6 garnitures + 1 topping + 1 sauce maison</p>
+    <div class="bowl-kcal">~650 kcal</div>
+    <div class="bowl-tags"><span class="bowl-tag tag-custom">À composer</span><span class="bowl-tag tag-vege">Végé dispo</span></div>
   </div>
 </div>
   </div>
@@ -443,7 +269,7 @@ src="https://www.facebook.com/tr?id=1541330474068971&ev=PageView&noscript=1"
         <span class="diet-icon">&#x1F969;</span>
         <div class="diet-info">
           <strong>Halal</strong>
-          <span>100% certifié</span>
+          <span>100% halal</span>
         </div>
       </div>
       <div class="diet-card">
@@ -467,6 +293,9 @@ src="https://www.facebook.com/tr?id=1541330474068971&ev=PageView&noscript=1"
           <span>Sur demande</span>
         </div>
       </div>
+    </div>
+    <div class="bowl-img-wrap" style="margin-top:44px">
+      <img src="assets/bowl-libanais-composition.webp" alt="Composez votre bowl libanais — ingrédients frais YallaEat Lyon 9" loading="lazy" style="width:100%;border-radius:16px;aspect-ratio:1/1;object-fit:cover">
     </div>
   </div>
 </section>
@@ -627,44 +456,6 @@ src="https://www.facebook.com/tr?id=1541330474068971&ev=PageView&noscript=1"
   });
 })();
 
-// ---- Bowl Builder with live calorie calculator ----
-(function(){
-  var selections={base:null,base2:null,protein:null,garniture:[],sauce:[],topping:null};
-  var resultEl=document.getElementById("builderResult");
-  var multiGroups={garniture:6,sauce:1};
-  document.querySelectorAll(".builder-chip").forEach(function(chip){
-    chip.addEventListener("click",function(){
-      var g=chip.dataset.group,v=chip.dataset.val;
-      if(multiGroups[g]){
-        var cls=g==="sauce"?"selected-gold":"selected";
-        if(chip.classList.contains(cls)){chip.classList.remove(cls);selections[g]=selections[g].filter(function(d){return d!==v;});}
-        else if(selections[g].length<multiGroups[g]){chip.classList.add(cls);selections[g].push(v);}
-      }else{
-        document.querySelectorAll(".builder-chip[data-group="+JSON.stringify(g)+"]").forEach(function(x){x.classList.remove("selected");});
-        chip.classList.add("selected");selections[g]=v;
-      }
-      updateResult();
-    });
-  });
-  function extractKcal(str){var m=str.match(/(\d+)\s*kcal/i);return m?parseInt(m[1]):0;}
-  function updateResult(){
-    if(!resultEl)return;
-    var p=[],totalKcal=0;
-    if(selections.base){p.push(selections.base);totalKcal+=extractKcal(selections.base);}
-    if(selections.base2){p.push(selections.base2);totalKcal+=extractKcal(selections.base2);}
-    if(selections.protein){p.push(selections.protein);totalKcal+=extractKcal(selections.protein);}
-    if(selections.garniture.length){p.push(selections.garniture.join(" + "));selections.garniture.forEach(function(g){totalKcal+=extractKcal(g);});}
-    if(selections.sauce.length){p.push(selections.sauce.join(" + "));selections.sauce.forEach(function(s){totalKcal+=extractKcal(s);});}
-    if(selections.topping){p.push(selections.topping);totalKcal+=extractKcal(selections.topping);}
-    if(!p.length){resultEl.innerHTML="Cliquez sur les ingrédients pour composer votre bowl";resultEl.style.background="#fef3e5";}
-    else{
-      var done=selections.base&&selections.base2&&selections.protein&&selections.garniture.length&&selections.sauce.length&&selections.topping;
-      resultEl.innerHTML="<span style=\"word-break:break-word\">"+p.join(" &rarr; ")+"</span><br><strong style=\"color:#0d4f3d;font-size:1.15em;margin-top:8px;display:inline-block\">Total : ~"+totalKcal+" kcal</strong>";
-      resultEl.style.background=done?"#effae5":"#fef3e5";
-      if(done)resultEl.innerHTML+="<br><span style=\"color:#4b916d;font-size:.85em;margin-top:4px;display:block\">&#x2705; Votre bowl est prêt !</span>";
-    }
-  }
-})();
 </script>
 </body>
 </html>
