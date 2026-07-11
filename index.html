@@ -436,6 +436,12 @@ src="https://www.facebook.com/tr?id=1541330474068971&ev=PageView&noscript=1"
   .nav-burger span,#navLinks.nav-links,#navLinks.nav-links a{transition:none!important}
   #navLinks.nav-links a{transform:none!important}
 }
+</style>
+<style id="ye-index-perf">
+/* Perf : pause des animations de fond quand le menu mobile est ouvert.
+   Elles tournent derriere l'overlay opaque (invisibles) -> calcul gaspille qui
+   concurrence l'animation d'ouverture. On les fige tant que le menu est ouvert. */
+html.is-menu-open .hero__blob,html.is-menu-open .hero__float,html.is-menu-open .hero__dot,html.is-menu-open .hero__bowl,html.is-menu-open .bowl__ingredient,html.is-menu-open .marquee__track,html.is-menu-open .traiteur__emoji-bg,html.is-menu-open .location__map-pin{animation-play-state:paused!important}
 </style></head>
 <body>
 <a href="#main-content" class="sr-only skip-link">Aller au contenu principal</a>
@@ -950,11 +956,25 @@ src="https://www.facebook.com/tr?id=1541330474068971&ev=PageView&noscript=1"
 
     var burger=document.getElementById("burger");
     var mobileNav=document.getElementById("navLinks");
-    function openMenu(){burger.classList.add("active");mobileNav.classList.add("open");burger.setAttribute("aria-expanded","true");mobileNav.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";}
-    function closeMenu(){burger.classList.remove("active");mobileNav.classList.remove("open");burger.setAttribute("aria-expanded","false");mobileNav.setAttribute("aria-hidden","true");document.body.style.overflow="";}
+    function openMenu(){burger.classList.add("active");mobileNav.classList.add("open");burger.setAttribute("aria-expanded","true");mobileNav.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";document.documentElement.classList.add("is-menu-open");}
+    function closeMenu(){burger.classList.remove("active");mobileNav.classList.remove("open");burger.setAttribute("aria-expanded","false");mobileNav.setAttribute("aria-hidden","true");document.body.style.overflow="";document.documentElement.classList.remove("is-menu-open");}
     burger.addEventListener("click",function(){mobileNav.classList.contains("open")?closeMenu():openMenu();});
     document.addEventListener("keydown",function(e){if(e.key==="Escape"&&mobileNav.classList.contains("open"))closeMenu();});
     mobileNav.querySelectorAll("a").forEach(function(a){a.addEventListener("click",closeMenu);});
+
+    /* Pre-chauffe l'overlay : construit la mise en page de son sous-arbre (liens 1.4rem, CTA)
+       une fois, a vide, pour que le PREMIER open reutilise du cache chaud au lieu de tout
+       calculer a chaud. Sans flash : add/reflow/remove sont synchrones -> l'etat ouvert
+       n'est jamais presente a l'ecran (aucune frame intermediaire). */
+    function warmNav(){
+      if(mobileNav.classList.contains("open")) return;
+      var t=mobileNav.style.transition; mobileNav.style.transition="none";
+      mobileNav.classList.add("open"); void mobileNav.offsetHeight;
+      mobileNav.querySelectorAll("a").forEach(function(a){ void a.offsetWidth; });
+      mobileNav.classList.remove("open"); void mobileNav.offsetHeight;
+      mobileNav.style.transition=t;
+    }
+    (window.requestIdleCallback||function(f){return setTimeout(f,1200);})(warmNav,{timeout:2000});
 
 
     var revealEls=document.querySelectorAll(".reveal");
@@ -995,7 +1015,7 @@ src="https://www.facebook.com/tr?id=1541330474068971&ev=PageView&noscript=1"
     function burst(){if(!burstHost)return;for(var s=0;s<24;s++){(function(){var el=document.createElement("span");el.className="spark";var a=Math.random()*6.283,dist=95+Math.random()*105,sz=(8+Math.random()*10).toFixed(0);el.style.setProperty("--tx",(Math.cos(a)*dist).toFixed(0)+"px");el.style.setProperty("--ty",(Math.sin(a)*dist).toFixed(0)+"px");el.style.width=sz+"px";el.style.height=sz+"px";burstHost.appendChild(el);requestAnimationFrame(function(){el.classList.add("go");});setTimeout(function(){el.remove();},1400);})();}}
     if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){img.src=frames[n-1];if(kcalEl)kcalEl.textContent=KCAL[n-1];if(protEl)protEl.textContent=PROT[n-1];return;}
     var i=0;
-    function nextFrame(){var prev=i;i=(i+1)%n;img.src=frames[i];tween(kcalEl,KCAL[prev],KCAL[i],725);tween(protEl,PROT[prev],PROT[i],725);pop();if(i===(n-1))burst();setTimeout(nextFrame,i===(n-1)?3400:902);}
+    function nextFrame(){if(document.documentElement.classList.contains("is-menu-open")){setTimeout(nextFrame,300);return;}var prev=i;i=(i+1)%n;img.src=frames[i];tween(kcalEl,KCAL[prev],KCAL[i],725);tween(protEl,PROT[prev],PROT[i],725);pop();if(i===(n-1))burst();setTimeout(nextFrame,i===(n-1)?3400:902);}
     setTimeout(nextFrame,902);
   })();
   </script>
