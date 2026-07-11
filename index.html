@@ -342,7 +342,8 @@
       .nav__links{display:none}.nav__burger{display:flex}
       .hero__inner{grid-template-columns:1fr;text-align:center;padding:3rem 0 4rem}
       .hero__subtitle{margin-inline:auto}.hero__ctas{justify-content:center}
-      .hero__bowl-wrap{order:2;display:none}
+      .hero__bowl-wrap{order:2;display:flex;padding-bottom:72px}
+      .bowl__ingredient{display:none}
       .menu-grid{grid-template-columns:repeat(2,1fr)}
       .stats-grid{grid-template-columns:repeat(2,1fr)}
       .traiteur__inner{grid-template-columns:1fr;gap:2rem}.traiteur__visual{order:-1;max-width:420px;margin-inline:auto}
@@ -535,7 +536,7 @@ src="https://www.facebook.com/tr?id=1541330474068971&ev=PageView&noscript=1"
           <div class="photos__caption"><div class="title">Bowls</div><div class="from">Dès <strong>9,90&nbsp;€</strong></div></div>
         </div>
         <div class="photos__item" style="transition-delay:.08s">
-          <img src="assets/fattouch-salade-vegetarienne.webp" alt="Salade fattouche libanaise végétarienne — YallaEat Lyon 9" loading="lazy" width="600" height="650" style="--z:1.42;--ty:-3%">
+          <img src="assets/salade-shawarma-poulet-libanais-lyon.webp" alt="Salade shawarma poulet libanaise — YallaEat Lyon 9" loading="lazy" width="600" height="650" style="--z:1.42;--ty:-3%">
           <div class="photos__caption"><div class="title">Salades</div><div class="from">Dès <strong>9,90&nbsp;€</strong></div></div>
         </div>
         <div class="photos__item" style="transition-delay:.16s">
@@ -962,7 +963,7 @@ src="https://www.facebook.com/tr?id=1541330474068971&ev=PageView&noscript=1"
   (function(){
     var img=document.getElementById("heroBowl");
     if(!img) return;
-    if(!window.matchMedia("(min-width:769px)").matches) return; /* bol masqué en mobile */
+    /* animation active aussi en mobile (bol + stats visibles) */
     var n=8, base="assets/bowl-anim/", frames=[];
     for(var k=0;k<n;k++){var p=base+("0"+k).slice(-2)+".webp";frames.push(p);var pre=new Image();pre.src=p;}
     /* valeurs cumulées (indicatives) kcal + protéines par frame */
