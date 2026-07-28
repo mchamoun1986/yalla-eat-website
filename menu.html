@@ -734,7 +734,17 @@ src="https://www.facebook.com/tr?id=1541330474068971&ev=PageView&noscript=1"
   if(burger&&links){burger.addEventListener("click",function(){var o=links.classList.toggle("open");burger.classList.toggle("open",o);burger.setAttribute("aria-expanded",String(o));});
   links.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){links.classList.remove("open");burger.classList.remove("open");burger.setAttribute("aria-expanded","false");});});}
   var catBtns=document.querySelectorAll(".cat-btn");
-  catBtns.forEach(function(btn){btn.addEventListener("click",function(){catBtns.forEach(function(b){b.classList.remove("active");});btn.classList.add("active");var t=document.getElementById(btn.dataset.target);if(t)t.scrollIntoView({behavior:"smooth"});});});
+  var _catNavEl=document.querySelector(".cat-nav");
+  // Recentre le bouton actif au milieu de la barre pour révéler qu'il reste des catégories de chaque côté.
+  // scrollTo est clampé par le navigateur -> les extrémités (Formules, Boissons) restent naturellement au bord.
+  function centerCatBtn(btn){
+    if(!btn||!_catNavEl) return;
+    if(_catNavEl.scrollWidth<=_catNavEl.clientWidth+1) return; // barre non défilante (desktop large) -> rien à faire
+    var nr=_catNavEl.getBoundingClientRect(), br=btn.getBoundingClientRect();
+    var delta=(br.left+br.width/2)-(nr.left+nr.width/2); // décalage du centre du bouton vs centre de la barre
+    _catNavEl.scrollTo({left:_catNavEl.scrollLeft+delta,behavior:"smooth"});
+  }
+  catBtns.forEach(function(btn){btn.addEventListener("click",function(){catBtns.forEach(function(b){b.classList.remove("active");});btn.classList.add("active");centerCatBtn(btn);var t=document.getElementById(btn.dataset.target);if(t)t.scrollIntoView({behavior:"smooth"});});});
   // ===== Drag-to-scroll de la barre de catégories (souris = doigt sur PC) =====
   // N'utilise que les events SOURIS -> n'interfère pas avec le swipe tactile natif (iPhone).
   (function(){
@@ -750,7 +760,8 @@ src="https://www.facebook.com/tr?id=1541330474068971&ev=PageView&noscript=1"
     catNav.addEventListener("click",function(e){if(moved){e.preventDefault();e.stopPropagation();moved=false;}},true);
   })();
   var secs=document.querySelectorAll(".menu-category");
-  var sObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var id=e.target.id;catBtns.forEach(function(b){b.classList.toggle("active",b.dataset.target===id);});}});},{rootMargin:"-30% 0px -60% 0px"});
+  var _lastActiveId=null;
+  var sObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var id=e.target.id;if(id!==_lastActiveId){_lastActiveId=id;var ab=null;catBtns.forEach(function(b){var on=b.dataset.target===id;b.classList.toggle("active",on);if(on)ab=b;});centerCatBtn(ab);}}});},{rootMargin:"-30% 0px -60% 0px"});
   secs.forEach(function(s){sObs.observe(s);});
   var revs=document.querySelectorAll(".reveal");
   var rObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add("visible");rObs.unobserve(e.target);}});},{threshold:0.08});
