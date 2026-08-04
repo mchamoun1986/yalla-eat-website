@@ -32,7 +32,7 @@
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/poppins-900.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/poppins-400.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/playfair-700-italic.woff2" crossorigin>
-  <link rel="preload" as="image" href="assets/bowl-chawarma-poulet-libanais-lyon.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/bowl-anim/00.webp" fetchpriority="high">
   <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="style.css">
 
@@ -157,7 +157,11 @@
     .hero__subtitle{font-size:1rem;color:rgba(255,255,255,.7);line-height:1.75;margin-bottom:2.25rem;max-width:480px}
     .hero__ctas{display:flex;gap:1rem;flex-wrap:wrap}
     .hero__bowl-wrap{display:flex;align-items:center;justify-content:center}
-    .hero__bowl{position:relative;width:340px;height:340px;animation:bowlFloat 5s ease-in-out infinite}
+    .hero__bowl{position:relative;width:340px;height:340px}
+    /* Bob (bowlFloat) reserve au desktop : en mobile le bowl est bas/proche du bord, son translateY
+       faisait varier sa surface visible -> Chrome recomptait un LCP plus tardif a chaque frame. En
+       desktop le bowl est dans le viewport (pas de clipping) -> le bob ne touche pas le LCP. */
+    @media(min-width:981px){.hero__bowl{animation:bowlFloat 5s ease-in-out infinite}}
     @keyframes bowlFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
     .bowl__img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:310px;width:auto;filter:drop-shadow(0 18px 30px rgba(0,0,0,.45));pointer-events:none;transition:opacity .35s ease}
     .bowl__ingredient{position:absolute;width:54px;height:54px;background:var(--green-dark);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;border:2px solid rgba(255,255,255,.12);box-shadow:var(--shadow-md);animation:ingredientSpin 12s linear infinite;transform-origin:170px 170px}
@@ -512,7 +516,7 @@ html.is-menu-open .hero__blob,html.is-menu-open .hero__float,html.is-menu-open .
             <div class="bowl__ingredient">🫒</div>
             <div class="bowl__ingredient">🍚</div>
             <div class="bowl__ingredient">🫓</div>
-            <img id="heroBowl" class="bowl__img" src="assets/bowl-anim/00.webp" alt="Composez votre bowl sur mesure" width="461" height="640">
+            <img id="heroBowl" class="bowl__img" src="assets/bowl-anim/00.webp" alt="Composez votre bowl sur mesure" width="461" height="640" fetchpriority="high">
             <div class="bowl__burst" aria-hidden="true"></div>
             <div class="bowl__stats" aria-hidden="true">
               <div class="bowl-stat"><span class="bowl-stat__ico">💪</span><div class="bowl-stat__txt"><div><span class="bowl-stat__num" id="bowlProt">0</span><span class="bowl-stat__unit">g</span></div><div class="bowl-stat__lbl">protéines</div></div></div>
