@@ -33,6 +33,8 @@
     }
   ],
   "redirects": [
+    { "source": "/traiteur", "destination": "/", "statusCode": 404 },
+    { "source": "/devis-traiteur", "destination": "/", "statusCode": 404 },
     { "source": "/config-traiteur.xlsx", "destination": "/", "statusCode": 404 },
     { "source": "/build_config_xlsx.py", "destination": "/", "statusCode": 404 },
     { "source": "/blog/menu-vegetarien-libanais-plats", "destination": "/blog/menu-vegetarien-libanais", "statusCode": 301 }
