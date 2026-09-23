@@ -131,11 +131,12 @@
     /* HERO */
     .hero{position:relative;min-height:100vh;display:flex;align-items:center;background:var(--green-dark);overflow:hidden;padding-top:var(--nav-h)}
     .hero__blobs{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-    .hero__blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.18;animation:blobFloat 8s ease-in-out infinite}
+    /* Taches floues figees (perf) : un flou de 80px anime se recalculait a chaque image sur mobile.
+       Position = etat de repos de l'ancienne animation (d'ou l'absence de translate sur --3). */
+    .hero__blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.18}
     .hero__blob--1{width:500px;height:500px;background:var(--green-mid);top:-100px;left:-150px}
-    .hero__blob--2{width:400px;height:400px;background:var(--orange);bottom:-80px;right:-100px;animation-delay:-3s}
-    .hero__blob--3{width:300px;height:300px;background:var(--green-bright);top:50%;left:50%;transform:translate(-50%,-50%);animation-delay:-5s}
-    @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(20px,-20px) scale(1.05)}66%{transform:translate(-15px,15px) scale(.97)}}
+    .hero__blob--2{width:400px;height:400px;background:var(--orange);bottom:-80px;right:-100px}
+    .hero__blob--3{width:300px;height:300px;background:var(--green-bright);top:50%;left:50%}
     .hero__floats{position:absolute;inset:0;pointer-events:none}
     .hero__float{position:absolute;font-size:1.8rem;opacity:.2;animation:floatAnim linear infinite}
     .hero__float:nth-child(1){left:5%;top:20%;animation-duration:12s}
@@ -149,8 +150,12 @@
     @keyframes floatAnim{0%,100%{transform:translateY(0)}25%{transform:translateY(-18px) rotate(5deg)}75%{transform:translateY(14px) rotate(-5deg)}}
     .hero__inner{position:relative;z-index:2;width:min(1200px,92vw);margin-inline:auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;padding:5rem 0}
     .hero__tag{display:inline-flex;align-items:center;gap:.5rem;font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-light);background:rgba(244,160,18,.12);padding:.4rem 1rem;border-radius:50px;border:1px solid rgba(244,160,18,.25);margin-bottom:1.5rem}
-    .hero__dot{width:7px;height:7px;background:var(--orange);border-radius:50%;display:inline-block;animation:pulse 1.8s ease-in-out infinite}
-    @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(244,160,18,.6)}50%{box-shadow:0 0 0 6px rgba(244,160,18,0)}}
+    .hero__dot{width:7px;height:7px;background:var(--orange);border-radius:50%;display:inline-block;position:relative}
+    /* Halo du point : anneau anime en transform/opacity (GPU) au lieu d'un box-shadow repeint a chaque image. 2.71 = (7px + 2x6px) / 7px */
+    .hero__dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:rgb(244,160,18);animation:dotRing 1.8s ease-in-out infinite}
+    @keyframes dotRing{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(2.71);opacity:0}}
+    /* Animations en pause quand leur section est hors ecran (classe posee par un IntersectionObserver) */
+    .is-offscreen *,.is-offscreen *::after{animation-play-state:paused!important}
     .hero__h1{font-family:Poppins,system-ui,sans-serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:900;color:var(--white);line-height:1.05;letter-spacing:-2px;margin-bottom:1.25rem}
     .hero__h1 .line2{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;color:var(--orange);letter-spacing:-1px}
     .hero__h1-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;font-weight:500;color:var(--orange-light,#f9ad4d);line-height:1.4;margin-bottom:1.5rem;letter-spacing:.2px}
@@ -172,8 +177,8 @@
     .bowl-stat__num{font-family:Poppins,system-ui,sans-serif;font-weight:900;font-size:1.5rem;color:var(--green-dark);line-height:1;font-variant-numeric:tabular-nums;display:inline-block;min-width:2.1em;text-align:right}
     .bowl-stat__unit{font-weight:700;font-size:.78rem;color:var(--gold-d,#d49341);margin-left:2px}
     .bowl-stat__lbl{font-size:.56rem;text-transform:uppercase;letter-spacing:.13em;color:var(--text-light,#6e6e6e);font-weight:600;margin-top:2px}
-    .bowl-stat.pop .bowl-stat__num{animation:statPop .45s ease}
-    @keyframes statPop{0%{transform:scale(1)}40%{transform:scale(1.2);color:var(--orange,#f9ad4d)}100%{transform:scale(1)}}
+    /* Les compteurs changent de texte a chaque image pendant l'anim : on confine le recalcul de mise en page a leur carte */
+    .bowl-stat{contain:layout}
     @media(max-width:980px){.bowl__stats{right:auto;left:50%;top:100%;transform:translateX(-50%);flex-direction:row;margin:14px 0 0}}
     .bowl__burst{position:absolute;left:50%;top:48%;width:0;height:0;z-index:6;pointer-events:none}
     .spark{position:absolute;left:0;top:0;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff 0%,var(--gold,#f9ad4d) 60%,rgba(249,173,77,0) 100%);opacity:0;box-shadow:0 0 14px 3px rgba(249,173,77,.9)}
@@ -559,7 +564,7 @@ html.is-menu-open .hero__blob,html.is-menu-open .hero__float,html.is-menu-open .
       <h2 class="photos__title">Un savoir-faire aussi large que <em>vos envies…</em></h2>
       <div class="photos__grid">
         <div class="photos__item">
-          <img src="assets/bowl-chawarma-poulet-libanais-lyon.webp" alt="Bowl shawarma poulet — YallaEat Lyon 9" loading="eager" width="600" height="650" style="--z:1.1;--ty:-6%">
+          <img src="assets/bowl-chawarma-poulet-libanais-lyon.webp" alt="Bowl shawarma poulet — YallaEat Lyon 9" loading="lazy" width="600" height="650" style="--z:1.1;--ty:-6%">
           <div class="photos__caption"><div class="title">Bowls</div><div class="from">Dès <strong>9,90&nbsp;€</strong></div></div>
         </div>
         <div class="photos__item" style="transition-delay:.08s">
@@ -988,6 +993,12 @@ html.is-menu-open .hero__blob,html.is-menu-open .hero__float,html.is-menu-open .
     },{threshold:0.12,rootMargin:"0px 0px -40px 0px"});
     revealEls.forEach(function(el){revealObserver.observe(el);});
 
+    /* Perf : sections animees hors ecran -> classe is-offscreen (animations CSS en pause, boucle du bowl suspendue) */
+    var animObserver=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){entry.target.classList.toggle("is-offscreen",!entry.isIntersecting);});
+    });
+    document.querySelectorAll(".hero,.marquee,.location").forEach(function(el){animObserver.observe(el);});
+
     var backToTop=document.getElementById("backToTop");
     window.addEventListener("scroll",function(){backToTop.classList.toggle("visible",window.scrollY>400);},{passive:true});
     backToTop.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"});});
@@ -1007,19 +1018,27 @@ html.is-menu-open .hero__blob,html.is-menu-open .hero__float,html.is-menu-open .
     if(!img) return;
     /* animation active aussi en mobile (bol + stats visibles) */
     var n=8, base="assets/bowl-anim/", frames=[];
-    for(var k=0;k<n;k++){var p=base+("0"+k).slice(-2)+".webp";frames.push(p);var pre=new Image();pre.src=p;}
+    for(var k=0;k<n;k++){frames.push(base+("0"+k).slice(-2)+".webp");}
     /* valeurs cumulées (indicatives) kcal + protéines par frame */
     var KCAL=[0,150,340,425,500,535,575,685], PROT=[0,5,35,41,45,47,48,49];
     var kcalEl=document.getElementById("bowlKcal"), protEl=document.getElementById("bowlProt");
-    var stats=document.querySelectorAll(".bowl-stat");
     function tween(el,from,to,dur){if(!el)return;var s=null;function step(ts){if(s===null)s=ts;var p=Math.min(1,(ts-s)/dur);el.textContent=Math.round(from+(to-from)*p);if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
-    function pop(){stats.forEach(function(s){s.classList.remove("pop");void s.offsetWidth;s.classList.add("pop");});}
+    /* "pop" via Web Animations : relance l'effet sans forcer de recalcul de mise en page (ancien void offsetWidth) */
+    var popColor=getComputedStyle(document.documentElement).getPropertyValue("--orange").trim()||"#f9ad4d";
+    var popNums=document.querySelectorAll(".bowl-stat__num");
+    function pop(){if(!Element.prototype.animate)return;popNums.forEach(function(el){el.animate([{transform:"scale(1)"},{transform:"scale(1.2)",color:popColor,offset:.4},{transform:"scale(1)"}],{duration:450,easing:"ease"});});}
     var burstHost=document.querySelector(".bowl__burst");
     function burst(){if(!burstHost)return;for(var s=0;s<24;s++){(function(){var el=document.createElement("span");el.className="spark";var a=Math.random()*6.283,dist=95+Math.random()*105,sz=(8+Math.random()*10).toFixed(0);el.style.setProperty("--tx",(Math.cos(a)*dist).toFixed(0)+"px");el.style.setProperty("--ty",(Math.sin(a)*dist).toFixed(0)+"px");el.style.width=sz+"px";el.style.height=sz+"px";burstHost.appendChild(el);requestAnimationFrame(function(){el.classList.add("go");});setTimeout(function(){el.remove();},1400);})();}}
     if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){img.src=frames[n-1];if(kcalEl)kcalEl.textContent=KCAL[n-1];if(protEl)protEl.textContent=PROT[n-1];return;}
     var i=0;
-    function nextFrame(){if(document.documentElement.classList.contains("is-menu-open")){setTimeout(nextFrame,300);return;}var prev=i;i=(i+1)%n;img.src=frames[i];tween(kcalEl,KCAL[prev],KCAL[i],725);tween(protEl,PROT[prev],PROT[i],725);pop();if(i===(n-1))burst();setTimeout(nextFrame,i===(n-1)?3400:902);}
-    setTimeout(nextFrame,902);
+    var hero=document.querySelector(".hero");
+    function nextFrame(){if(document.documentElement.classList.contains("is-menu-open")||(hero&&hero.classList.contains("is-offscreen"))){setTimeout(nextFrame,300);return;}var prev=i;i=(i+1)%n;img.src=frames[i];preload(i+1);tween(kcalEl,KCAL[prev],KCAL[i],725);tween(protEl,PROT[prev],PROT[i],725);pop();if(i===(n-1))burst();setTimeout(nextFrame,i===(n-1)?3400:902);}
+    /* Perf : chaque frame est prechargee juste a temps (une etape a l'avance) apres le chargement de la page,
+       au lieu des 7 d'un coup (~250 KiB) qui concurrencaient l'affichage initial (LCP) sur mobile. */
+    var loaded={0:1}; /* frame 00 = image initiale du HTML */
+    function preload(k){k=k%n;if(loaded[k])return;loaded[k]=1;var pre=new Image();pre.src=frames[k];}
+    function start(){preload(1);setTimeout(nextFrame,902);}
+    if(document.readyState==="complete")start();else window.addEventListener("load",start);
   })();
   </script>
 
