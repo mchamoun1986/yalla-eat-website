@@ -1,5 +1,6 @@
 {
   "cleanUrls": true,
+  "ignoreCommand": "bash .github/check-app-page.sh && exit 1 || exit 0",
   "headers": [
     {
       "source": "/(.*)",
