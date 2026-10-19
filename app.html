@@ -281,6 +281,13 @@ src="https://www.facebook.com/tr?id=1541330474068971&ev=PageView&noscript=1"
 /* Renvoi automatique vers la bonne boutique selon l'appareil.
    Desktop, tablette ou paramètre ?stay=1 : la page reste affichée avec son QR code. */
 (function(){
+  /* Compteur de visites (Worker Cloudflare yallaeat-compteur-qr) : sans provenance = scan d'un QR imprimé. */
+  try{
+    var src = (location.search.match(/[?&]src=([\w-]+)/) || [])[1]
+      || (/^https?:\/\/(www\.)?yallaeat\.fr/.test(document.referrer) ? 'site' : 'qr');
+    var u = 'https://yallaeat-compteur-qr.sergemenassa.workers.dev/v?p=app&s=' + src;
+    if(!(navigator.sendBeacon && navigator.sendBeacon(u))) fetch(u, {method:'POST', mode:'no-cors', keepalive:true});
+  }catch(e){}
   try{
     if(location.search.indexOf('stay')>-1) return;
     var ua = navigator.userAgent || '';
