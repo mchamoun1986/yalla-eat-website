@@ -59,6 +59,15 @@
   .compare-table th{background:var(--green-d);color:#fff;padding:12px 14px;text-align:left;font-weight:700}
   .compare-table td{padding:10px 14px;border-bottom:1px solid rgba(0,0,0,.06);color:#333;background:#fff}
   .compare-table tr:nth-child(even) td{background:var(--green-xl)}
+  .photo{margin:28px 0}
+  .photo img{display:block;width:100%;height:clamp(240px,52vw,440px)!important;object-fit:cover;border-radius:20px;box-shadow:0 8px 28px rgba(0,0,0,.08)}
+  .photo figcaption,.photo-grid figcaption{font-size:.8em;color:var(--gray);margin-top:8px;text-align:center}
+  .photo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:24px 0 28px}
+  .photo-grid figure{margin:0}
+  .photo-grid .cadre{display:block;overflow:hidden;border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,.07)}
+  .photo-grid .cadre img{border-radius:0;box-shadow:none;transform:scale(var(--zoom,1))}
+  .photo-grid img{display:block;width:100%;height:clamp(180px,40vw,300px)!important;object-fit:cover;border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,.07)}
+  @media(min-width:700px){.photo-grid.quatre{grid-template-columns:repeat(4,1fr)}.photo-grid.quatre img{height:210px!important}}
   .lexique{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:20px 0 28px}
   .lexique div{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:14px;padding:14px 16px;box-shadow:0 2px 10px rgba(0,0,0,.03)}
   .lexique b{display:block;font-family:'Playfair Display',serif;font-style:italic;font-size:1.15em;color:var(--gold-d)}
@@ -156,6 +165,11 @@
 
   <p class="intro-lead">«&nbsp;Yalla&nbsp;!&nbsp;» veut dire «&nbsp;allez, on y va&nbsp;!&nbsp;» en libanais. C'est exactement l'esprit d'un <strong>fast food libanais</strong> : on commande, on mange, on repart. Chez YallaEat, au 29 rue de Bourgogne à Vaise, on garde la vitesse et on change tout le reste. Shawarma, taouk, falafels, houmous et taboulé sont <strong>faits maison chaque jour</strong>, avec une cuisine libanaise qui est <strong>saine par nature</strong>. On appelle ça le <strong>fast good libanais</strong>.</p>
 
+  <figure class="photo">
+    <img src="../assets/bowl-taouk-poulet-libanais-lyon.webp" alt="Taouk Bowl YallaEat : poulet mariné, houmous, légumes frais et sauces maison" width="896" height="1195" fetchpriority="high" decoding="async">
+    <figcaption>Le Taouk Bowl : poulet mariné, houmous, légumes frais et sauces maison.</figcaption>
+  </figure>
+
   <h2>Fast food ou <em>fast good</em> : quelle différence ?</h2>
 
   <p>Le fast good garde ce qu'on aime dans le fast food : c'est rapide, simple, et on mange avec les mains si on veut. Il change ce qu'il y a dans l'assiette.</p>
@@ -186,6 +200,13 @@
     <li><strong>Le pain libanais.</strong> Une galette fine, qui sert à envelopper ou à tremper.</li>
   </ul>
 
+  <div class="photo-grid quatre">
+    <figure><span class="cadre"><img src="../assets/traiteur-houmous-lyon.webp" alt="Houmous libanais fait maison" width="896" height="1196" loading="lazy" decoding="async" style="--zoom:2.1"></span><figcaption>Houmous</figcaption></figure>
+    <figure><span class="cadre"><img src="../assets/traiteur-taboule-lyon.webp" alt="Taboulé libanais au persil" width="896" height="1196" loading="lazy" decoding="async" style="--zoom:2.1"></span><figcaption>Taboulé</figcaption></figure>
+    <figure><img src="../assets/moutabal-caviar-aubergine-vegan.webp" alt="Moutabal, aubergine grillée et crème de sésame" width="1160" height="550" loading="lazy" decoding="async"><figcaption>Moutabal</figcaption></figure>
+    <figure><span class="cadre"><img src="../assets/taouk-grille-halal.webp" alt="Taouk, poulet mariné" width="896" height="1196" loading="lazy" decoding="async" style="--zoom:2.1"></span><figcaption>Taouk</figcaption></figure>
+  </div>
+
   <div class="highlight-box">
     <h3>Sain ne veut pas dire «&nbsp;tout léger&nbsp;»</h3>
     <p>On préfère être honnêtes. Nos falafels sont frits, comme dans la recette traditionnelle, et la baklawa reste un dessert. C'est l'ensemble qui fait une cuisine saine : beaucoup de légumes, des légumineuses, des herbes fraîches, des sauces maison. Un bowl réunit tout ça dans la même boîte.</p>
@@ -195,6 +216,10 @@
 
   <h3>Les bowls, le cœur de la carte</h3>
   <p>Une base fraîche et une base féculente, une protéine, des garnitures, un topping et une sauce maison. Le <strong>Falafel Bowl</strong> et le bowl à composer commencent à 9,90&nbsp;€. Le <strong>Taouk Bowl</strong> et le <strong>Shawarma Poulet Bowl</strong> sont à 11,30&nbsp;€, le <strong>Shawarma Bœuf Bowl</strong> à 12,30&nbsp;€. En grand format, le Taouk Bowl contient deux brochettes de taouk. <a href="/bowl">Voir les bowls</a>.</p>
+  <figure class="photo">
+    <img src="../assets/bowl-falafel-vegetarien-lyon.webp" alt="Falafel Bowl végétarien YallaEat" width="896" height="1195" loading="lazy" decoding="async">
+    <figcaption>Le Falafel Bowl, végétarien, dès 9,90&nbsp;€.</figcaption>
+  </figure>
 
   <h3>Les sandwichs dans le pain libanais</h3>
   <p>Falafel à 7,90&nbsp;€, taouk ou shawarma poulet à 8,90&nbsp;€, shawarma bœuf à 9,90&nbsp;€. C'est le format le plus «&nbsp;fast&nbsp;» : il se mange à une main. <a href="/wrap-sandwich">Voir les sandwichs</a>.</p>
@@ -202,8 +227,18 @@
   <h3>La MezzéBox, pour goûter à tout</h3>
   <p>Le mezzé, c'est la façon libanaise de manger : plein de petites assiettes au milieu de la table. La MezzéBox met houmous, taboulé, falafels et pain libanais dans une seule boîte, dès 20,90&nbsp;€. <a href="/mezzebox">Voir la MezzéBox</a>.</p>
 
+  <div class="photo-grid">
+    <figure><img src="../assets/wrap-taouk-poulet-libanais.webp" alt="Sandwich taouk dans le pain libanais" width="976" height="1081" loading="lazy" decoding="async"><figcaption>Sandwich taouk</figcaption></figure>
+    <figure><img src="../assets/mezzebox-taouk-poulet-libanais.webp" alt="MezzéBox taouk poulet : six mezzés libanais dans une boîte" width="896" height="1196" loading="lazy" decoding="async"><figcaption>MezzéBox taouk</figcaption></figure>
+  </div>
+
   <h3>Les desserts libanais</h3>
   <p>Yaourt à la rose, halawa à la pistache, mouhalabiyé à la fleur d'oranger et baklawa, dès 3,90&nbsp;€. Pour boire, la limonade maison.</p>
+
+  <div class="photo-grid">
+    <figure><span class="cadre"><img src="../assets/dessert-mouhalabiye-pistache.webp" alt="Mouhalabiyé à la fleur d'oranger et pistache" width="896" height="1196" loading="lazy" decoding="async" style="--zoom:1.7"></span><figcaption>Mouhalabiyé</figcaption></figure>
+    <figure><span class="cadre"><img src="../assets/dessert-baklawa-libanaise.webp" alt="Baklawa libanaise" width="896" height="1196" loading="lazy" decoding="async" style="--zoom:1.7"></span><figcaption>Baklawa</figcaption></figure>
+  </div>
 
   <p>Tout bowl, sandwich ou salade passe en formule pour 3,40&nbsp;€ de plus, avec un side et une boisson. <a href="/menu">Voir la carte complète</a>.</p>
 
