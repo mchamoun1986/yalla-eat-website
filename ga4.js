@@ -20,7 +20,7 @@
     document.addEventListener('click', function(e){
       var link = e.target.closest('a'); if (!link) return;
       var href = link.href || '';
-      if (href.includes('commandes.yallaeat.fr')) gtag('event','clic_commander',{event_category:'conversion',event_label:href});
+      if (href.includes('dishop.co') || href.includes('commandes.yallaeat.fr')) gtag('event','clic_commander',{event_category:'conversion',event_label:href});
       else if (href.startsWith('tel:')) gtag('event','clic_telephone',{event_category:'conversion',event_label:href});
       else if (href.includes('maps.google')||href.includes('goo.gl/maps')) gtag('event','clic_itineraire',{event_category:'conversion',event_label:href});
     });
