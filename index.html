@@ -57,7 +57,7 @@
       {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"18:30","closes":"22:00"}
     ],
     "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.7","reviewCount":"120","bestRating":"5"},
-    "sameAs":["https://www.instagram.com/yallaeat/","https://www.tiktok.com/@yallaeat","https://www.facebook.com/61561933693216"],
+    "sameAs":["https://www.instagram.com/yallaeat/","https://www.tiktok.com/@yallaeat69","https://www.facebook.com/61561933693216"],
     "potentialAction":{"@type":"OrderAction","target":"https://yallaeat.dishop.co/"}
   ,"hasOfferCatalog":{"@type":"OfferCatalog","name":"Carte YallaEat","itemListElement":[{"@type":"OfferCatalog","name":"Bowls Libanais","url":"https://www.yallaeat.fr/bowl"},{"@type":"OfferCatalog","name":"MezzéBox","url":"https://www.yallaeat.fr/mezzebox"},{"@type":"OfferCatalog","name":"Carte complète","url":"https://www.yallaeat.fr/menu"}]}
   }
@@ -454,6 +454,34 @@ html.is-menu-open .hero__blob,html.is-menu-open .hero__float,html.is-menu-open .
 </style></head>
 <body>
 <a href="#main-content" class="sr-only skip-link">Aller au contenu principal</a>
+
+  <!-- BANDEAU APPLI (opération du 19/11 au 21/12/2026, lien suivi site-bandeau) -->
+  <a class="app-bar" href="/app?src=site-bandeau">
+    <span class="app-bar__txt"><span class="app-bar__long">Commandez dans l'appli YallaEat&nbsp;:</span><span class="app-bar__short">Dans l'appli&nbsp;:</span> <strong>−30&nbsp;%</strong> <span class="app-bar__mid">avec le code </span><span class="app-bar__code">BIENVENUE30</span></span>
+    <span class="app-bar__go" aria-hidden="true">→</span>
+  </a>
+  <style id="ye-app-bar">
+    :root{--app-bar-h:38px}
+    body{padding-top:var(--app-bar-h)}
+    .app-bar{position:fixed;top:0;left:0;right:0;z-index:1001;height:var(--app-bar-h);display:flex;align-items:center;justify-content:center;gap:10px;padding:0 16px;background:#f9ad4d;color:#0d4f3d;font:500 .88rem/1 Poppins,system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.18);transition:transform .35s cubic-bezier(.4,0,.2,1)}
+    .app-bar strong{font-weight:800}
+    .app-bar__code{display:inline-block;padding:4px 9px;border:1.5px dashed #0d4f3d;border-radius:6px;background:rgba(255,255,255,.35);font-weight:700;letter-spacing:.06em}
+    .app-bar__go{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#0d4f3d;color:#f9ad4d;font-weight:800;transition:transform .25s ease}
+    .app-bar:hover .app-bar__go{transform:translateX(3px)}
+    .app-bar:focus-visible{outline:3px solid #0d4f3d;outline-offset:-3px}
+    .app-bar__short{display:none}
+    #nav.nav{top:var(--app-bar-h);transition:all .4s cubic-bezier(.4,0,.2,1)}
+    body:has(#nav.scrolled) .app-bar,html.is-menu-open .app-bar{transform:translateY(-100%)}
+    body:has(#nav.scrolled) #nav.nav,html.is-menu-open #nav.nav{top:0}
+    @media(max-width:640px){
+      .app-bar{font-size:.8rem;gap:8px;padding:0 12px}
+      .app-bar__long{display:none}.app-bar__short{display:inline}
+      .app-bar__code{padding:3px 7px}
+    }
+    @media(max-width:420px){.app-bar__mid{display:none}}
+    .app-bar__txt{white-space:nowrap}
+    @media(prefers-reduced-motion:reduce){.app-bar,.app-bar__go,#nav.nav{transition:none}}
+  </style>
 
   <!-- NAV -->
   <nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
@@ -881,7 +909,7 @@ html.is-menu-open .hero__blob,html.is-menu-open .hero__float,html.is-menu-open .
             </div>
             <div class="socials">
               <a href="https://www.instagram.com/yallaeat/" class="social-btn" rel="noopener noreferrer" target="_blank" aria-label="YallaEat sur Instagram">📸 Instagram</a>
-              <a href="https://www.tiktok.com/@yallaeat" class="social-btn" rel="noopener noreferrer" target="_blank" aria-label="YallaEat sur TikTok">🎵 TikTok</a>
+              <a href="https://www.tiktok.com/@yallaeat69" class="social-btn" rel="noopener noreferrer" target="_blank" aria-label="YallaEat sur TikTok">🎵 TikTok</a>
             </div>
           </div>
           <div style="transition-delay:.15s">
@@ -956,7 +984,7 @@ html.is-menu-open .hero__blob,html.is-menu-open .hero__float,html.is-menu-open .
         </ul>
         <div style="display:flex;gap:12px;margin-top:16px">
           <a href="https://www.instagram.com/yallaeat/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.6);transition:color .3s" aria-label="Instagram">&#128247;</a>
-          <a href="https://www.tiktok.com/@yallaeat" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.6);transition:color .3s" aria-label="TikTok">&#127925;</a>
+          <a href="https://www.tiktok.com/@yallaeat69" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.6);transition:color .3s" aria-label="TikTok">&#127925;</a>
           <a href="https://www.facebook.com/61561933693216" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.6);transition:color .3s" aria-label="Facebook">&#128101;</a>
         </div>
       </div>
